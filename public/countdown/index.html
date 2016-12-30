@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Time until next SU episode</title>
+    <meta name="robots" content="noindex, nofollow">
+    <script src="https://sug.rocks/countdown/cd.js"></script>
+    <script src="https://sug.rocks/countdown/episodes.js?201612301818"></script>
+    <style>
+        body {
+            background: transparent;
+            font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+            font-size: 17px;
+            line-height: 1.5;
+            margin: 0px;
+        }
+        #container {
+            background: #000 url('https://sug.rocks/countdown/su-night.png') center bottom;
+            background-size: cover;
+            color: white;
+            display: block;
+            height: 92px;
+            margin: 0 auto;
+            overflow: hidden;
+            padding-top: 8px;
+            text-align: center;
+            text-decoration: none;
+            text-shadow: 0px 0px 10px white;
+            width: 300px;
+        }
+        #desc {
+            font-size: 0.7em;
+        }
+        #countdown {
+            font-size: 1.5em;
+        }
+        #list {
+            bottom: 20px;
+            cursor: pointer;
+            font-size: 0.9em;
+            left: 0;
+            opacity: 0;
+            position: relative;
+            text-align: center;
+            transition: opacity 0.5s ease-in;
+            width: 30px;
+        }
+        body:hover #list {
+            opacity: 1;
+        }
+        .spoiler {
+            background: #000;
+            color: #000;
+            text-shadow: none;
+        }
+        .spoiler:hover {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <!--
+        Yes, you can embed this on your website:
+        <iframe src="https://sug.rocks/countdown" width="300" height="100" frameBorder="0"></iframe>
+    -->
+    <div id="container">
+        <div id="episode">
+            <span id="name"></span><span id="desc"></span>
+        </div>
+        <div id="countdown">
+            <span id="days"></span><span id="hours"></span><span id="minutes"></span><span id="seconds"></span>
+        </div>
+        <div id="status"></div>
+        <div id="list" onclick="episodeList()">(?)</div>
+    </div>
+</body>
+</html>

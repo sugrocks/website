@@ -1,0 +1,374 @@
+// Base styles, complementary to Bulma
+// Please set colors values ($colors, $primary, $link, etc...) brefore requiring this file
+@import '../../node_modules/bulma/bulma';
+
+a { // small transition with links
+    transition: color .4s;
+}
+
+.cc-revoke { // don't show that "cookie" stuff everytime once answered
+    display: none !important;
+}
+
+.button { // welcome to hell
+    &.is-primary,
+    &.is-info,
+    &.is-success,
+    &.is-warning,
+    &.is-danger {
+        &:not(.is-inverted),
+        &:not(.is-outlined) {
+            &:hover,
+            &:focus,
+            &:active,
+            &.is-active {
+                color: $white !important;
+            }
+        }
+    }
+}
+
+s { // spoilers
+    background-color: $black;
+    color: $black !important;
+    text-decoration: none;
+
+    a {
+        color: inherit !important;
+    }
+
+    &:hover,
+    &:active {
+        color: $white !important;
+    }
+}
+
+.countdown { // the countdown widget
+    border: 0;
+    height: 100px !important;
+    margin-top: -23px;
+    margin-bottom: -25px;
+    width: 300px;
+}
+
+.hero-body {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.notification {
+    padding: 10px 15px;
+
+    &.is-info {
+        border: 5px solid $blue;
+    }
+
+    &.is-warning {
+        border: 5px solid $yellow;
+    }
+
+    hr {
+        margin: 10px 0;
+    }
+}
+
+.notif { // that's the "news" notification
+    animation: fadeIn 500ms both;
+    animation-delay: .2s;
+    border-radius: 0;
+    display: none;
+    text-align: center;
+
+    .news-table {
+        display: inline-table;
+        margin: 0px auto;
+        padding: 0 15px;
+        vertical-align: middle;
+
+        img {
+            max-height: 100px;
+            max-width: 100px;
+        }
+
+        .news-text {
+            display: table-cell;
+            padding-left: 10px;
+            text-align: left;
+            vertical-align: middle;
+        }
+
+        &.twitter {
+            background: transparent url('https://sug.rocks/img/twitter-512.png') no-repeat scroll right bottom / auto 100%;
+        }
+    }
+}
+
+.nav-mobile-menu { // Only shown on-demand
+    display: none;
+}
+
+.columns {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.content blockquote {
+    margin-bottom: 1em;
+    word-break: break-word;
+}
+
+.sug-links { // the sidebar with links and stuff
+    span {
+        display: inline-block;
+    }
+
+    ul {
+        list-style: none;
+        margin: 0;
+    }
+
+    blockquote {
+        margin-left: -10px;
+        margin-top: 3px;
+        padding: 3px 5px;
+    }
+
+    .icon.pull-right {
+        position: absolute;
+        right: 8px;
+        top: 8px;
+    }
+
+    .sug-subs {
+        img {
+            margin: 0 -2px;
+            height: 20px;
+        	vertical-align: bottom;
+        }
+    }
+}
+
+.sug-threads { // thread stuff
+    .card {
+        margin-bottom: 20px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .op-post {
+        overflow-x: auto;
+
+        figure {
+            margin-right: 10px;
+            max-width: 250px;
+
+            .red-image {
+                display: none;
+            }
+
+            .red-warning {
+                background: $red;
+                color: $white;
+                cursor: pointer;
+                display: inline-block;
+                padding: 5px;
+                text-align: center;
+            }
+        }
+
+        .button {
+            margin-top: 15px;
+        }
+
+        .op-content {
+            margin-top: 15px;
+
+            .quote {
+                color: $green;
+            }
+        }
+    }
+
+    .op-dead {
+        filter: grayscale(100%);
+    }
+}
+
+.img-spoiler { // Who needs JS anyways
+    filter: brightness(0%) !important;
+    -webkit-filter: brightness(0%) !important;
+
+    &:hover {
+        filter: brightness(100%) !important;
+        -webkit-filter: brightness(100%) !important;
+    }
+}
+
+.page-op { // This is the page with the template
+    .control,
+    .card-content .content {
+        text-align: center;
+    }
+
+    .CodeMirror {
+        border: 1px solid #dbdbdb;
+        border-radius: 3px;
+        box-shadow: inset 0 1px 2px rgba(17, 17, 17, 0.1);
+        color: inherit;
+        font-family: inherit;
+        line-height: 1.2;
+        margin: 0 auto;
+        max-height: inherit;
+        max-width: 800px;
+        min-width: initial;
+        text-align: left;
+
+        &-focused {
+            border-color: $blue;
+        }
+    }
+
+    .cm-editme {
+        color: $red;
+        font-weight: bold;
+    }
+}
+
+.page-dl,
+.page-live { // changind the padding a bit
+    .sug-content > .container {
+        padding: 0 5px;
+    }
+}
+
+.page-dl {
+    .dllist {
+    	width: auto;
+    }
+
+    h4 {
+    	margin: 20px 0 10px;
+    }
+}
+
+td {
+    padding: 0 5px;
+}
+
+.dllist tr td:nth-child(2),
+.about tr td:first-child {
+	text-align: right;
+}
+
+.spoiler-content .spoiler-content {
+    text-align: center;
+
+    .screenleak {
+        max-width: 45%;
+        height: auto;
+    }
+}
+
+.embed-container { // responsive embeds
+    height: 0;
+    max-width: 100%;
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+
+    iframe,
+    object,
+    embed {
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+}
+
+#np-radio {
+	background-color: $white;
+	border-radius: 4px;
+   	display: inline-block;
+	margin-bottom: 15px;
+	padding: 5px 10px;
+}
+
+.footer {
+    background-color: transparent;
+
+    a, a:visited {
+        color: $link;
+    }
+
+    .container {
+        border-top: 1px solid lightgray;
+        font-size: 0.85em;
+        padding-top: 35px;
+    }
+}
+
+// For links that we don't want special colors on it
+.link {
+    color: inherit !important;
+
+    &:hover,
+    &:visited {
+        color: inherit !important;
+    }
+}
+
+@media screen and (max-width: $tablet) {
+    .sug-threads {
+        .op-post {
+            text-align: center;
+
+            figure {
+                margin: 0;
+                max-width: 100%;
+                width: 100%;
+            }
+        }
+    }
+
+    .dllist {
+        tr {
+            border-bottom: 1px $grey solid;
+
+            td {
+                vertical-align: middle;
+
+                &:first-child {
+                    padding: 5px;
+                    width: 25px;
+                }
+
+                a {
+                    border: 0 !important;
+
+                    .icon.is-small { // Make the (~LOGO~) ICONS BIGGER
+                        font-size: 20px;
+                        height: 20px;
+                        margin: 5px 0;
+                        width: 20px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

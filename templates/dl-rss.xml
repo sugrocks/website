@@ -1,0 +1,35 @@
+{% extends "layout-rss.xml" %}
+{% from "helper.xml" import rss_item %}
+{% block feed_self %}https://sug.rocks/dl.rss{% endblock %}
+{% block feed_title %}/sug/ iTunesRip Downloads{% endblock %}
+{% block feed_description %}Direct downloads or torrents to the iTunes version of Steven Universe{% endblock %}
+{% block feed_link %}https://sug.rocks/dl.html{% endblock %}
+{% block feed_title_image %}/sug/ iTunesRip Downloads{% endblock %}
+{% block feed_link_image %}https://sug.rocks/dl.html{% endblock %}
+{% block feed_items %}
+{% for episode in episodes %}
+{% set title %}[{% if episode.id[-3:] == 'tmp' %}PREAIR{% elif episode.id[-1:] == 'i' %}Individual{% else %}iTunes RAW{% endif %}] {{ episode.title }} ({{ episode.ep }}){% endset %}
+{% set content %}
+                    <ul>
+{% if episode.id[-3:] == 'tmp' %}
+                        <li><a title="Direct Download" href="https://dl.sug.rocks/preair/{{ episode.filename }}">Direct Download</a></li>
+{% elif episode.id[-1:] == 'i' %}
+                        <li><a title="Direct Download" href="https://dl.sug.rocks/mega/{{ episode.filename }}">Direct Download</a></li>
+{% else %}
+                        <li><a title="Direct Download" href="https://dl.sug.rocks/{{ episode.filename }}">Direct Download</a></li>
+{% endif %}
+{% if episode.torrent == '1' %}
+                        <li><a title="Torrent" href="https://dl.sug.rocks/torrents/{% if episode.id[-3:] == 'tmp' %}preair/{% endif %}{{ episode.filename }}.torrent">Torrent</a></li>
+{% endif %}
+{% if episode.marebucks != '' %}
+                        <li><a title="Streaming" href="https://marebucks.com/sun/{{ episode.marebucks }}">Marebucks</a></li>
+{% endif %}
+{% if episode.daily and episode.daily != '' %}
+                        <li><a title="Dailymotion" href="http://www.dailymotion.com/video/{{ episode.daily }}">Dailymotion</a></li>
+{% endif %}
+                    </ul>{% endset %}
+{% set published %}{{ episode.date|atomdate }}{% endset %}
+{% set guid %}https://sug.rocks/dl.html#{{ episode.id }}{% endset %}
+{{ rss_item(title, content, guid, published) }}
+{% endfor %}
+{% endblock %}

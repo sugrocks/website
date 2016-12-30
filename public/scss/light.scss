@@ -1,0 +1,134 @@
+// Light (default) color scheme
+// Import color defaults before
+@import 'colors.scss';
+
+// Set specific colors
+$link: #0000EE;
+$link-active: $red;
+$link-active-border: $link-active;
+$link-hover: $red !important;
+$link-hover-border: $red;
+$link-visited: $link;
+
+$background: #EEF2FF;
+$cardcolor: #D6DAF0;
+$cardheaderborder: #B7C5D9;
+
+// Import Bulma and default styles
+@import 'styles.scss';
+
+// And now, styles for the light theme
+html,
+body {
+    background: $background url('/img/fade-blue.png') 0 50px repeat-x;
+    color: $black;
+}
+
+.nav {
+    background-color: $cardcolor;
+}
+
+.nav-mobile-menu {
+    background-color: $cardcolor;
+}
+
+.nav-item a.is-tab:hover,
+a.nav-item.is-tab:hover {
+    border-bottom: 1px solid $link-hover-border;
+}
+
+.nav-item a.is-tab.is-active,
+a.nav-item.is-tab.is-active {
+    border-bottom: 3px solid $link-active;
+    color: $link-active;
+}
+
+.nav-item a,
+a.nav-item {
+    color: $link;
+}
+
+a.title {
+    color: $black;
+}
+
+a.title,
+.link {
+    &:hover {
+        border-bottom: none;
+    }
+}
+
+.title,
+.subtitle {
+    font-weight: normal;
+}
+
+.hero {
+    background-color: transparent;
+}
+
+.card {
+    background-color: $cardcolor;
+    color: $black;
+
+    .card-header {
+        border-bottom: 1px solid $cardheaderborder;
+        box-shadow: none;
+
+        .card-header-title {
+            color: $black;
+        }
+
+        .fa {
+            color: $black;
+        }
+    }
+}
+
+.content {
+    color: $black;
+
+    h1, h2, h3,
+    h4, h5, h6 {
+        color: $black;
+    }
+
+    blockquote {
+        background-color: $green-light;
+        border-left: 5px solid $green;
+    }
+}
+
+.content a:not(.button),
+a:not(.button) {
+    border-bottom: none;
+}
+
+
+.notification {
+    background-color: $white !important;
+    color: $black !important;
+}
+
+.sug-threads .op-dead {
+    background-color: $grey-light;
+}
+
+.spoiler-content .icon {
+    color: $black;
+}
+
+.cc-window {
+    border: 1px solid $yellow;
+}
+
+.cc-link,
+.cc-link:visited {
+    color: $link !important;
+}
+
+.cc-link:hover,
+.cc-link:active {
+    color: $link-hover;
+}

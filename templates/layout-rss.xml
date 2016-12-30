@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <atom:link href="{% block feed_self %}{% endblock %}" rel="self" type="application/rss+xml" />
+        <title>{% block feed_title %}{% endblock %}</title>
+        <link>{% block feed_link %}{% endblock %}</link>
+        <description><![CDATA[ {% block feed_description %}{% endblock %} ]]></description>
+        <language>en</language>
+        <image>
+            <title>{% block feed_title_image %}{% endblock %}</title>
+            <url>https://sug.rocks/img/android-chrome-192x192.png</url>
+            <link>{% block feed_link_image %}{% endblock %}</link>
+            <width>144</width>
+            <height>144</height>
+        </image>
+{% block feed_items %}{% endblock %}
+    </channel>
+</rss>

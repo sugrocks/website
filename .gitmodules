@@ -1,0 +1,3 @@
+[submodule "leakbot"]
+	path = leakbot
+	url = https://gitgud.io/sug/leakbot

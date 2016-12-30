@@ -1,0 +1,38 @@
+// Thoses are styles only for the Tumblr template
+.page-tumblr {
+    .card-header {
+        font-size: larger;
+    }
+
+    figure {
+        text-align: center;
+
+        img {
+            max-height: 500px;
+        }
+    }
+
+    .content ol.notes {
+        list-style: none;
+        margin-left: 0.5em;
+        margin-top: 2em;
+
+        .avatar_frame {
+            margin-right: 10px;
+        }
+    }
+
+    .reblog_button,
+    .like_button {
+    	display: inline-block !important;
+    }
+
+    .like_button {
+        padding-top: 6px;
+    }
+}
+
+.tmblr-iframe {
+	top: initial !important;
+	bottom: 0 !important;
+}

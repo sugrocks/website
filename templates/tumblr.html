@@ -1,0 +1,662 @@
+{% extends "layout.html" %}
+{% set remote_url = 'https://sug.rocks' %}
+{% block extendtitle %}{% raw %}{block:PostSummary} - {PostSummary}{/block:PostSummary} {block:SearchPage}{lang:Search results for SearchQuery} - {/block:SearchPage}{% endraw %}{% endblock %}
+{% block header_includes %}
+    <link rel="stylesheet" href="https://sug.rocks/css/tumblr.css"/>
+{% endblock %}
+{% block subtitle %}
+{% raw %}
+                    {block:TagPage}Posts tagged "{Tag}"{/block:TagPage}
+                    {block:DayPage}Posts on {Month} {DayOfMonth}, {Year}{/block:DayPage}
+{% endraw %}
+{% endblock %}
+{% block body %}
+            <div class="columns">
+{% raw %}
+                <div class="column is-three-quarters-tablet">
+                    {block:Posts}
+                    {block:Text}
+                    <div class="card is-fullwidth">
+                        {block:Title}
+                        <header class="card-header">
+                            <p class="card-header-title">
+                                <a href="{Permalink}">{Title}</a>
+                            </p>
+                        </header>
+                        {/block:Title}
+                        <div class="card-content tumblr-text">
+                            <div class="content">
+                                {Body}
+
+                                {block:Date}
+                                <p>
+                                    <a href="{Permalink}">
+                                        <span class="tag">
+                                            <abbr title="{ShortDayOfWeek}. {Month} {DayOfMonth} {Year} at {12Hour}:{Minutes}{AmPm}">
+                                                {TimeAgo}
+                                            </abbr>
+                                        </span>
+                                    </a>
+                                </p>
+                                {/block:Date}
+
+                                {block:PermalinkPage}
+                                {block:HasTags}
+                                <p>
+                                    {block:Tags}
+                                    <a href="{TagURL}">
+                                        <span class="tag is-info">
+                                            {Tag}
+                                        </span>
+                                    </a>
+                                    {/block:Tags}
+                                </p>
+                                {/block:HasTags}
+
+                                <span class="button is-success">{ReblogButton color="white"}</span>&nbsp;
+                                <span class="button is-danger">{LikeButton color="white"}</span>
+
+                                {block:PostNotes}
+                                {PostNotes}
+                                {/block:PostNotes}
+                                {/block:PermalinkPage}
+                            </div>
+                        </div>
+                    </div>
+                    {/block:Text}
+
+                    {block:Photo}
+                    <div class="card is-fullwidth">
+                        {block:Title}
+                        <header class="card-header">
+                            <p class="card-header-title">
+                                <a href="{Permalink}">{Title}</a>
+                            </p>
+                        </header>
+                        {/block:Title}
+                        <div class="card-content tumblr-photo">
+                            <div class="content">
+                                <figure>
+                                    {LinkOpenTag}
+                                        <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}">
+                                    {LinkCloseTag}
+                                </figure>
+                                {Caption}
+
+                                {block:Date}
+                                <p>
+                                    <a href="{Permalink}">
+                                        <span class="tag">
+                                            <abbr title="{ShortDayOfWeek}. {Month} {DayOfMonth} {Year} at {12Hour}:{Minutes}{AmPm}">
+                                                {TimeAgo}
+                                            </abbr>
+                                        </span>
+                                    </a>
+                                </p>
+                                {/block:Date}
+
+                                {block:PermalinkPage}
+                                {block:HasTags}
+                                <p>
+                                    {block:Tags}
+                                    <a href="{TagURL}">
+                                        <span class="tag is-info">
+                                            {Tag}
+                                        </span>
+                                    </a>
+                                    {/block:Tags}
+                                </p>
+                                {/block:HasTags}
+
+                                <span class="button is-success">{ReblogButton color="white"}</span>&nbsp;
+                                <span class="button is-danger">{LikeButton color="white"}</span>
+
+                                {block:PostNotes}
+                                {PostNotes}
+                                {/block:PostNotes}
+                                {/block:PermalinkPage}
+                            </div>
+                        </div>
+                    </div>
+                    {/block:Photo}
+
+                    {block:Panorama}
+                    <div class="card is-fullwidth">
+                        {block:Title}
+                        <header class="card-header">
+                            <p class="card-header-title">
+                                <a href="{Permalink}">{Title}</a>
+                            </p>
+                        </header>
+                        {/block:Title}
+                        <div class="card-content tumblr-panorama">
+                            <div class="content">
+                                <figure>
+                                    {LinkOpenTag}
+                                        <img src="{PhotoURL-Panorama}" alt="{PhotoAlt}">
+                                    {LinkCloseTag}
+                                </figure>
+                                {Caption}
+
+                                {block:Date}
+                                <p>
+                                    <a href="{Permalink}">
+                                        <span class="tag">
+                                            <abbr title="{ShortDayOfWeek}. {Month} {DayOfMonth} {Year} at {12Hour}:{Minutes}{AmPm}">
+                                                {TimeAgo}
+                                            </abbr>
+                                        </span>
+                                    </a>
+                                </p>
+                                {/block:Date}
+
+                                {block:PermalinkPage}
+                                {block:HasTags}
+                                <p>
+                                    {block:Tags}
+                                    <a href="{TagURL}">
+                                        <span class="tag is-info">
+                                            {Tag}
+                                        </span>
+                                    </a>
+                                    {/block:Tags}
+                                </p>
+                                {/block:HasTags}
+
+                                <span class="button is-success">{ReblogButton color="white"}</span>&nbsp;
+                                <span class="button is-danger">{LikeButton color="white"}</span>
+
+                                {block:PostNotes}
+                                {PostNotes}
+                                {/block:PostNotes}
+                                {/block:PermalinkPage}
+                            </div>
+                        </div>
+                    </div>
+                    {/block:Panorama}
+
+                    {block:Photoset}
+                    <div class="card is-fullwidth">
+                        {block:Title}
+                        <header class="card-header">
+                            <p class="card-header-title">
+                                <a href="{Permalink}">{Title}</a>
+                            </p>
+                        </header>
+                        {/block:Title}
+                        <div class="card-content tumblr-photoset">
+                            <div class="content">
+                                <figure>
+                                    {Photoset-500}
+                                </figure>
+                                {Caption}
+
+                                {block:Date}
+                                <p>
+                                    <a href="{Permalink}">
+                                        <span class="tag">
+                                            <abbr title="{ShortDayOfWeek}. {Month} {DayOfMonth} {Year} at {12Hour}:{Minutes}{AmPm}">
+                                                {TimeAgo}
+                                            </abbr>
+                                        </span>
+                                    </a>
+                                </p>
+                                {/block:Date}
+
+                                {block:PermalinkPage}
+                                {block:HasTags}
+                                <p>
+                                    {block:Tags}
+                                    <a href="{TagURL}">
+                                        <span class="tag is-info">
+                                            {Tag}
+                                        </span>
+                                    </a>
+                                    {/block:Tags}
+                                </p>
+                                {/block:HasTags}
+
+                                <span class="button is-success">{ReblogButton color="white"}</span>&nbsp;
+                                <span class="button is-danger">{LikeButton color="white"}</span>
+
+                                {block:PostNotes}
+                                {PostNotes}
+                                {/block:PostNotes}
+                                {/block:PermalinkPage}
+                            </div>
+                        </div>
+                    </div>
+                    {/block:Photoset}
+
+                    {block:Quote}
+                    <div class="card is-fullwidth">
+                        {block:Title}
+                        <header class="card-header">
+                            <p class="card-header-title">
+                                <a href="{Permalink}">{Title}</a>
+                            </p>
+                        </header>
+                        {/block:Title}
+                        <div class="card-content tumblr-quote">
+                            <div class="content">
+                                <blockquote>
+                                    &#8220;{Quote}&#8221;
+                                </blockquote>
+                                {block:Source}
+                                —&nbsp; {Source}
+                                {/block:Source}
+
+                                {block:Date}
+                                <p>
+                                    <a href="{Permalink}">
+                                        <span class="tag">
+                                            <abbr title="{ShortDayOfWeek}. {Month} {DayOfMonth} {Year} at {12Hour}:{Minutes}{AmPm}">
+                                                {TimeAgo}
+                                            </abbr>
+                                        </span>
+                                    </a>
+                                </p>
+                                {/block:Date}
+
+                                {block:PermalinkPage}
+                                {block:HasTags}
+                                <p>
+                                    {block:Tags}
+                                    <a href="{TagURL}">
+                                        <span class="tag is-info">
+                                            {Tag}
+                                        </span>
+                                    </a>
+                                    {/block:Tags}
+                                </p>
+                                {/block:HasTags}
+
+                                <span class="button is-success">{ReblogButton color="white"}</span>&nbsp;
+                                <span class="button is-danger">{LikeButton color="white"}</span>
+
+                                {block:PostNotes}
+                                {PostNotes}
+                                {/block:PostNotes}
+                                {/block:PermalinkPage}
+                            </div>
+                        </div>
+                    </div>
+                    {/block:Quote}
+
+                    {block:Link}
+                    <div class="card is-fullwidth">
+                        <header class="card-header">
+                            <p class="card-header-title">
+                                <a href="{URL}" {Target}>{Name}</a>
+                            </p>
+                        </header>
+                        <div class="card-content tumblr-link">
+                            <div class="content">
+                                {block:Description}
+                                {Description}
+                                {/block:Description}
+
+                                {block:Date}
+                                <p>
+                                    <a href="{Permalink}">
+                                        <span class="tag">
+                                            <abbr title="{ShortDayOfWeek}. {Month} {DayOfMonth} {Year} at {12Hour}:{Minutes}{AmPm}">
+                                                {TimeAgo}
+                                            </abbr>
+                                        </span>
+                                    </a>
+                                </p>
+                                {/block:Date}
+
+                                {block:PermalinkPage}
+                                {block:HasTags}
+                                <p>
+                                    {block:Tags}
+                                    <a href="{TagURL}">
+                                        <span class="tag is-info">
+                                            {Tag}
+                                        </span>
+                                    </a>
+                                    {/block:Tags}
+                                </p>
+                                {/block:HasTags}
+
+                                <span class="button is-success">{ReblogButton color="white"}</span>&nbsp;
+                                <span class="button is-danger">{LikeButton color="white"}</span>
+
+                                {block:PostNotes}
+                                {PostNotes}
+                                {/block:PostNotes}
+                                {/block:PermalinkPage}
+                            </div>
+                        </div>
+                    </div>
+                    {/block:Link}
+
+                    {block:Chat}
+                    <div class="card is-fullwidth">
+                        {block:Title}
+                        <header class="card-header">
+                            <p class="card-header-title">
+                                <a href="{Permalink}">{Title}</a>
+                            </p>
+                        </header>
+                        {/block:Title}
+                        <div class="card-content tumblr-chat">
+                            <div class="content">
+                                <ul class="chat">
+                                    {block:Lines}
+                                    <li class="{Alt} user_{UserNumber}">
+                                        {block:Label}
+                                        <span class="tag">{Label}</span>
+                                        {/block:Label}
+                                        {Line}
+                                    </li>
+                                    {/block:Lines}
+                                </ul>
+
+                                {block:Date}
+                                <p>
+                                    <a href="{Permalink}">
+                                        <span class="tag">
+                                            <abbr title="{ShortDayOfWeek}. {Month} {DayOfMonth} {Year} at {12Hour}:{Minutes}{AmPm}">
+                                                {TimeAgo}
+                                            </abbr>
+                                        </span>
+                                    </a>
+                                </p>
+                                {/block:Date}
+
+                                {block:PermalinkPage}
+                                {block:HasTags}
+                                <p>
+                                    {block:Tags}
+                                    <a href="{TagURL}">
+                                        <span class="tag is-info">
+                                            {Tag}
+                                        </span>
+                                    </a>
+                                    {/block:Tags}
+                                </p>
+                                {/block:HasTags}
+
+                                <span class="button is-success">{ReblogButton color="white"}</span>&nbsp;
+                                <span class="button is-danger">{LikeButton color="white"}</span>
+
+                                {block:PostNotes}
+                                {PostNotes}
+                                {/block:PostNotes}
+                                {/block:PermalinkPage}
+                            </div>
+                        </div>
+                    </div>
+                    {/block:Chat}
+
+                    {block:Video}
+                    <div class="card is-fullwidth">
+                        {block:Title}
+                        <header class="card-header">
+                            <p class="card-header-title">
+                                <a href="{Permalink}">{Title}</a>
+                            </p>
+                        </header>
+                        {/block:Title}
+                        <div class="card-content tumblr-video">
+                            <div class="content">
+                                {Video-500}
+                                <br>
+                                {block:Caption}
+                                {Caption}
+                                {/block:Caption}
+
+                                {block:Date}
+                                <p>
+                                    <a href="{Permalink}">
+                                        <span class="tag">
+                                            <abbr title="{ShortDayOfWeek}. {Month} {DayOfMonth} {Year} at {12Hour}:{Minutes}{AmPm}">
+                                                {TimeAgo}
+                                            </abbr>
+                                        </span>
+                                    </a>
+                                </p>
+                                {/block:Date}
+
+                                {block:PermalinkPage}
+                                {block:HasTags}
+                                <p>
+                                    {block:Tags}
+                                    <a href="{TagURL}">
+                                        <span class="tag is-info">
+                                            {Tag}
+                                        </span>
+                                    </a>
+                                    {/block:Tags}
+                                </p>
+                                {/block:HasTags}
+
+                                <span class="button is-success">{ReblogButton color="white"}</span>&nbsp;
+                                <span class="button is-danger">{LikeButton color="white"}</span>
+
+                                {block:PostNotes}
+                                {PostNotes}
+                                {/block:PostNotes}
+                                {/block:PermalinkPage}
+                            </div>
+                        </div>
+                    </div>
+                    {/block:Video}
+
+                    {block:Audio}
+                    <div class="card is-fullwidth">
+                        {block:Title}
+                        <header class="card-header">
+                            <p class="card-header-title">
+                                <a href="{Permalink}">{Title}</a>
+                            </p>
+                        </header>
+                        {/block:Title}
+                        <div class="card-content tumblr-audio">
+                            <div class="content">
+                                {AudioEmbed}
+                                <br>
+                                {block:Caption}
+                                {Caption}
+                                {/block:Caption}
+
+                                {block:Date}
+                                <p>
+                                    <a href="{Permalink}">
+                                        <span class="tag">
+                                            <abbr title="{ShortDayOfWeek}. {Month} {DayOfMonth} {Year} at {12Hour}:{Minutes}{AmPm}">
+                                                {TimeAgo}
+                                            </abbr>
+                                        </span>
+                                    </a>
+                                </p>
+                                {/block:Date}
+
+                                {block:PermalinkPage}
+                                {block:HasTags}
+                                <p>
+                                    {block:Tags}
+                                    <a href="{TagURL}">
+                                        <span class="tag is-info">
+                                            {Tag}
+                                        </span>
+                                    </a>
+                                    {/block:Tags}
+                                </p>
+                                {/block:HasTags}
+
+                                <span class="button is-success">{ReblogButton color="white"}</span>&nbsp;
+                                <span class="button is-danger">{LikeButton color="white"}</span>
+
+                                {block:PostNotes}
+                                {PostNotes}
+                                {/block:PostNotes}
+                                {/block:PermalinkPage}
+                            </div>
+                        </div>
+                    </div>
+                    {/block:Audio}
+
+                    {block:Answer}
+                    <div class="card is-fullwidth">
+                        <div class="card-content tumblr-answer">
+                            <div class="content">
+                                <figure class="pull-left">
+                                    <img src="{AskerPortraitURL-40}">
+                                </figure>
+                                <blockquote>
+                                    {Question}
+                                    <br>
+                                    <i>—&nbsp; {Asker}</i>
+                                </blockquote>
+                                {Answer}
+
+                                {block:Date}
+                                <p>
+                                    <a href="{Permalink}">
+                                        <span class="tag">
+                                            <abbr title="{ShortDayOfWeek}. {Month} {DayOfMonth} {Year} at {12Hour}:{Minutes}{AmPm}">
+                                                {TimeAgo}
+                                            </abbr>
+                                        </span>
+                                    </a>
+                                </p>
+                                {/block:Date}
+
+                                {block:PermalinkPage}
+                                {block:HasTags}
+                                <p>
+                                    {block:Tags}
+                                    <a href="{TagURL}">
+                                        <span class="tag is-info">
+                                            {Tag}
+                                        </span>
+                                    </a>
+                                    {/block:Tags}
+                                </p>
+                                {/block:HasTags}
+
+                                <span class="button is-success">{ReblogButton color="white"}</span>&nbsp;
+                                <span class="button is-danger">{LikeButton color="white"}</span>
+
+                                {block:PostNotes}
+                                {PostNotes}
+                                {/block:PostNotes}
+                                {/block:PermalinkPage}
+                            </div>
+                        </div>
+                    </div>
+                    {/block:Answer}
+
+                    <br>
+                    {/block:Posts}
+
+                    {block:Pagination}
+                    <div class="has-text-centered">
+                        {block:JumpPagination length="5"}
+                        &nbsp;
+                        {block:CurrentPage}
+                        <span class="tag is-info">{PageNumber}</span>
+                        {/block:CurrentPage}
+                        {block:JumpPage}
+                        <a href="{URL}"><span class="tag is-primary">{PageNumber}</span></a>
+                        {/block:JumpPage}
+                        &nbsp;
+                        {/block:JumpPagination}
+                        <br><br>
+                        {block:PreviousPage}
+                        <a class="button" href="{PreviousPage}">&#171; Previous</a>
+                        {/block:PreviousPage}
+                        {block:NextPage}
+                        <a class="button" href="{NextPage}">Next &#187;</a>
+                        {/block:NextPage}
+                    </div>
+                    {/block:Pagination}
+
+                    {block:DayPagination}
+                    <div class="has-text-centered">
+                        {block:PreviousDayPage}
+                        <a class="button" href="{PreviousDayPage}">
+                            &#171; {ShortMonth} {DayOfMonth}
+                        </a>
+                        {/block:PreviousDayPage}
+                        {block:NextDayPage}
+                        <a class="button" href="{NextDayPage}">
+                            {ShortMonth} {DayOfMonth} &#187;
+                        </a>
+                        {/block:NextDayPage}
+                    </div>
+                    {/block:DayPagination}
+                </div>
+{% endraw %}
+
+                <div class="column is-one-quarter-tablet sug-links">
+                    <div class="card is-fullwidth">
+                        <header class="card-header">
+                            <p class="card-header-title">
+                                Tumblr links
+                            </p>
+                        </header>
+                        <div class="card-content">
+                            <div class="content">
+                                <span><a href="/">Home</a></span><br>
+{% raw %}
+                                {block:HasPages}
+                                {block:Pages}
+                                <span><a href="{URL}">{Label}</a></span><br>
+                                {/block:Pages}
+                                {/block:HasPages}
+{% endraw %}
+                                <span><a href="/archive">Archive</a></span><br>
+                                <span><a href="/ask">Ask</a></span><br>
+                                <span><a href="/submit">Submit</a></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br>
+{% include "sidebar.html" %}
+                </div>
+            </div>
+{% endblock %}
+{% block footer_includes %}
+    <script>
+        var _yoData = { // eslint-disable-line
+            'username': 'SUGROCKS',
+            'trigger': 'something new happens'
+        }
+        var s = document.createElement('script')
+        s.type = 'text/javascript'
+        s.async = true
+        s.defer = true
+        s.src = 'https://yoapp.s3.amazonaws.com/js/yo-button.js'
+        document.getElementsByTagName('head')[0].appendChild(s)
+    </script>
+{% endblock %}
+{% block piwik %}
+    <script>
+        var _paq = _paq || []
+        // tracker methods like "setCustomDimension" should be called before "trackPageView"
+        _paq.push(['setCookieDomain', 'sugrocks.tumblr.com'])
+        _paq.push(['setDomains', ['sugrocks.tumblr.com']])
+        _paq.push(['trackPageView'])
+        _paq.push(['enableLinkTracking'])
+        ;(function () {
+            var u = 'https://piwik.sug.rocks/'
+            _paq.push(['setTrackerUrl', u + 'piwik.php'])
+            _paq.push(['setSiteId', '2'])
+            var d = document
+            var g = d.createElement('script')
+            var s = d.getElementsByTagName('script')[0]
+            g.type = 'text/javascript'
+            g.async = true
+            g.defer = true
+            g.src = u + 'piwik.js'
+            s.parentNode.insertBefore(g, s)
+        })()
+    </script>
+    <noscript><p><img src="https://piwik.sug.rocks/piwik.php?idsite=2&rec=1" style="border:0;" alt="" /></p></noscript>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+{% block header_includes %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.21.0/codemirror.min.js" integrity="sha256-ZroXny4LHS5iOi26auraochCe6oBGr/sSt/cO3OiU0E=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.21.0/codemirror.min.css" integrity="sha256-MdzaXfGXzZdeHw/XEV2LNNycipsLk4uZ0FYzO3hbuvI=" crossorigin="anonymous" />
+{% endblock %}
+{% block body %}
+            <div class="card is-fullwidth">
+                <div class="card-content">
+                    <div class="content" style="text-align: center;">
+                        <b>Wait for the current thread to go to page 10 before opening a new thread.</b><br>
+                        On /co/, paste this in the subject field:
+                        <p class="control" style="text-align: center;">
+                            <input class="input" style="width: 250px; text-align: center;" readonly type="text" value="/sug/ - Steven Universe General" /><br>
+                        </p>
+                        On /trash/, this is the first line in the OP along with the edition name.
+                        <br><br>
+                        Edit <code>[TITLE]</code> with a title of your choice and <code>[POST]</code> with last OP's ID.<br>
+                        <p class="control">
+                            <textarea class="opsrc">{{ optext }}</textarea>
+                        </p>
+                        <br>
+                        Somehow reached the 2000 characters limit? Want some shorter URLs to share? Here's some:
+                        <ul style="text-align: left; max-width: 730px; margin: 0px auto;">
+                            <li>1080p: https://su-g.pw/mega1080</li>
+                            <li>Comics, soundtracks, older 720p/1080p episodes: https://su-g.pw/mega720</li>
+                            <li>Weekly airing schedule (click to the right of the logo, times in EST): https://su-g.pw/schedule</li>
+                            <li>2 minute clips and screenshots from CN's server: https://su-g.pw/misseps</li>
+                            <li>SDCC Zuke/Tang Zine: https://su-g.pw/sdcczukezine</li>
+                            <li>Archived threads for /co/: https://su-g.pw/co-arch</li>
+                            <li>Archived threads for /trash/: https://su-g.pw/trash-arch</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+{% endblock %}
+{% block footer_includes %}
+    <script>
+        CodeMirror.defineMode('opTemplate', function () {
+            return {
+                token: function (stream, state) {
+                    if (stream.match('[TITLE]') || stream.match('[POST]')) {
+                        return "editme"
+                    } else {
+                        stream.next()
+                        return null
+                    }
+                }
+            }
+        })
+
+        var opEditor = CodeMirror.fromTextArea(document.querySelector('.opsrc'), {
+            dragDrop: false,
+            inputStyle: 'contenteditable',
+            lineWrapping: true,
+            mode: 'opTemplate'
+        })
+    </script>
+{% endblock %}

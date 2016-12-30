@@ -1,0 +1,26 @@
+# Welcome to our robots.txt, human!
+# First thing, we block access to the rss/atom files, the leaks
+# files and to the dl.html page to every crawler reading this file.
+User-agent: *
+Disallow: /dl.html
+Disallow: /leaks/
+Disallow: /*.rss$
+Disallow: /*.xml$
+Allow: /sitemap.xml
+
+# But Twitter, Facebook and archive websites are allowed to crawl
+# the entire website.
+User-agent: Twitterbot
+Allow: *
+
+User-agent: facebookexternalhit
+Allow: *
+
+User-agent: ia_archiver
+Allow: *
+
+User-agent: archive.org_bot
+Allow: *
+
+# And now, our sitemap for search engines.
+Sitemap: https://sug.rocks/sitemap.xml

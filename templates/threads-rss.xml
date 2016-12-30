@@ -1,0 +1,41 @@
+{% extends "layout-rss.xml" %}
+{% from "helper.xml" import rss_item %}
+{% block feed_self %}https://sug.rocks/threads.rss{% endblock %}
+{% block feed_title %}Last /sug/ threads{% endblock %}
+{% block feed_description %}The latest /sug/ threads found on /co/, /trash/ and /sugen/{% endblock %}
+{% block feed_link %}https://sug.rocks/{% endblock %}
+{% block feed_title_image %}Last /sug/ threads{% endblock %}
+{% block feed_link_image %}https://sug.rocks/{% endblock %}
+{% block feed_items %}
+{% for thread in threadlist %}
+{% set title %}[/{{ thread._board.name }}/] {% if thread.topic.subject != None %}{{ thread.topic.subject }}{% endif %} (No.{{ thread.topic.post_number }}){% endset %}
+{% set content %}{% if thread._board.name == 'sugen' %}
+{% if thread.topic.first_file.file_deleted == True %}
+                    <a href="{{ thread.url }}" target="_blank"><img src="https://sug.rocks/img/filedeleted.gif" alt="File was deleted :("></a>
+{% elif thread.topic.spoiler == True %}
+                    [Image was spoilered]
+{% elif thread.topic.first_file.file_extension == '.gif' %}
+                    <a href="{{ thread.url }}" target="_blank"><img src="{{ thread.topic.first_file.file_url }}" title="Original: {{ thread.topic.first_file.filename_original }} ({{ thread.topic.first_file.file_width }}x{{ thread.topic.first_file.file_height }})" alt="{{ thread.topic.first_file.filename_original }}"></a>
+{% else %}
+                    <a href="{{ thread.url }}" target="_blank"><img src="{{ thread.topic.first_file.thumbnail_url }}" title="Original: {{ thread.topic.first_file.filename_original }} ({{ thread.topic.first_file.file_width }}x{{ thread.topic.first_file.file_height }})" alt="{{ thread.topic.first_file.filename_original }}"></a>
+{% endif %}
+{% else %}
+{% if thread.topic.file.file_deleted == True %}
+                    <a href="{{ thread.url }}" target="_blank"><img src="https://sug.rocks/img/filedeleted.gif" alt="File was deleted :("></a>
+{% elif thread.topic.spoiler == True %}
+                    [Image was spoilered]
+{% elif thread.topic.file.file_extension == '.gif' %}
+                    <a href="{{ thread.url }}" target="_blank"><img src="{{ thread.topic.file.file_url }}" title="Original: {{ thread.topic.file.filename_original }} ({{ thread.topic.file.file_width }}x{{ thread.topic.file.file_height }})" alt="{{ thread.topic.file.filename }}"></a>
+{% else %}
+                    <a href="{{ thread.url }}" target="_blank"><img src="{{ thread.topic.file.thumbnail_url }}" title="Original: {{ thread.topic.file.filename_original }} ({{ thread.topic.file.file_width }}x{{ thread.topic.file.file_height }})" alt="{{ thread.topic.file.filename }}"></a>
+{% endif %}
+{% endif %}
+                    <br><hr><br>
+{% if thread._board.name == 'sugen' %}
+                    {{ thread.topic.comment.replace('href="/', 'href="https://8ch.net/')|urlify|inlinecss }}{% else %}
+                    {{ thread.topic.comment.replace('href="/', 'href="https://boards.4chan.org/')|urlify|inlinecss }}{% endif %}{% endset %}
+{% set published %}{{ thread.topic.timestamp|rssdate }}{% endset %}
+{% set guid %}{{ thread.url }}{% endset %}
+{{ rss_item(title, content, guid, published) }}
+{% endfor %}
+{% endblock %}

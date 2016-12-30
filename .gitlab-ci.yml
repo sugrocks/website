@@ -1,0 +1,18 @@
+test:js:
+  image: node:latest
+  cache:
+    paths:
+    - node_modules/
+  before_script:
+   - npm install --only=dev
+  script:
+   - npm test
+
+test:python:
+  image: python:latest
+  before_script:
+   - curl -O https://bootstrap.pypa.io/get-pip.py
+   - python get-pip.py
+   - pip install flake8
+  script:
+   - flake8 --ignore=E122,E126,E127,E128,E129 --max-line-length=140 .

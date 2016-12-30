@@ -1,0 +1,108 @@
+{% extends "layout.html" %}
+{% block body %}
+            <div class="card is-fullwidth">
+                <header class="card-header">
+                    <p class="card-header-title">
+                        Contact
+                    </p>
+                </header>
+                <div class="card-content">
+                    <div class="content">
+                        You can reach me by email: <code>kdy@waifu.club</code> (<a href="https://sks-keyservers.net/pks/lookup?op=get&search=0xBCC31847C60E36F0">PGP key</a>)<br>
+                        I'm also on Discord, Kody#3820. You might find me lurking on one or two SU discord servers.<br>
+                        And finally, there's a Twitter account for the website: <a href="https://twitter.com/sugrocks">@sugrocks</a>.
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="card is-fullwidth">
+                <header class="card-header">
+                    <p class="card-header-title">
+                        About the website
+                    </p>
+                </header>
+                <div class="card-content">
+                    <div class="content">
+                        <b>Have some stats?</b><br>
+                        Sure, <a href="https://piwik.sug.rocks/">click here to see the Piwik.</a><br>
+                        For your information, IPs are anonymized (last two octets are removed) and I don't store access logs.<br>
+                        <br>
+
+                        <b>Fonts</b><br>
+                        The logo in the video stream uses the <a href="http://maxigamer.deviantart.com/art/Crystal-Universe-FONT-580280358">Crystal Universe font</a> by MaxiGamer<br>
+                        Icons from <a href="http://fontawesome.io/">FontAwesome</a><br>
+                        <br>
+
+                        <b>Technical stuff</b><br>
+                        This website is hosted on a Raspberry-like server at Scaleway, Paris.<br>
+                        The "C1" server is running an ARMv7 CPU with 4 cores and 2GB of RAM.<br>
+                        There's two volumes attached to the server, the first one with the OS and basic stuff (with 50GB)
+                        and a second one with 100GB for hosting the files.<br>
+                        The server is Running on Debian and page are served from a Caddy webserver,
+                        behind Cloudflare as a CDN.<br>
+                        I generate static files using Python3 scripts and Jinja2 as a template engine.<br>
+                        <br>
+
+                        <b>Are you related to the <a href="https://vimeo.com/user45058761">Vimeo user "/sug/ rocks"</a>?</b><br>
+                        Nope, I have nothing to do with this channel.<br>
+
+                        <br>
+
+                        <b>History</b><br>
+                        <table>
+                            <tr><td>Jul 27 2016</td> <td>First commit</td></tr>
+                            <tr><td>Jul 27 2016</td> <td>Leakbot added</td></tr>
+                            <tr><td>Jul 27 2016</td> <td>Public launch</td></tr>
+                            <tr><td>Aug 2  2016</td> <td>Added a countdown</td></tr>
+                            <tr><td>Aug 5  2016</td> <td>Added downloads</td></tr>
+                            <tr><td>Aug 9  2016</td> <td>Leaks are now hosted on our servers</td></tr>
+                            <tr><td>Aug 13 2016</td> <td>RSS for downloads, threads and leaks completed</td></tr>
+                            <tr><td>Aug 17 2016</td> <td>Moved from my personnal server to an independant server</td></tr>
+                            <tr><td>Aug 18 2016</td> <td>Added 404 and about pages</td></tr>
+                            <tr><td>Aug 26 2016</td> <td>Added individual episodes downloads, mirror from Mega</td></tr>
+                            <tr><td>Sep 1  2016</td> <td>Added 8ch's /sugen/ to the thread list (only one thread)</td></tr>
+                            <tr><td>Sep 13 2016</td> <td>Added Pushbullet channels. Why not?</td></tr>
+                            <tr><td>Sep 14 2016</td> <td>Filter Spanish episodes and gets title + synopsis for leaks.</td></tr>
+                            <tr><td>Sep 26 2016</td> <td>Added go.sug.rocks</td></tr>
+                            <tr><td>Oct 5  2016</td> <td>Added "Random Media" page</td></tr>
+                            <tr><td>Oct 14 2016</td> <td>LEAKBOT moved to Switerland, bugs added</td></tr>
+                            <tr><td>Nov 29 2016</td> <td>First beta for new design</td></tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="card is-fullwidth">
+                <header class="card-header">
+                    <p class="card-header-title">
+                        About the author
+                    </p>
+                </header>
+                <div class="card-content">
+                    <div class="content">
+                        <b>Who the fuck are you?</b><br>
+                        Why do you even care about that?<br>
+                        I'm a <span style="color: green">>guy</span> who likes to write some code (it's shit). Call me Kody.<br>
+                        Living in Switzerland (not the German part), I'm mostly joining "late-night" /sug/ threads (which are in the morning here).<br>
+                        If I use a tripcode (which is always when using the "/sug/.rocks/" name), it's <span class="nameBlock"><span class="postertrip">!!R3dGoVcANic</span></span>.<br>
+                        <br>
+
+                        <b>You're one of those fucking furries, aren't you?</b><br>
+                        No, I'm not part of the furry community.<br>
+                        I've been involved on some other communities, but I just like cartoons in general.<br>
+                        <br>
+
+                        <b>Learn to speak English properly!</b><br>
+                        I promise I'm doing my best. :(<br>
+                        <br>
+
+                        <b><a href="http://desuarchive.org/co/thread/85384755/#85387175">You're someone from the crewniverse trying to make us hype!!!one!</a></b><br>
+                        <i>Of course I am! If you only knew how much fun it is to choose specific images without context and see what you will all say about it.</i>  <small>/s</small>
+                    </div>
+                </div>
+            </div>
+{% endblock %}

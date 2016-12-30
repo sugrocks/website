@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% block body %}
+            <div class="card is-fullwidth">
+                <header class="card-header">
+                    <p class="card-header-title">
+                        Random Music
+                    </p>
+                </header>
+                <div class="card-content">
+                    <div class="content" style="text-align: center;">
+                        <div id="np-radio"></div><br><br>
+                        <audio controls="controls" preload="none">
+                            <source src="https://radio.sug.rocks/autodj.ogg" type="audio/ogg">
+                            <source src="https://radio.sug.rocks/autodj.mp3" type="audio/mpeg">
+                            It looks like your browser doesn't suport the audio element.
+                        </audio>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="card is-fullwidth">
+                <header class="card-header">
+                    <p class="card-header-title">
+                        Random Episodes
+                    </p>
+                </header>
+                <div class="card-content">
+                    <div class="content" style="text-align: center;">
+
+                        <div class="embed-container">
+                            <iframe allowfullscreen scrolling="no" src="/live-content.html"></iframe>
+                        </div>
+                        <i class="is-hidden-mobile" style="color: gray;">Protip: Click on your id next to the chat input to change the theme.</i>
+                    </div>
+                </div>
+            </div>
+{% endblock %}
+{% block footer_includes %}
+    <script src="/js/radio.js" charset="utf-8"></script>
+{% endblock %}

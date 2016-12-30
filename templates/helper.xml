@@ -1,0 +1,28 @@
+{% macro rss_item(title, content, guid, published) %}
+        <item>
+            <title><![CDATA[ {{ title }} ]]></title>
+            <description>
+                <![CDATA[
+{{ content }}
+                ]]>
+            </description>
+            <pubDate>{{ published }}</pubDate>
+            <guid>{{ guid }}</guid>
+        </item>{% endmacro %}
+
+{% macro atom_item(title, content, guid, published, updated) %}
+    <entry>
+        <published>{{ published }}</published>
+        <updated>{{ updated }}</updated>
+        <title><![CDATA[ {{ title }} ]]></title>
+        <content type="html">
+            <![CDATA[
+{{ content }}
+            ]]>
+        </content>
+        <link href="{{ guid }}" />
+        <id>{{ guid }}</id>
+        <author>
+            <name>/sug/.rocks</name>
+        </author>
+    </entry>{% endmacro %}

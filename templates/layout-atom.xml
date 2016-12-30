@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>{% block feed_title %}{% endblock %}</title>
+    <subtitle><![CDATA[ {% block feed_description %}{% endblock %} ]]></subtitle>
+    <icon>https://sug.rocks/img/android-chrome-192x192.png</icon>
+    <updated>{% block feed_update %}{% endblock %}</updated>
+    <id>{% block feed_id %}{% endblock %}</id>
+    <link href="{% block feed_self %}{% endblock %}" rel="self" />
+    <link href="{% block feed_link %}{% endblock %}" rel="alternate" />
+{% block feed_items %}{% endblock %}
+</feed>

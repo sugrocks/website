@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>/sug/ - Media</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        #chat {
+            position: absolute;
+            height: 100vh;
+            width: 400px;
+            top: 0;
+            right: 0;
+            -webkit-transition: width 1s ease-in-out;
+            -moz-transition: width 1s ease-in-out;
+            -o-transition: width 1s ease-in-out;
+            transition: width 1s ease-in-out;
+        }
+
+        iframe {
+            border: 0;
+            height: 100vh;
+            width: 100%;
+        }
+
+        #content {
+            position: absolute;
+            width: calc(100% - 400px);
+            -webkit-transition: width 1s ease-in-out;
+            -moz-transition: width 1s ease-in-out;
+            -o-transition: width 1s ease-in-out;
+        }
+
+        #toggle {
+            display: none;
+            position: fixed;
+            top: 5px;
+            left: 5px;
+            background-color: #444;
+            color: #fff;
+            border-radius: 5px;
+            padding: 2px 5px;
+            font-size: 0.8em;
+            font-family: helvetica, arial, sans-serif;
+            cursor: pointer;
+        }
+
+        #content:hover ~ #toggle,
+        #toggle:hover {
+            display: block;
+        }
+
+        @media screen and (max-width: 825px) {
+            #toggle { display: none !important; }
+            #chat { width: 0 !important; }
+            #content { width: 100% !important; }
+        }
+    </style>
+</head>
+<body>
+    <div id="chat">
+        <iframe src="https://chat.sug.rocks/" allowfullscreen="true" webkitallowfullscreen="true" scrolling="no" frameborder="0"></iframe>
+    </div>
+    <div id="content">
+        <iframe src="https://ponies.fr/sug/" allowfullscreen="true" webkitallowfullscreen="true" scrolling="no" frameborder="0"></iframe>
+    </div>
+    <div id="toggle" onclick="toggleChat();">
+        Toggle Chat
+    </div>
+    <script>
+        function toggleChat() {
+            var chatObj = document.getElementById("chat")
+            var liveObj = document.getElementById("content")
+            if (chatObj.style.width != "0px" || chatObj.style.width == undefined) {
+                chatObj.style.width = "0px"
+                liveObj.style.width = "calc(100% - 0px)"
+            } else {
+                chatObj.style.width = "400px"
+                liveObj.style.width = "calc(100% - 400px)"
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Threads, leaks, downloads and ressources for /sug/">
+    <meta name="author" content="/sug/.rocks">
+    <meta name="robots" content="nofollow">
+    <meta name="google-site-verification" content="9j51DgQ8SpdOR0aaZzmS1Vi9JK901tNfkdJcy_UBINs" />
+
+    <title>/sug/{% if pagename %} - {{ pagename }}{% endif %}{% block extendtitle %}{% endblock %}</title>
+
+    <!-- WTF devices -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ remote_url }}/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="{{ remote_url }}/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="{{ remote_url }}/img/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="{{ remote_url }}/img/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="{{ remote_url }}/manifest.json">
+    <link rel="mask-icon" href="{{ remote_url }}/img/safari-pinned-tab.svg" color="#af0a0f">
+    <meta name="apple-mobile-web-app-title" content="/sug/">
+    <meta name="application-name" content="Steven Universe General">
+    <meta name="theme-color" content="#bee7fb">
+
+    <!-- Added stuff -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" integrity="sha256-RWqxpxUH7ZGrrhTJ0I+v+zc6e8cRpm5ENBt7i3u3KrQ=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="{{ remote_url }}/css/spoiler.css"/>
+    <link rel="stylesheet" href="{{ remote_url }}/css/light.css" title="light" disabled="false" />
+    <link rel="stylesheet" href="{{ remote_url }}/css/dark.css" title="dark" disabled="true" />
+    <link rel="stylesheet" href="{{ remote_url }}/css/allowNSFW.css" title="allowNSFW" disabled="true">
+    <script src="{{ remote_url }}/js/theme.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js" integrity="sha256-r0xmg4FKpSfK9TvePQIeaq/gCDO0Xy3q0EPIfteGRnQ=" crossorigin="anonymous"></script>
+{% block header_includes %}{% endblock %}
+
+    <!-- To load some pages faster, do it in the background -->
+    <link rel="prerender" href="{{ remote_url }}/">
+    <link rel="prerender" href="{{ remote_url }}/dl.html">
+    <link rel="prerender" href="{{ remote_url }}/op.html">
+    <link rel="prerender" href="{{ remote_url }}/leaks.html">
+    <link rel="dns-prefetch" href="https://boards.4chan.org/">
+</head>
+<body{% if pagetype %} class="{{ pagetype }}"{% endif %}>
+    <header class="header">
+        <nav class="nav has-shadow">
+            <div class="container">
+                <div class="nav-left">
+                    <a class="nav-item is-brand title" href="/">
+                        /sug/
+                    </a>
+                </div>
+
+                <span class="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+
+                <div class="nav-right nav-menu">
+                    <a class="nav-item is-tab{% if pagetype == 'page-threads' %} is-active{% endif %}" href="{{ remote_url }}/">
+                        Home
+                    </a>
+                    <a class="nav-item is-tab{% if pagetype == 'page-leaks' %} is-active{% endif %}" href="{{ remote_url }}/leaks.html">
+                        LEAKBOT
+                    </a>
+                    <a class="nav-item is-tab{% if pagetype == 'page-dl' %} is-active{% endif %}" href="{{ remote_url }}/dl.html">
+                        Downloads
+                    </a>
+                    <a class="nav-item is-tab{% if pagetype == 'page-op' %} is-active{% endif %}" href="{{ remote_url }}/op.html">
+                        OP Template
+                    </a>
+                    <a class="nav-item is-tab{% if pagetype == 'page-live' %} is-active{% endif %}" href="{{ remote_url }}/live.html">
+                        Random Media
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="nav-mobile-menu is-hidden-tablet">
+            <span>
+                <a class="nav-item is-tab{% if pagetype == 'page-threads' %} is-active{% endif %}" href="{{ remote_url }}/">
+                    Home
+                </a>
+            </span>
+            <span>
+                <a class="nav-item is-tab{% if pagetype == 'page-leaks' %} is-active{% endif %}" href="{{ remote_url }}/leaks.html">
+                    LEAKBOT
+                </a>
+            </span>
+            <span>
+                <a class="nav-item is-tab{% if pagetype == 'page-dl' %} is-active{% endif %}" href="{{ remote_url }}/dl.html">
+                    Downloads
+                </a>
+            </span>
+            <span>
+                <a class="nav-item is-tab{% if pagetype == 'page-op' %} is-active{% endif %}" href="{{ remote_url }}/op.html">
+                    OP Template
+                </a>
+            </span>
+            <span>
+                <a class="nav-item is-tab{% if pagetype == 'page-live' %} is-active{% endif %}" href="{{ remote_url }}/live.html">
+                    Random Media
+                </a>
+            </span>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="hero">
+            <div class="hero-body">
+                <div class="container">
+                    <iframe class="countdown pull-right is-hidden-mobile" src="{{ remote_url }}/countdown"></iframe>
+
+                    <h1 class="title">
+                        {{ pagename }}
+                    </h1>
+
+                    <h2 class="subtitle">
+{% block subtitle %}
+                        {{ pagedesc }}
+{% endblock %}
+                    </h2>
+                </div>
+            </div>
+        </section>
+
+        <div class="notification is-info notif">
+        </div>
+
+        <section class="sug-content">
+{% block body %}{% endblock %}
+        </section>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="content has-text-centered">
+                <p>
+                    <strong>/sug/.rocks</strong><br>
+{% if dategen %}
+                    Page updated {{ dategen }} (UTC)<br>
+{% endif %}
+                    This website isn't affliated nor endorsed by Cartoon Network (A Time Warner company) or 4chan.
+                </p>
+                <p>
+                    <a href="{{ remote_url }}/about.html">About this website and contact</a> -
+                    <a href="{{ remote_url }}/feedback.html">Feedback</a> -
+                    <a onclick="toggleDark()">Toggle dark theme</a><br>
+                    <br>
+                    <a href="https://ko-fi.com/A637AV5" target="_blank"><img height="25" style="height:25px;" src="{{ remote_url }}/img/ko-fi.png" alt="Buy Me a Coffee" /></a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+{% block footer_includes %}{% endblock %}
+    <script src="{{ remote_url }}/js/menu.js" charset="utf-8"></script>
+    <script src="{{ remote_url }}/js/news.js" charset="utf-8"></script>
+    <script src="{{ remote_url }}/js/cookies.js" charset="utf-8"></script>
+{% block piwik %}
+    <script src="{{ remote_url }}/js/piwik.js" charset="utf-8"></script>
+    <noscript><p><img src="https://piwik.sug.rocks/piwik.php?idsite=1&rec=1" style="border:0;" alt="" /></p></noscript>
+{% endblock %}
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</body>
+</html>

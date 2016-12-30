@@ -1,0 +1,30 @@
+# temp stuff
+.sass-cache/
+
+# our stuff
+cron.log
+node_modules/
+config/threads-cache.ini
+
+# generated pages
+public/dl.html
+public/dl.rss
+public/dl.xml
+public/index.html
+public/threads.rss
+public/threads.xml
+public/leaks.html
+public/leaks.rss
+public/leaks.xml
+public/leaksid.txt
+public/threadsid.txt
+public/about.html
+public/404.html
+public/op.html
+public/live.html
+public/feedback.html
+public/tumblr.html
+
+# manual files
+templates/op.txt
+public/news.txt

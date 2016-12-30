@@ -1,0 +1,144 @@
+// Dark color scheme
+// Import color defaults before (and open-color)
+@import '../../node_modules/open-color/open-color.scss';
+@import 'colors.scss';
+
+// Set specific colors
+$link: $oc-blue-7;
+$link-active: $oc-blue-6;
+$link-active-border: $oc-blue-9;
+$link-hover: $oc-blue-6 !important;
+$link-hover-border: $oc-blue-9;
+$link-visited: $oc-blue-7;
+
+// Import Bulma and default styles
+@import 'styles.scss';
+
+// And now, styles for the dark theme
+html, body {
+    background-color: $oc-gray-9;
+    color: $oc-gray-0;
+}
+
+strong {
+    color: $oc-gray-2;
+}
+
+.nav {
+    background-color: $oc-gray-8;
+
+    .nav-toggle {
+        &:hover {
+            background-color: $oc-gray-6;
+        }
+
+        span {
+            background-color: $oc-gray-0;
+        }
+    }
+}
+
+.nav-mobile-menu {
+    background-color: $oc-gray-7;
+}
+
+.nav-item a.is-tab.is-active,
+a.nav-item.is-tab.is-active {
+    color: $oc-blue-3;
+}
+
+.hero {
+    background-color: transparent;
+
+    .title,
+    .subtitle {
+        color: $white;
+    }
+}
+
+.card {
+    background-color: $oc-gray-8;
+    color: $oc-gray-0;
+
+    .card-header {
+        box-shadow: 0 1px 2px rgba(233, 236, 239, 0.1);
+
+        .card-header-title {
+            color: $oc-gray-0;
+        }
+    }
+}
+
+.content {
+    color: $oc-gray-0;
+
+    h1, h2, h3,
+    h4, h5, h6 {
+        color: $oc-gray-2;
+    }
+
+    blockquote {
+        background-color: $oc-gray-7;
+        border-left: 5px solid $oc-gray-9;
+    }
+}
+
+.notification {
+    background-color: $oc-gray-9 !important;
+    color: #FFFFFF !important;
+}
+
+.sug-threads .op-dead {
+    background-color: #383838;
+}
+
+.spoiler-content {
+    background-color: $oc-gray-8;
+    color: $oc-gray-2;
+}
+
+code {
+    background-color: $oc-gray-9;
+}
+
+.input,
+.textarea {
+    background-color: $oc-gray-7;
+    color: $oc-gray-0;
+}
+
+#np-radio {
+    color: $oc-gray-9;
+}
+
+a.title,
+.link {
+    &:hover {
+        border-bottom: none;
+    }
+}
+
+.content a:not(.button),
+a:not(.button) {
+    border-bottom: none;
+}
+
+.cc-window {
+    border: 1px solid $yellow;
+}
+
+.cc-window,
+.cc-message {
+    background: $oc-gray-8 !important;
+    color: $oc-gray-0 !important;
+}
+
+.cc-link,
+.cc-link:visited,
+.cc-deny {
+    color: $link !important;
+}
+
+.cc-link:hover, .cc-link:active {
+    color: $link-hover;
+}

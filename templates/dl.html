@@ -1,0 +1,199 @@
+{% extends "layout.html" %}
+{% set lastseason = '' %}
+{% block body %}
+            <div class="card is-fullwidth">
+                <div class="card-content">
+                    <div class="content">
+                        <p>
+                            1080p iTunes RAW courtesy of <a href="http://yp1.yayponies.no/yaysu/steven.php">Yay Steven</a>. Updated as fast as we can.<br>
+                            <i>
+                                Click
+                                <span class="icon is-small">
+                                    <i class="fa fa-download"></i>
+                                </span>
+                                for direct download,
+                                <span class="icon is-small">
+                                    <i class="fa fa-globe"></i>
+                                </span>
+                                for a torrent,
+                                <span class="icon is-small">
+                                    <i class="fa fa-play-circle"></i>
+                                </span>
+                                to watch on Marebucks and
+                                <span class="icon is-small">
+                                    <i class="fa fa-video-camera"></i>
+                                </span>
+                                for Dailymotion.
+                             </i><br>
+                        </p>
+
+{% if lenpa > 0 %}
+                        <div id="preair" class="spoiler spoiler-default spoiler-state-expanded"
+                            data-toggle-placement="top"
+                            data-toggle-text="Pre-air (720p)">
+                            <div class="spoiler-content">
+                                <table class="dllist">
+{% for episode in preair %}
+                                    <tr id="{{ episode.id }}">
+                                        <td>
+                                            <a title="Direct Download"
+                                                download="SU-{{ episode.ep }}-PREAIR.mkv"
+                                                href="https://dl.sug.rocks/preair/{{ episode.filename }}">
+                                                <span class="icon is-small">
+                                                    <i class="fa fa-download"></i>
+                                                </span>
+                                            </a>
+{% if episode.torrent == '1' %}
+                                            <a title="Torrent"
+                                                download="SU-{{ episode.ep }}-PREAIR.torrent"
+                                                href="https://dl.sug.rocks/torrents/preair/{{ episode.filename }}.torrent">
+                                                <span class="icon is-small">
+                                                    <i class="fa fa-globe"></i>
+                                                </span>
+                                            </a>
+{% endif %}
+{% if episode.marebucks != '' %}
+                                            <a title="Streaming"
+                                                href="https://marebucks.com/sun/{{ episode.marebucks }}">
+                                                <span class="icon is-small">
+                                                    <i class="fa fa-play-circle"></i>
+                                                </span>
+                                            </a>
+{% endif %}
+{% if episode.daily != '' %}
+                                            <a title="Dailymotion"
+                                                href="http://www.dailymotion.com/video/{{ episode.daily }}">
+                                                <span class="icon is-small">
+                                                    <i class="fa fa-video-camera"></i>
+                                                </span>
+                                            </a>
+{% endif %}
+                                        </td>
+                                        <td>
+                                            <small>({{ episode.ep }})</small>
+                                        </td>
+                                        <td>
+                                            {{ episode.title }}
+                                        </td>
+                                    </tr>
+{% endfor %}
+                                </table>
+                            </div>
+                        </div>
+{% endif %}
+
+                        <div id="itunes" class="spoiler spoiler-default spoiler-state-expanded"
+                            data-connection="A" data-toggle-placement="top"
+                            data-toggle-text="iTunes RAW (1080p)">
+                            <div class="spoiler-content">
+                                <b><a href="https://dl.sug.rocks/torrents/all.zip">Get all the torrents</a></b>
+                                <table class="dllist">
+{% for episode in itunes %}
+{% if lastseason != episode.ep[:2] %}{% if episode.ep[:2] == "Sp" %}
+                                    <tr>
+                                        <th colspan="3">
+                                            <h4 class="title is-4">Specials</h4>
+                                        </th>
+                                    </tr>
+{% else %}
+                                    <tr>
+                                        <th colspan="3">
+                                            <h4 class="title is-4">Season {{ episode.ep[:2] }}</h4>
+                                        </th>
+                                    </tr>
+{% endif %}{% set lastseason = episode.ep[:2] %}{% endif %}
+                                    <tr id="{{ episode.id }}">
+                                        <td>
+                                            <a title="Direct Download"
+                                                download="SU-{{ episode.ep }}.mkv"
+                                                href="https://dl.sug.rocks/{{ episode.filename }}">
+                                                <span class="icon is-small">
+                                                    <i class="fa fa-download"></i>
+                                                </span>
+                                            </a>
+{% if episode.torrent == '1' %}
+                                            <a title="Torrent"
+                                                download="SU-{{ episode.ep }}.torrent"
+                                                href="https://dl.sug.rocks/torrents/{{ episode.filename }}.torrent">
+                                                <span class="icon is-small">
+                                                    <i class="fa fa-globe"></i>
+                                                </span>
+                                            </a>
+{% endif %}
+{% if episode.marebucks != '' %}
+                                            <a title="Streaming"
+                                                href="https://marebucks.com/sun/{{ episode.marebucks }}">
+                                                <span class="icon is-small">
+                                                    <i class="fa fa-play-circle"></i>
+                                                </span>
+                                            </a>
+{% endif %}
+                                        </td>
+                                        <td>
+                                            <small>({{ episode.ep }})</small>
+                                        </td>
+                                        <td>
+                                            {{ episode.title }}
+                                        </td>
+                                    </tr>
+{% endfor %}
+                                </table>
+                            </div>
+                        </div>
+
+                        <div id="individual" class="spoiler spoiler-default spoiler-state-collapsed"
+                            data-connection="A" data-toggle-placement="top"
+                            data-toggle-text="Individual Downloads">
+                            <div class="spoiler-content">
+                                <b><a href="https://mega.nz/#F!JotHkR6Y!giZlsdwr_k5ULQAIJKWrsw">Mirror from this Mega</a></b>
+                                <table class="dllist">
+{% for episode in individual %}
+{% if lastseason != episode.ep[:2] %}{% if episode.ep[:2] == "Sp" %}
+                                    <tr>
+                                        <th colspan="3">
+                                            <h4 class="title is-4">Specials</h4>
+                                        </th>
+                                    </tr>
+{% else %}
+                                    <tr>
+                                        <th colspan="3">
+                                            <h4 class="title is-4">Season {{ episode.ep[:2] }}</h4>
+                                        </th>
+                                    </tr>
+{% endif %}{% set lastseason = episode.ep[:2] %}{% endif %}
+                                    <tr id="{{ episode.id }}">
+                                        <td>
+                                            <a title="Direct Download"
+                                                download="SU-{{ episode.ep }}.mp4"
+                                                href="https://dl.sug.rocks/mega/{{ episode.filename }}">
+                                                <span class="icon is-small">
+                                                    <i class="fa fa-download"></i>
+                                                </span>
+                                            </a>
+{% if episode.marebucks != '' %}
+                                            <a title="Streaming"
+                                                href="https://marebucks.com/sun/{{ episode.marebucks }}">
+                                                <span class="icon is-small">
+                                                    <i class="fa fa-play-circle"></i>
+                                                </span>
+                                            </a>
+{% endif %}
+                                        </td>
+                                        <td>
+                                            <small>({{ episode.ep }})</small>
+                                        </td>
+                                        <td>
+                                            {{ episode.title }}
+                                        </td>
+                                    </tr>
+{% endfor %}
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+{% endblock %}
+{% block footer_includes %}
+    <script src="/js/spoiler.js"></script>
+{% endblock %}

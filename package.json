@@ -1,0 +1,25 @@
+{
+  "author": "MKody",
+  "name": "sug-rocks",
+  "description": "Yeah, we like (gay space) rocks",
+  "version": "1.0.1",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://gitgud.io/sug/website.git"
+  },
+  "bugs": "https://gitgud.io/sug/website/issues",
+  "devDependencies": {
+    "standard": "^8.6.0"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/standard"
+  },
+  "engines": {
+    "node": "*"
+  },
+  "dependencies": {
+    "bulma": "^0.2.3",
+    "open-color": "^1.4.0"
+  }
+}
