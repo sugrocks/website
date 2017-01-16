@@ -10,6 +10,12 @@ a { // small transition with links
     display: none !important;
 }
 
+.sticky { // why use JS when you can use CSS? (alright, support is small but whatev')
+    top: 0;          
+    position: -webkit-sticky;
+    position: sticky;
+}
+
 .button { // welcome to hell
     &.is-primary,
     &.is-info,

@@ -50,5 +50,6 @@ if __name__ == '__main__':
     gen_page('OP Template', 'Copy/paste it, edit it and WE\'RE BACK BABY', 'op.html')
     gen_page('Random Media', '24/7 music and episodes', 'live.html')
     gen_page('Feedback', 'Yup, reading everything.', 'feedback.html')
+    gen_page('New to Steven Universe', 'New to the show? Here\'s a little guide.', 'new-to-su.html')
     gen_page('Tumblr', '', 'tumblr.html')
     gen_op_api()

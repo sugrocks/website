@@ -6,11 +6,11 @@ function displayOp (el) { // eslint-disable-line
   var op = document.querySelector('#op-' + id)
 
   if (op.style.display === 'block') {
-    ed.style.display = 'block'
+    if (ed != null) ed.style.display = 'block'
     op.style.display = 'none'
     el.innerHTML = 'Show OP'
   } else {
-    ed.style.display = 'none'
+    if (ed != null) ed.style.display = 'none'
     op.style.display = 'block'
     el.innerHTML = 'Hide OP'
   }
