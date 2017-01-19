@@ -5,6 +5,21 @@ function allowNSFW () { // eslint-disable-line
   document.cookie = 'allowNSFW=true; expires=' + date.toGMTString() + '; path=/'
 
   checkNSFW()
+
+  /* NOTE:
+   * Firefox is retarted and doesn't apply the styles, so remove them instantly inline.
+   * This will be the case only once for other browers where it works.
+   * Users may need to click on the warnings every time they load the page if they're using FF.
+   */
+  var warns = document.querySelectorAll('.red-warning')
+  for (var i = 0; i < warns.length; i++) {
+    warns[i].style.display = 'none'
+  }
+
+  var pics = document.querySelectorAll('.red-image')
+  for (var j = 0; j < pics.length; j++) {
+    pics[j].style.display = 'inherit'
+  }
 }
 
 function checkNSFW () {
