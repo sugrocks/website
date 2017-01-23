@@ -11,6 +11,7 @@
 
 - [Prerequisites](#prerequisites)
 - [Install](#install)
+- [Run](#run)
 - [What about the leakbot?](#what-about-the-leakbot)
 - [Compile `SCSS` to `CSS`](#compile-scss-to-css)
 - [Linter notes](#linter-notes)
@@ -18,24 +19,39 @@
 
 
 ## Prerequisites
-- [NodeJS](https://nodejs.org/en/)
-- [yarn](https://yarnpkg.com/)
+- [NodeJS (w/ npm)](https://nodejs.org/en/)
+    - [yarn](https://yarnpkg.com/)
 - [Python 3](https://www.python.org/) (tested with 3.6.0 (Linux) and 3.5.2 (Windows))
     - [pip](https://pip.pypa.io/en/stable/installing/)
+    - [pipenv](https://github.com/kennethreitz/pipenv#-installation)
 - A webserver (like [Caddy](https://caddyserver.com/))
 
 
 ## Install
 ```
-git clone --recursive http://git.kdy.ch/sug/sug.git && cd sug
-yarn
-sudo pip install -r requirements.txt
+git clone --recursive https://gitgud.io/sug/website.git && cd sug
+yarn # JS/CSS deps
+pipenv --three # Python env
+pipenv install # Python deps
 cp config/threads-cache.ini.example config/threads-cache.ini
 nano templates/op.txt # Add the OP template text here
-while true; do python3 search.py ; sleep 150 ; done # run this in a tmux or screen
+```
+
+## Run
+The `search.py` must be run periodically to check for new thread.  
+You could use a cron to run the `pipenv run python search.py`, or open a tmux session and use:
+```
+while true; do pipenv run python search.py; sleep 120; done # run this in a tmux or screen
+```
+
+For the download list and the static pages, run:
+```
+pipenv run python dllist.py
+pipenv run python static.py
 ```
 
 And then you just point your favorite webserver _(nginx, caddy, whatevever)_ to the `public/` folder.
+
 
 ## What about the leakbot?
 The leakbot has its own repository ([sug/leakbot@gitgud](https://gitgud.io/sug/leakbot)) and is a gitsubmodule in this repo.

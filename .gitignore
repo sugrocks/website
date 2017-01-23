@@ -2,8 +2,9 @@
 .sass-cache/
 
 # our stuff
-cron.log
+.venv/
 node_modules/
+cron.log
 config/threads-cache.ini
 
 # generated pages
