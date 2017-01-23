@@ -6,14 +6,9 @@ node_js:
 python:
     - "3.5"
 before_install:
-    - curl -o- -L https://yarnpkg.com/install.sh | bash
-    - export PATH=$HOME/.yarn/bin:$PATH
     - python3 -V
     - pip3 -V
-    - node -v
-    - yarn -V
 install:
-    - yarn
     - pip3 install -r requirements.txt
 script:
     - flake8 --ignore=E122,E126,E127,E128,E129 --max-line-length=140 .
