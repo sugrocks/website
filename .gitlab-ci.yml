@@ -11,6 +11,6 @@ test:js:
 test:python:
   image: python:latest
   before_script:
-   - pip3 install -r requirements.txt
+   - pip3 install flake8
   script:
    - flake8 --ignore=E122,E126,E127,E128,E129 --max-line-length=140 .
