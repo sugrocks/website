@@ -9,7 +9,8 @@ before_install:
     - python3 -V
     - pip3 -V
 install:
-    - pip3 install -r requirements.txt
+    - npm install --only=dev
+    - pip3 install flake8
 script:
-    - flake8 --ignore=E122,E126,E127,E128,E129 --max-line-length=140 .
     - npm test
+    - flake8 --ignore=E122,E126,E127,E128,E129 --max-line-length=140 .
