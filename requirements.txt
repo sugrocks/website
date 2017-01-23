@@ -3,6 +3,7 @@ git+https://github.com/bibanon/basc-py4chan
 git+https://github.com/bibanon/py8chan
 Jinja2==2.8
 html5lib
+crayons
 flake8
 pytz
 bs4

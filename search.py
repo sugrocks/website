@@ -3,6 +3,7 @@ import re
 import sys
 import json
 import shutil
+import crayons
 import py8chan
 import basc_py4chan
 import configparser
@@ -34,7 +35,8 @@ sugen = py8chan.Board('sugen', True)
 
 def debuglog(message):
     # Print nice debug messages
-    sys.stdout.write('\r%s [%s] ' % (datetime.now().strftime('%Y-%m-%d %H:%M:%S'), message))
+    sys.stdout.write('\r{} [{}] '.format(
+        crayons.blue(datetime.now().strftime('%Y-%m-%d %H:%M:%S')), crayons.green(message)))
 
 
 def urlify(text):
@@ -131,17 +133,17 @@ def sug_threads():
         debuglog('      GET /co/      ')
         cothr = co.get_all_threads(False)
     except:
-        print('\nSomething went wrong here')
+        print(crayons.red('\nSomething went wrong here'))
     try:
         debuglog('     GET /trash/    ')
         trashthr = trash.get_all_threads(False)
     except:
-        print('\nSomething went wrong here')
+        print(crayons.red('\nSomething went wrong here'))
     try:
         debuglog('     GET /sugen/    ')
         sugenthr = sugen.get_all_threads(False)
     except:
-        print('\nSomething went wrong here')
+        print(crayons.red('\nSomething went wrong here'))
 
     debuglog('   Sorting threads  ')
     # First, remove threads that doesn't work anymore from the cache
@@ -218,7 +220,7 @@ def sug_threads():
                 # Or add it on our text-cache
                 filecache['threads'][str(thread.id)] = thread._board.name
         except:
-            print('\n' + str(thread.topic.post_id) + ' didn\'t update')
+            print(crayons.red('\n' + str(thread.topic.post_id) + ' didn\'t update'))
 
         # For a unique id to indicate changes
         uniqid += thread.topic.post_id
@@ -260,7 +262,7 @@ def sug_threads():
         # Copy from tmp to the public folder
         shutil.copy2(os.path.join(THIS_DIR, 'tmp', 'index.html'), os.path.join(THIS_DIR, 'public'))
     except:
-        print('\nError when generating HTML')
+        print(crayons.red('\nError when generating HTML'))
 
     debuglog(' Generating Feeds...')
     try:
@@ -273,7 +275,7 @@ def sug_threads():
         shutil.copy2(os.path.join(THIS_DIR, 'tmp', 'threads.xml'), os.path.join(THIS_DIR, 'public'))
         shutil.copy2(os.path.join(THIS_DIR, 'tmp', 'threads.rss'), os.path.join(THIS_DIR, 'public'))
     except:
-        print('\nError when generating Atom/RSS feeds')
+        print(crayons.red('\nError when generating Atom/RSS feeds'))
 
     debuglog(' Generating GOTO... ')
     # Generate GOTO pages for every board
@@ -296,7 +298,7 @@ def sug_threads():
             j2_env.get_template('nogo.html').stream(board='co')\
                 .dump(os.path.join(THIS_DIR, 'go', 'co', 'index.html'))
     except:
-        print('\nError when generating GOTO for /co/')
+        print(crayons.red('\nError when generating GOTO for /co/'))
 
     try:
         tmplist = list(dtrash)
@@ -312,7 +314,7 @@ def sug_threads():
             j2_env.get_template('nogo.html').stream(board='trash')\
                 .dump(os.path.join(THIS_DIR, 'go', 'trash', 'index.html'))
     except:
-        print('\nError when generating GOTO for /trash/')
+        print(crayons.red('\nError when generating GOTO for /trash/'))
 
     try:
         tmplist = list(dsugen)
@@ -328,9 +330,9 @@ def sug_threads():
             j2_env.get_template('nogo.html').stream(board='sugen')\
                 .dump(os.path.join(THIS_DIR, 'go', 'sugen', 'index.html'))
     except:
-        print('\nError when generating GOTO for /sugen/')
+        print(crayons.red('\nError when generating GOTO for /sugen/'))
 
-    debuglog('  Generating API...')
+    debuglog('  Generating API... ')
     # Generate API endpoint
     try:
         api = []
@@ -376,7 +378,7 @@ def sug_threads():
         with open(os.path.join(THIS_DIR, 'api', 'threads.json'), 'w') as f:
             f.write(json.dumps(api, indent=2, sort_keys=True))
     except:
-        print('\nError when generating API endpoint')
+        print(crayons.red('\nError when generating API endpoint'))
 
     # Save uniqid to a file for javascript refresh
     with open(os.path.join(THIS_DIR, 'public', 'threadsid.txt'), 'w') as f:
@@ -402,7 +404,7 @@ if __name__ == '__main__':
 
     # If thread is still alive
     if p.is_alive():
-        print('\nSearch didn\'t end in time, kill the process...')
+        print(crayons.red('\nSearch didn\'t end in time, kill the process...'))
         # Terminate
         p.terminate()
         p.join()

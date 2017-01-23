@@ -1,5 +1,6 @@
 import os
 import json
+import crayons
 from jinja2 import Environment, FileSystemLoader
 
 THIS_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -7,7 +8,7 @@ THIS_DIR = os.path.dirname(os.path.abspath(__file__))
 
 def gen_page(title, desc, file):
     # Main function
-    print('Generating ' + title)
+    print('Generating {}'.format(crayons.green(title)))
 
     if file == 'op.html':
         # If the file is the one for the OP, add the op template
