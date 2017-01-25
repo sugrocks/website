@@ -1,22 +1,20 @@
 [[source]]
-url = "https://pypi.org/"
 verify_ssl = true
-
-[requires]
-python_version = '3.6'
+url = "https://pypi.org/"
 
 [packages]
 html5lib = "*"
 crayons = "*"
 pytz = "*"
 flake8 = "*"
+bs4 = "*"
 Jinja2 = "==2.8"
 
-[packages."pushbullet.py"]
-git = "https://github.com/randomchars/pushbullet.py"
+[packages.py8chan]
+git = "https://github.com/bibanon/py8chan"
 
 [packages.basc-py4chan]
 git = "https://github.com/bibanon/basc-py4chan"
 
-[packages.py8chan]
-git = "https://github.com/bibanon/py8chan"
+[packages."pushbullet.py"]
+git = "https://github.com/randomchars/pushbullet.py"

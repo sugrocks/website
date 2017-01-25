@@ -1,41 +1,42 @@
 {
     "develop": {},
     "_meta": {
-        "Pipfile-sha256": "bd583d3a7cc99e42caf2a244562b6126ba7d9203fac76366594883de1a8e9098",
+        "requires": {},
+        "Pipfile-sha256": "32a10fb328f676f6f647edcb90286b7b884b228972f86c8b292220b3f25351e7",
         "sources": [
             {
-                "url": "https://pypi.org/",
-                "verify_ssl": true
+                "verify_ssl": true,
+                "url": "https://pypi.org/"
             }
-        ],
-        "requires": {
-            "python_version": "3.6"
-        }
+        ]
     },
     "default": {
-        "html5lib": "==0.999999999",
-        "Jinja2": "==2.8",
-        "pyparsing": "==2.1.10",
-        "pushbullet.py": {
-            "git": "https://github.com/randomchars/pushbullet.py"
+        "py8chan": {
+            "git": "https://github.com/bibanon/py8chan"
         },
-        "pytz": "==2016.10",
-        "mccabe": "==0.5.3",
-        "appdirs": "==1.4.0",
-        "BASC-py4chan": "==0.6.2",
-        "flake8": "==3.2.1",
-        "pycodestyle": "==2.2.0",
-        "crayons": "==0.1.1",
-        "packaging": "==16.8",
-        "colorama": "==0.3.7",
-        "requests": "==2.12.5",
-        "six": "==1.10.0",
-        "py8chan": "==0.0.1",
+        "websocket-client": "==0.40.0",
         "basc-py4chan": {
             "git": "https://github.com/bibanon/basc-py4chan"
         },
+        "pyflakes": "==1.3.0",
+        "requests": "==2.13.0",
+        "pycodestyle": "==2.2.0",
+        "crayons": "==0.1.2",
+        "python-magic": "==0.4.12",
+        "pushbullet.py": "==0.10.0",
+        "packaging": "==16.8",
+        "mccabe": "==0.5.3",
         "MarkupSafe": "==0.23",
-        "webencodings": "==0.5",
-        "pyflakes": "==1.3.0"
+        "beautifulsoup4": "==4.5.3",
+        "html5lib": "==0.999999999",
+        "flake8": "==3.2.1",
+        "pyparsing": "==2.1.10",
+        "six": "==1.10.0",
+        "bs4": "==0.0.1",
+        "pytz": "==2016.10",
+        "colorama": "==0.3.7",
+        "appdirs": "==1.4.0",
+        "Jinja2": "==2.8",
+        "webencodings": "==0.5"
     }
 }
