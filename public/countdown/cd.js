@@ -98,6 +98,9 @@ function episodeList () { // eslint-disable-line no-unused-vars
       next += '[' + episodes[i].desc + '] ' + episodes[i].name + '\n' + count + suffix + '\n\n'
     }
   }
+  if (episodes.length > 5) {
+    next += 'And more to come!\n\n'
+  }
   next += '---\nSources: misseps, Derpy News and Cartoon Network'
 
   window.alert(next)
