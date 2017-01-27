@@ -101,12 +101,14 @@ def gen_dl_page():
     atomnow = datetime.utcnow().isoformat('T') + 'Z'
 
     # Load the environment for the templates
-    j2_env = Environment(loader=FileSystemLoader(os.path.join(THIS_DIR, 'templates')), trim_blocks=True)
-    j2_env.filters['atomdate'] = atom_date
-    j2_env.filters['rssdate'] = rss_date
+    j2_html = Environment(loader=FileSystemLoader(os.path.join(THIS_DIR, 'templates', 'html')), trim_blocks=True)
 
-    # Generate page
-    j2_env.get_template('dl.html').stream(
+    j2_xml = Environment(loader=FileSystemLoader(os.path.join(THIS_DIR, 'templates', 'xml')), trim_blocks=True)
+    j2_xml.filters['atomdate'] = atom_date
+    j2_xml.filters['rssdate'] = rss_date
+
+    # Generate html
+    j2_html.get_template('dl.html').stream(
         pagetype='page-dl', pagename='Downloads', pagedesc='Direct links or torrents to episodes', dategen=dategen,
         # Add episodes lists
         preair=preair, itunes=itunes, individual=individual,
@@ -117,10 +119,11 @@ def gen_dl_page():
     # Concatenate every list and sort by date for the feeds
     allep = preair + itunes + individual
     allep = sorted(allep, key=itemgetter('date'), reverse=True)[:15]
+
     # Generate feeds
-    j2_env.get_template('dl-atom.xml').stream(episodes=allep, lastupdate=atomnow)\
+    j2_xml.get_template('dl-atom.xml').stream(episodes=allep, lastupdate=atomnow)\
         .dump(os.path.join(THIS_DIR, 'public', 'dl.xml'))
-    j2_env.get_template('dl-rss.xml').stream(episodes=allep)\
+    j2_xml.get_template('dl-rss.xml').stream(episodes=allep)\
         .dump(os.path.join(THIS_DIR, 'public', 'dl.rss'))
 
 

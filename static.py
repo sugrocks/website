@@ -19,7 +19,8 @@ def gen_page(title, desc, file):
         optext = ''
 
     # Load the environment for the templates
-    j2_env = Environment(loader=FileSystemLoader(os.path.join(THIS_DIR, 'templates')), trim_blocks=True)
+    j2_env = Environment(loader=FileSystemLoader(os.path.join(THIS_DIR, 'templates', 'html')), trim_blocks=True)
+
     # Generate page
     j2_env.get_template(file).stream(
         pagetype='page-' + file.replace('.html', ''), pagename=title, pagedesc=desc,

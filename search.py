@@ -243,19 +243,22 @@ def sug_threads():
     atomnow = datetime.utcnow().isoformat('T') + 'Z'
 
     # Load the environment for the templates
-    j2_env = Environment(loader=FileSystemLoader(os.path.join(THIS_DIR, 'templates')), trim_blocks=True)
-    j2_env.globals['find_page'] = find_page
-    j2_env.filters['stamptostrftime'] = stamp_to_strftime
-    j2_env.filters['atomdate'] = atom_date
-    j2_env.filters['rssdate'] = rss_date
-    j2_env.filters['urlify'] = urlify
-    j2_env.filters['inlinecss'] = inline_css
-    j2_env.filters['edition'] = find_edition
+    j2_html = Environment(loader=FileSystemLoader(os.path.join(THIS_DIR, 'templates', 'html')), trim_blocks=True)
+    j2_html.globals['find_page'] = find_page
+    j2_html.filters['stamptostrftime'] = stamp_to_strftime
+    j2_html.filters['edition'] = find_edition
+
+    j2_xml = Environment(loader=FileSystemLoader(os.path.join(THIS_DIR, 'templates', 'xml')), trim_blocks=True)
+    j2_xml.filters['atomdate'] = atom_date
+    j2_xml.filters['rssdate'] = rss_date
+    j2_xml.filters['urlify'] = urlify
+    j2_xml.filters['inlinecss'] = inline_css
+    j2_xml.filters['edition'] = find_edition
 
     debuglog(' Generating HTML... ')
     try:
         # Generate page (to a tmp folder first, in case of errors)
-        j2_env.get_template('threads.html').stream(
+        j2_html.get_template('threads.html').stream(
             pagetype='page-threads', pagename='Home', pagedesc='Last threads and quick links', dategen=datenow,
             threadlist=threadlist, uniqid=uniqid)\
             .dump(os.path.join(THIS_DIR, 'tmp', 'index.html'))
@@ -267,9 +270,9 @@ def sug_threads():
     debuglog(' Generating Feeds...')
     try:
         # Generate feeds (to a tmp folder first, in case of errors)
-        j2_env.get_template('threads-atom.xml').stream(threadlist=threadlist, lastupdate=atomnow)\
+        j2_xml.get_template('threads-atom.xml').stream(threadlist=threadlist, lastupdate=atomnow)\
             .dump(os.path.join(THIS_DIR, 'tmp', 'threads.xml'))
-        j2_env.get_template('threads-rss.xml').stream(threadlist=threadlist)\
+        j2_xml.get_template('threads-rss.xml').stream(threadlist=threadlist)\
             .dump(os.path.join(THIS_DIR, 'tmp', 'threads.rss'))
         # Copy from tmp to the public folder
         shutil.copy2(os.path.join(THIS_DIR, 'tmp', 'threads.xml'), os.path.join(THIS_DIR, 'public'))
@@ -287,15 +290,15 @@ def sug_threads():
             tmplist.sort(key=lambda x: x.topic.timestamp, reverse=True)
             if not tmplist[0].archived:
                 # If the first thread is not archived, generate the redirection
-                j2_env.get_template('go.html').stream(url=tmplist[0].url)\
+                j2_html.get_template('go.html').stream(url=tmplist[0].url)\
                     .dump(os.path.join(THIS_DIR, 'go', 'co', 'index.html'))
             else:
                 # Else, generate an "error" page
-                j2_env.get_template('nogo.html').stream(board='co')\
+                j2_html.get_template('nogo.html').stream(board='co')\
                     .dump(os.path.join(THIS_DIR, 'go', 'co', 'index.html'))
         else:
             # Else, generate an "error" page
-            j2_env.get_template('nogo.html').stream(board='co')\
+            j2_html.get_template('nogo.html').stream(board='co')\
                 .dump(os.path.join(THIS_DIR, 'go', 'co', 'index.html'))
     except:
         print(crayons.red('\nError when generating GOTO for /co/'))
@@ -307,11 +310,11 @@ def sug_threads():
             # Sort by time
             tmplist.sort(key=lambda x: x.topic.timestamp, reverse=True)
             # Generate the redirection
-            j2_env.get_template('go.html').stream(url=tmplist[0].url)\
+            j2_html.get_template('go.html').stream(url=tmplist[0].url)\
                 .dump(os.path.join(THIS_DIR, 'go', 'trash', 'index.html'))
         else:
             # Else, generate an "error" page
-            j2_env.get_template('nogo.html').stream(board='trash')\
+            j2_html.get_template('nogo.html').stream(board='trash')\
                 .dump(os.path.join(THIS_DIR, 'go', 'trash', 'index.html'))
     except:
         print(crayons.red('\nError when generating GOTO for /trash/'))
@@ -323,11 +326,11 @@ def sug_threads():
             # Sort by time
             tmplist.sort(key=lambda x: x.topic.timestamp, reverse=True)
             # Generate the redirection
-            j2_env.get_template('go.html').stream(url=tmplist[0].url)\
+            j2_html.get_template('go.html').stream(url=tmplist[0].url)\
                 .dump(os.path.join(THIS_DIR, 'go', 'sugen', 'index.html'))
         else:
             # Else, generate an "error" page
-            j2_env.get_template('nogo.html').stream(board='sugen')\
+            j2_html.get_template('nogo.html').stream(board='sugen')\
                 .dump(os.path.join(THIS_DIR, 'go', 'sugen', 'index.html'))
     except:
         print(crayons.red('\nError when generating GOTO for /sugen/'))
