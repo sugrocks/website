@@ -10,7 +10,7 @@
 {% for thread in threadlist %}
 {% set published %}{{ thread.topic.timestamp|atomdate }}{% endset %}
 {% set updated %}{{ thread.topic.timestamp|atomdate }}{% endset %}
-{% set title %}[/{{ thread._board.name }}/] {% if thread.topic.subject != None %}{{ thread.topic.subject }}{% endif %} (No.{{ thread.topic.post_number }}){% endset %}
+{% set title %}[/{{ thread._board.name }}/] {{ thread.topic.comment|edition }} (No.{{ thread.topic.post_number }}){% endset %}
 {% set content %}{% if thread._board.name == 'sugen' %}
 {% if thread.topic.first_file.file_deleted == True %}
                 <a href="{{ thread.url }}" target="_blank"><img src="https://sug.rocks/img/filedeleted.gif" alt="File was deleted :("></a>
