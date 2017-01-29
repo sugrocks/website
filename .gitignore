@@ -3,6 +3,7 @@
 
 # our stuff
 .venv/
+.idea/
 node_modules/
 cron.log
 config/threads-cache.ini
