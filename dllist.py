@@ -50,10 +50,13 @@ def gen_dl_page():
     for episode in dict(config.items('preair')):
         # Parse episode data
         data = config['preair'][episode].split(',')
+        se = split_season_episode(episode)
         # Add it to the list
         preair.append({
             'id': get_id(episode, 'tmp'),
-            'ep': format_epnumber(episode),
+            'code': format_epnumber(episode),
+            'season': se[0],
+            'episode': se[1],
             'title': data[0],
             'filename': data[1],
             'torrent': data[2],
@@ -66,10 +69,13 @@ def gen_dl_page():
     for episode in dict(config.items('itunes')):
         # Parse episode data
         data = config.get('itunes', episode).split(',')
+        se = split_season_episode(episode)
         # Add it to the list
         itunes.append({
             'id': get_id(episode),
-            'ep': format_epnumber(episode),
+            'code': format_epnumber(episode),
+            'season': se[0],
+            'episode': se[1],
             'title': data[0],
             'filename': data[1],
             'torrent': data[2],
@@ -81,10 +87,13 @@ def gen_dl_page():
     for episode in dict(config.items('individual')):
         # Parse episode data
         data = config.get('individual', episode).split(',')
+        se = split_season_episode(episode)
         # Add it to the list
         individual.append({
             'id': get_id(episode, 'i'),
-            'ep': format_epnumber(episode),
+            'code': format_epnumber(episode),
+            'season': se[0],
+            'episode': se[1],
             'title': data[0],
             'filename': data[1],
             'marebucks': data[2],
@@ -92,9 +101,9 @@ def gen_dl_page():
         })
 
     # Sort episodes
-    preair = sorted(preair, key=itemgetter('ep'))
-    itunes = sorted(itunes, key=itemgetter('ep'))
-    individual = sorted(individual, key=itemgetter('ep'))
+    preair = sorted(preair, key=itemgetter('code'))
+    itunes = sorted(itunes, key=itemgetter('code'))
+    individual = sorted(individual, key=itemgetter('code'))
 
     # Get current date
     dategen = datetime.utcnow().strftime('%B %d %Y at %H:%M:%S')

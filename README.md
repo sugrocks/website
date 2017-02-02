@@ -21,7 +21,7 @@
 ## Prerequisites
 - [NodeJS (w/ npm)](https://nodejs.org/en/)
     - [yarn](https://yarnpkg.com/)
-- [Python 3](https://www.python.org/) (tested with 3.6.0 (Linux) and 3.5.2 (Windows))
+- [Python 3.6](https://www.python.org/)
     - [pip](https://pip.pypa.io/en/stable/installing/)
     - [pipenv](https://github.com/kennethreitz/pipenv#-installation)
 - A webserver (like [Caddy](https://caddyserver.com/))
@@ -31,8 +31,7 @@
 ```
 git clone --recursive https://gitgud.io/sug/website.git && cd sug
 yarn # JS/CSS deps
-pipenv --three # Python env
-pipenv install # Python deps
+pipenv install --python $(which python3.6) # Python deps
 cp config/threads-cache.ini.example config/threads-cache.ini
 nano templates/op.txt # Add the OP template text here
 ```

@@ -1,5 +1,4 @@
 {% extends "layout.html" %}
-{% set lastseason = '' %}
 {% block body %}
             <div class="card is-fullwidth">
                 <div class="card-content">
@@ -37,7 +36,7 @@
                                     <tr id="{{ episode.id }}">
                                         <td>
                                             <a title="Direct Download"
-                                                download="SU-{{ episode.ep }}-PREAIR.mkv"
+                                                download="SU-{{ episode.code }}-PREAIR.mkv"
                                                 href="https://dl.sug.rocks/preair/{{ episode.filename }}">
                                                 <span class="icon is-small">
                                                     <i class="fa fa-download"></i>
@@ -45,7 +44,7 @@
                                             </a>
 {% if episode.torrent == '1' %}
                                             <a title="Torrent"
-                                                download="SU-{{ episode.ep }}-PREAIR.torrent"
+                                                download="SU-{{ episode.code }}-PREAIR.torrent"
                                                 href="https://dl.sug.rocks/torrents/preair/{{ episode.filename }}.torrent">
                                                 <span class="icon is-small">
                                                     <i class="fa fa-globe"></i>
@@ -70,7 +69,7 @@
 {% endif %}
                                         </td>
                                         <td>
-                                            <small>({{ episode.ep }})</small>
+                                            <small>({{ episode.code }})</small>
                                         </td>
                                         <td>
                                             {{ episode.title }}
@@ -89,7 +88,7 @@
                                 <b><a href="https://dl.sug.rocks/torrents/all.zip">Get all the torrents</a></b>
                                 <table class="dllist">
 {% for episode in itunes %}
-{% if lastseason != episode.ep[:2] %}{% if episode.ep[:2] == "Sp" %}
+{% if episode.episode[:2] == '01' %}{% if episode.season[:2] == "Sp" %}
                                     <tr>
                                         <th colspan="3">
                                             <h4 class="title is-4">Specials</h4>
@@ -98,14 +97,14 @@
 {% else %}
                                     <tr>
                                         <th colspan="3">
-                                            <h4 class="title is-4">Season {{ episode.ep[:2] }}</h4>
+                                            <h4 class="title is-4">Season {{ episode.season }}</h4>
                                         </th>
                                     </tr>
-{% endif %}{% set lastseason = episode.ep[:2] %}{% endif %}
+{% endif %}{% endif %}
                                     <tr id="{{ episode.id }}">
                                         <td>
                                             <a title="Direct Download"
-                                                download="SU-{{ episode.ep }}.mkv"
+                                                download="SU-{{ episode.code }}.mkv"
                                                 href="https://dl.sug.rocks/{{ episode.filename }}">
                                                 <span class="icon is-small">
                                                     <i class="fa fa-download"></i>
@@ -113,7 +112,7 @@
                                             </a>
 {% if episode.torrent == '1' %}
                                             <a title="Torrent"
-                                                download="SU-{{ episode.ep }}.torrent"
+                                                download="SU-{{ episode.code }}.torrent"
                                                 href="https://dl.sug.rocks/torrents/{{ episode.filename }}.torrent">
                                                 <span class="icon is-small">
                                                     <i class="fa fa-globe"></i>
@@ -130,7 +129,7 @@
 {% endif %}
                                         </td>
                                         <td>
-                                            <small>({{ episode.ep }})</small>
+                                            <small>({{ episode.code }})</small>
                                         </td>
                                         <td>
                                             {{ episode.title }}
@@ -148,7 +147,7 @@
                                 <b><a href="https://mega.nz/#F!JotHkR6Y!giZlsdwr_k5ULQAIJKWrsw">Mirror from this Mega</a></b>
                                 <table class="dllist">
 {% for episode in individual %}
-{% if lastseason != episode.ep[:2] %}{% if episode.ep[:2] == "Sp" %}
+{% if episode.episode[:2] == '01' %}{% if episode.season[:2] == "Sp" %}
                                     <tr>
                                         <th colspan="3">
                                             <h4 class="title is-4">Specials</h4>
@@ -157,14 +156,14 @@
 {% else %}
                                     <tr>
                                         <th colspan="3">
-                                            <h4 class="title is-4">Season {{ episode.ep[:2] }}</h4>
+                                            <h4 class="title is-4">Season {{ episode.season }}</h4>
                                         </th>
                                     </tr>
-{% endif %}{% set lastseason = episode.ep[:2] %}{% endif %}
+{% endif %}{% endif %}
                                     <tr id="{{ episode.id }}">
                                         <td>
                                             <a title="Direct Download"
-                                                download="SU-{{ episode.ep }}.mp4"
+                                                download="SU-{{ episode.code }}.mp4"
                                                 href="https://dl.sug.rocks/mega/{{ episode.filename }}">
                                                 <span class="icon is-small">
                                                     <i class="fa fa-download"></i>
@@ -180,7 +179,7 @@
 {% endif %}
                                         </td>
                                         <td>
-                                            <small>({{ episode.ep }})</small>
+                                            <small>({{ episode.code }})</small>
                                         </td>
                                         <td>
                                             {{ episode.title }}
