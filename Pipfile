@@ -12,11 +12,11 @@ bs4 = "*"
 [dev-packages]
 flake8 = "*"
 
-[packages.basc-py4chan]
-git = "https://github.com/bibanon/basc-py4chan"
-
 [packages.py8chan]
-git = "https://github.com/bibanon/py8chan"
+git = "https://github.com/bibanon/py8chan.git"
 
 [packages."pushbullet.py"]
-git = "https://github.com/randomchars/pushbullet.py"
+git = "https://github.com/randomchars/pushbullet.py.git"
+
+[packages.basc-py4chan]
+git = "https://github.com/bibanon/basc-py4chan.git"
