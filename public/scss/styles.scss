@@ -98,7 +98,7 @@ s { // spoilers
 
         .news-text {
             display: table-cell;
-            padding-left: 10px;
+            padding: 0 10px;
             text-align: left;
             vertical-align: middle;
         }
@@ -328,6 +328,21 @@ td {
 }
 
 @media screen and (max-width: $tablet) {
+    .notif .news-table {
+        display: inline-block;
+
+        .news-text {
+            border-bottom: 1px solid black;
+            display: inline-block;
+            margin-bottom: 10px;
+            width: 100%;
+
+            &:last-child {
+                border: none;
+            }
+        }
+    }
+
     .sug-threads {
         .op-post {
             text-align: center;
