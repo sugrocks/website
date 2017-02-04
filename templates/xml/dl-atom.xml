@@ -1,7 +1,7 @@
 {% extends "layout-atom.xml" %}
 {% from "helper.xml" import atom_item %}
-{% block feed_title %}/sug/ iTunesRip Downloads{% endblock %}
-{% block feed_description %}Direct downloads or torrents to the iTunes version of Steven Universe{% endblock %}
+{% block feed_title %}/sug/ Downloads{% endblock %}
+{% block feed_description %}Direct downloads or torrents for Steven Universe episodes{% endblock %}
 {% block feed_update %}{{ lastupdate }}{% endblock %}
 {% block feed_id %}https://sug.rocks/dl.xml{% endblock %}
 {% block feed_self %}https://sug.rocks/dl.xml{% endblock %}

@@ -1,8 +1,8 @@
 {% extends "layout-rss.xml" %}
 {% from "helper.xml" import rss_item %}
 {% block feed_self %}https://sug.rocks/dl.rss{% endblock %}
-{% block feed_title %}/sug/ iTunesRip Downloads{% endblock %}
-{% block feed_description %}Direct downloads or torrents to the iTunes version of Steven Universe{% endblock %}
+{% block feed_title %}/sug/ Downloads{% endblock %}
+{% block feed_description %}Direct downloads or torrents for Steven Universe episodes{% endblock %}
 {% block feed_link %}https://sug.rocks/dl.html{% endblock %}
 {% block feed_title_image %}/sug/ iTunesRip Downloads{% endblock %}
 {% block feed_link_image %}https://sug.rocks/dl.html{% endblock %}
