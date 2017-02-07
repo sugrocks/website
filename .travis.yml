@@ -4,7 +4,7 @@ language: node_js
 node_js:
     - "node"
 python:
-    - "3.5"
+    - "3.6"
 before_install:
     - python3 -V
     - pip3 -V

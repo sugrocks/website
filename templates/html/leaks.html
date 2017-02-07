@@ -8,40 +8,34 @@
                             Note that old episodes could come back in this list. We will keep an eye on this and filter them.<br>
                         </p>
 {% for leak in leaks %}
-                        <div id="{{ leak.contentid }}" class="spoiler spoiler-default spoiler-state-collapsed"
-                            data-connection="A" data-toggle-placement="top"
-                            data-toggle-text="{{ leak.title }} (ID: {{ leak.contentid }})">
-                            <div class="spoiler-content">
-                                <h3>{{ leak.title }}</h3>
+                        <h3>{{ leak.title }}</h3> <!-- (ID: {{ leak.contentid }}) -->
 {% if leak.desc %}
-                                <blockquote>
-                                    <p>{{ leak.desc }}</p>
-                                </blockquote>
+                        <blockquote>
+                            <p>{{ leak.desc }}</p>
+                        </blockquote>
 {% endif %}
 {% if leak.screenshots %}
-                                <div class="spoiler spoiler-default spoiler-state-collapsed"
-                                    data-connection="B" data-toggle-placement="top"
-                                    data-toggle-text="Screenshots">
-                                    <div class="spoiler-content">
+                        <div class="spoiler spoiler-default spoiler-state-collapsed"
+                            data-connection="B" data-toggle-placement="top"
+                            data-toggle-text="Screenshots">
+                            <div class="spoiler-content">
 {% for screen in leak.screenshots %}
-                                        <a target="_blank" href="/leaks/{{ screen }}"><img class="screenleak" src="/leaks/{{ screen }}"></a>
+                                <a target="_blank" href="/leaks/{{ screen }}"><img class="screenleak" src="/leaks/{{ screen }}"></a>
 {% endfor %}
-                                    </div>
-                                </div>
-{% endif %}
-{% if leak.previews %}
-                                <div class="spoiler spoiler-default spoiler-state-collapsed"
-                                    data-connection="B" data-toggle-placement="top"
-                                    data-toggle-text="2 minutes video preview">
-                                    <div class="spoiler-content">
-{% for video in leak.previews %}
-                                        <video src="/leaks/{{ video }}" controls></video>
-{% endfor %}
-                                    </div>
-                                </div>
-{% endif %}
                             </div>
                         </div>
+{% endif %}
+{% if leak.previews %}
+                        <div class="spoiler spoiler-default spoiler-state-collapsed"
+                            data-connection="B" data-toggle-placement="top"
+                            data-toggle-text="2 minutes video preview">
+                            <div class="spoiler-content">
+{% for video in leak.previews %}
+                                <video src="/leaks/{{ video }}" controls></video>
+{% endfor %}
+                            </div>
+                        </div>
+{% endif %}
 {% endfor %}
 
 {% if founds == 0 %}
