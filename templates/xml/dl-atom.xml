@@ -10,7 +10,7 @@
 {% for episode in episodes %}
 {% set published %}{{ episode.date|atomdate }}{% endset %}
 {% set updated %}{{ episode.date|atomdate }}{% endset %}
-{% set title %}[{% if episode.id[-3:] == 'tmp' %}PREAIR{% elif episode.id[-1:] == 'i' %}Individual{% else %}iTunes RAW{% endif %}] {{ episode.title }} ({{ episode.ep }}){% endset %}
+{% set title %}[{% if episode.id[-3:] == 'tmp' %}PREAIR{% elif episode.id[-1:] == 'i' %}Individual{% else %}iTunes RAW{% endif %}] {{ episode.title }} ({{ episode.code }}){% endset %}
 {% set content %}
                 <ul>
 {% if episode.id[-3:] == 'tmp' %}

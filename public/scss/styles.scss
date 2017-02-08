@@ -6,6 +6,11 @@ a { // small transition with links
     transition: color .4s;
 }
 
+.hidden-link:hover {
+    color: $link-hover;
+    cursor: pointer;
+}
+
 .cc-revoke { // don't show that "cookie" stuff everytime once answered
     display: none !important;
 }
@@ -268,7 +273,7 @@ td {
 	text-align: right;
 }
 
-.spoiler-content .spoiler-content {
+.page-leaks .spoiler-content {
     text-align: center;
 
     .screenleak {

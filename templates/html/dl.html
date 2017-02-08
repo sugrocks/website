@@ -1,6 +1,33 @@
 {% extends "layout.html" %}
 {% block body %}
             <div class="card is-fullwidth">
+                <header class="card-header">
+                    <p class="card-header-title">
+                        Important Note
+                    </p>
+                </header>
+                <div class="card-content">
+                    <div class="content">
+                        <p>
+                            This page offers options to download Steven Universe episodes.<br>
+                            Downloading from here or any Mega links may be illegal. Please consider supporting official sources!<br>
+                            If you live outside the US and don't have any legal source to watch your episodes, feel free to continue.<br>
+                            <span class="hidden-link" onclick="youAreAPirate()">Click here to show the download list.</span><br>
+                            <br>
+                            You can get Steven Universe episodes legally from those sources:<br>
+                            <a href="https://geo.itunes.apple.com/us/tv-season/steven-universe-vol.-6/id1194033672?mt=4">iTunes</a> - 
+                            <a href="https://play.google.com/store/tv/show/Steven_Universe?id=B5b3bs5rsOU">Google Play</a> - 
+                            <a href="https://www.amazon.com/gp/video/detail/B01N28RKN5">Amazon</a> - 
+                            <a href="http://www.cartoonnetwork.com/video/steven-universe/">CartoonNetwork.com</a> - 
+                            <a href="http://www.cartoonnetwork.com/apps/cartoon-network/cartoon-network/">Cartoon Network App</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="card is-fullwidth" id="ImOKWithThat" style="display:none;">
                 <div class="card-content">
                     <div class="content">
                         <p>
@@ -194,5 +221,6 @@
             </div>
 {% endblock %}
 {% block footer_includes %}
+    <script src="/js/dl.js"></script>
     <script src="/js/spoiler.js"></script>
 {% endblock %}
