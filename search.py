@@ -2,6 +2,7 @@ import os
 import re
 import sys
 import json
+import html
 import shutil
 import crayons
 import py8chan
@@ -64,8 +65,8 @@ def find_edition(text):
     m = re.search(reg, text, re.IGNORECASE)
     # If there's something, return our result
     if m:
-        # Remove any <p> that 8ch left
-        return re.sub(r'<p.*>', '', m.group()).rstrip()
+        # Remove any <p> that 8ch left and unescape html entities
+        return html.unescape(re.sub(r'<p.*>', '', m.group()).rstrip())
     else:
         return ''
 
