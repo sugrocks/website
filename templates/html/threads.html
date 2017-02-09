@@ -74,7 +74,7 @@
 {% set edition_name = thread.topic.comment|edition %}
 {% if edition_name %}
                                 <blockquote id="opedition-{{ thread.topic.post_number }}" class="op-content">
-                                    {{ edition_name }}
+                                    {{ edition_name|e }}
                                 </blockquote>
 {% endif %}
                                 <blockquote id="op-{{ thread.topic.post_number }}" class="op-content" style="display: none;">
