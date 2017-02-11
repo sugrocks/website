@@ -54,6 +54,10 @@ s { // spoilers
     }
 }
 
+span.quote { // >
+    color: $green;
+}
+
 .countdown { // the countdown widget
     border: 0;
     height: 100px !important;
@@ -199,10 +203,6 @@ s { // spoilers
 
         .op-content {
             margin-top: 15px;
-
-            .quote {
-                color: $green;
-            }
         }
     }
 
