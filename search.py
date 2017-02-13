@@ -126,8 +126,9 @@ def sug_threads():
     # Main function
     global dco, dtrash, dsugen
 
-    # Init temporary value to test if something changed
+    # Init temporary value to test if something changed and load ignore list
     uniqid = 0
+    ignoreplz = filecache.get('config', 'ignore').split(',')
 
     # Get /co/, /trash/ and /sugen/ current threads without too much details
     try:
@@ -189,7 +190,8 @@ def sug_threads():
             thread._board._thread_cache.pop(thread.id, None)
 
     for thread in sugenthr:
-        if (is_sug(thread)):
+        # Test if it's a sug thread and it's not ignored
+        if (is_sug(thread)) and str(thread.id) not in ignoreplz:
             # Test if we don't have this thread yet
             if not any(x.topic.post_id == thread.topic.post_id for x in dsugen):
                 dsugen.append(thread)
@@ -208,12 +210,13 @@ def sug_threads():
     # And we now reverse the list
     threadlist = list(reversed(threadlist))
 
-    # Try to update our threads meta and remove them if 404'd
+    # Try to update our threads meta and
+    # remove them if 404'd or if they're ignored
     filecache['threads'] = {}
     for thread in threadlist:
         try:
             thread.update(True)
-            if thread.is_404:
+            if str(thread.id) in ignoreplz or thread.is_404:
                 # If it did 404, delete it from our cache and the list
                 thread._board._thread_cache.pop(thread.id, None)
                 threadlist.remove(thread)
