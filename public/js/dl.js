@@ -1,3 +1,4 @@
+/* global readCookie */
 /* === Toggle to show downloads === */
 function youAreAPirate (checked) { // eslint-disable-line
   var dlList = document.querySelector('#ImOKWithThat')
@@ -13,6 +14,8 @@ function youAreAPirate (checked) { // eslint-disable-line
   }
 }
 
+/* === Display the downloads on page load if ===
+ * === we are recognized as a pirate (Yarr!) === */
 function checkIfImAPirate () {
   if (readCookie('WhoAmI') === 'You are a pirate!') {
     youAreAPirate(true)
