@@ -16,22 +16,22 @@
 {% endif %}
 {% if leak.screenshots %}
                         <div class="spoiler spoiler-default spoiler-state-collapsed"
-                            data-connection="B" data-toggle-placement="top"
+                            data-connection="A" data-toggle-placement="top"
                             data-toggle-text="Screenshots">
                             <div class="spoiler-content">
 {% for screen in leak.screenshots %}
-                                <a target="_blank" href="/leaks/{{ screen }}"><img class="screenleak" src="/leaks/{{ screen }}"></a>
+                                <a target="_blank" href="{{ screen }}"><img class="screenleak" src="{{ screen }}"></a>
 {% endfor %}
                             </div>
                         </div>
 {% endif %}
 {% if leak.previews %}
                         <div class="spoiler spoiler-default spoiler-state-collapsed"
-                            data-connection="B" data-toggle-placement="top"
+                            data-connection="A" data-toggle-placement="top"
                             data-toggle-text="2 minutes video preview">
                             <div class="spoiler-content">
 {% for video in leak.previews %}
-                                <video src="/leaks/{{ video }}" controls></video>
+                                <video src="{{ video }}" controls></video>
 {% endfor %}
                             </div>
                         </div>
@@ -40,6 +40,47 @@
 
 {% if founds == 0 %}
                         <h3 style="text-align: center">Nothing here yet!</h3>
+{% endif %}
+{% if otherfounds > 0 %}
+                        <hr>
+                        <div class="spoiler spoiler-default spoiler-state-collapsed"
+                            data-connection="A" data-toggle-placement="top"
+                            data-toggle-text="For other shows">
+                            <div class="spoiler-content">
+{% for leak in otherleaks %}
+                                <div class="spoiler spoiler-default spoiler-state-collapsed"
+                                    data-connection="B" data-toggle-placement="top"
+                                    data-toggle-text="{{ leak.show }}: {{ leak.title }}">
+{% if leak.desc %}
+                                    <blockquote>
+                                        <p>{{ leak.desc }}</p>
+                                    </blockquote>
+{% endif %}
+{% if leak.screenshots %}
+                                    <div class="spoiler spoiler-default spoiler-state-collapsed"
+                                        data-connection="C" data-toggle-placement="top"
+                                        data-toggle-text="Screenshots">
+                                        <div class="spoiler-content">
+{% for screen in leak.screenshots %}
+                                            <a target="_blank" href="{{ screen }}"><img class="screenleak" src="{{ screen }}"></a>
+{% endfor %}
+                                        </div>
+                                    </div>
+{% endif %}
+{% if leak.previews %}
+                                    <div class="spoiler spoiler-default spoiler-state-collapsed"
+                                        data-connection="C" data-toggle-placement="top"
+                                        data-toggle-text="2 minutes video preview">
+                                        <div class="spoiler-content">
+{% for video in leak.previews %}
+                                            <video src="{{ video }}" controls></video>
+{% endfor %}
+                                        </div>
+                                    </div>
+{% endif %}
+{% endfor %}
+                            </div>
+                        </div>
 {% endif %}
 
                     </div>
