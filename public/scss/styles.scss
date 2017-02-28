@@ -6,6 +6,11 @@ a { // small transition with links
     transition: color .4s;
 }
 
+hr {
+    background-color: #8f8f8f;
+    height: 2px;
+}
+
 .hidden-link:hover {
     color: $link-hover;
     cursor: pointer;
@@ -283,6 +288,12 @@ td {
     .screenleak {
         max-width: 45%;
         height: auto;
+    }
+
+    video {
+        background-color: black;
+        display: block;
+        width: 100%;
     }
 }
 
