@@ -1,4 +1,7 @@
 {% extends "layout.html" %}
+{% block header_includes %}
+    <script src="/js/lazysizes.min.js"></script>
+{% endblock %}
 {% block body %}
             <div class="card is-fullwidth">
                 <div class="card-content">
@@ -20,7 +23,7 @@
                             data-toggle-text="Screenshots">
                             <div class="spoiler-content">
 {% for screen in leak.screenshots %}
-                                <a target="_blank" href="{{ screen }}"><img class="screenleak" src="{{ screen }}"></a>
+                                <a target="_blank" href="{{ screen }}"><img class="screenleak lazyload" data-src="{{ screen }}"></a>
 {% endfor %}
                             </div>
                         </div>
@@ -31,7 +34,7 @@
                             data-toggle-text="2 minutes video preview">
                             <div class="spoiler-content">
 {% for video in leak.previews %}
-                                <video src="{{ video }}" controls></video>
+                                <video src="{{ video }}" controls preload="none"></video>
 {% endfor %}
                             </div>
                         </div>
@@ -58,10 +61,10 @@
                                         </blockquote>
 {% endif %}
 {% for screen in leak.screenshots %}
-                                        <a target="_blank" href="{{ screen }}"><img class="screenleak" src="{{ screen }}"></a>
+                                        <a target="_blank" href="{{ screen }}"><img class="screenleak lazyload" data-src="{{ screen }}"></a>
 {% endfor %}
 {% for video in leak.previews %}
-                                        <video src="{{ video }}" controls></video>
+                                        <video src="{{ video }}" controls preload="none"></video>
 {% endfor %}
                                     </div>
                                 </div>
