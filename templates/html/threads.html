@@ -97,19 +97,5 @@
             </div>
 {% endblock %}
 {% block footer_includes %}
-    <script>
-        var uniqid = "{{ uniqid }}"
-
-        var _yoData = { // eslint-disable-line
-            'username': ' SUGROCKS',
-            'trigger': 'something new happens'
-        }
-        var s = document.createElement('script')
-        s.type = 'text/javascript'
-        s.async = true
-        s.defer = true
-        s.src = 'https://yoapp.s3.amazonaws.com/js/yo-button.js'
-        document.getElementsByTagName('head')[0].appendChild(s)
-    </script>
     <script src="/js/threads.js" charset="utf-8"></script>
 {% endblock %}
