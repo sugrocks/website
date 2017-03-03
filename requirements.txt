@@ -3,6 +3,7 @@ pytz
 crayons
 html5lib
 jinja2==2.9.5
+python-dateutil
 requests==2.13.0
 git+https://github.com/sugrocks/py8chan#egg=py8chan
 git+https://github.com/sugrocks/basc-py4chan#egg=basc-py4chan
