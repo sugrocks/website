@@ -42,7 +42,7 @@ def debuglog(message):
 
 def urlify(text):
     # Make cliquable URLs
-    urlfinder = re.compile(r'(?<!")((https?://|www)[-\w./#?%=&\!]+)')
+    urlfinder = re.compile(r'(?<!")((https?://|www)[-\w./#?%=&!]+)')
     return urlfinder.sub(r'<a href="\1">\1</a>', text)
 
 
@@ -60,7 +60,7 @@ def find_edition(text):
     # Replace <br>s with new lines
     text = re.sub(r'<br\s*?/?>', '\n', text)
     # Also fuck 8ch
-    text = re.sub(r'<\/p>', '\n', text)
+    text = re.sub(r'</p>', '\n', text)
     # And here we search for it, case insensitive
     m = re.search(reg, text, re.IGNORECASE)
     # If there's something, return our result
@@ -104,9 +104,11 @@ def rss_date(timestamp):
 
 
 def is_sug(thread):
-    return (thread.topic.subject is not None and
+    return (
+        thread.topic.subject is not None and
         '/sug/' in thread.topic.subject or
-        'https://sug.rocks/leaks.html' in thread.topic.text_comment)
+        'https://sug.rocks/leaks.html' in thread.topic.text_comment
+    )
 
 
 def load_cache():
@@ -126,9 +128,12 @@ def sug_threads():
     # Main function
     global dco, dtrash, dsugen
 
-    # Init temporary value to test if something changed and load ignore list
+    # Init values
     uniqid = 0
     ignoreplz = filecache.get('config', 'ignore').split(',')
+    cothr = []
+    trashthr = []
+    sugenthr = []
 
     # Get /co/, /trash/ and /sugen/ current threads without too much details
     try:
@@ -136,11 +141,13 @@ def sug_threads():
         cothr = co.get_all_threads(False)
     except:
         print(crayons.red('\nSomething went wrong here'))
+
     try:
         debuglog('     GET /trash/    ')
         trashthr = trash.get_all_threads(False)
     except:
         print(crayons.red('\nSomething went wrong here'))
+
     try:
         debuglog('     GET /sugen/    ')
         sugenthr = sugen.get_all_threads(False)
@@ -172,7 +179,7 @@ def sug_threads():
 
     # Now we check if the thread is about /sug/
     for thread in cothr:
-        if (is_sug(thread)):
+        if is_sug(thread):
             # Test if we don't have this thread yet
             if not any(x.topic.post_id == thread.topic.post_id for x in dco):
                 dco.append(thread)
@@ -181,7 +188,7 @@ def sug_threads():
             thread._board._thread_cache.pop(thread.id, None)
 
     for thread in trashthr:
-        if (is_sug(thread)):
+        if is_sug(thread):
             # Test if we don't have this thread yet
             if not any(x.topic.post_id == thread.topic.post_id for x in dtrash):
                 dtrash.append(thread)
