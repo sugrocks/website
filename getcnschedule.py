@@ -94,7 +94,7 @@ def grab_schedule(url):
                     schedule[parsed_date].append({
                         'date': available_date,
                         'time': time,
-                        'timesamp': int(parsed_datetime.timestamp()),
+                        'timestamp': int(parsed_datetime.timestamp()),
                         'show': show_name,
                         'title': el_episodenumber
                     })
