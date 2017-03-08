@@ -25,6 +25,7 @@
     - [pip](https://pip.pypa.io/en/stable/installing/)
     - [pipenv](https://github.com/kennethreitz/pipenv#-installation)
 - A webserver (like [Caddy](https://caddyserver.com/))
+- Zlib (apt:`zlib1g-dev`) and libjpeg (apt:`libjpeg62-turbo-dev`)
 
 
 ## Install

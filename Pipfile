@@ -2,6 +2,9 @@
 verify_ssl = true
 url = "https://pypi.python.org/simple"
 
+[dev-packages]
+flake8 = "*"
+
 [packages]
 bs4 = "*"
 jinja2 = "*"
@@ -9,15 +12,13 @@ pytz = "*"
 python-dateutil = "*"
 html5lib = "*"
 crayons = "*"
-
-[dev-packages]
-flake8 = "*"
+pillow = "*"
 
 [packages.py8chan]
 git = "https://github.com/bibanon/py8chan.git"
 
-[packages.basc-py4chan]
-git = "https://github.com/bibanon/basc-py4chan.git"
-
 [packages."pushbullet.py"]
 git = "https://github.com/randomchars/pushbullet.py.git"
+
+[packages.basc-py4chan]
+git = "https://github.com/bibanon/basc-py4chan.git"
