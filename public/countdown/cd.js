@@ -173,13 +173,14 @@ function countdown () {
       document.getElementById('hours').innerHTML = 'Unknown Date'
       document.getElementById('minutes').innerHTML = ''
       document.getElementById('seconds').innerHTML = ''
+      document.getElementById('status').innerHTML = ''
     } else {
       if (countObj.days !== 0) document.getElementById('days').innerHTML = countObj.days + 'd '
       document.getElementById('hours').innerHTML = countObj.hours + ':'
       document.getElementById('minutes').innerHTML = countObj.minutes + ':'
       document.getElementById('seconds').innerHTML = countObj.seconds
+      document.getElementById('status').innerHTML = (countObj.data.leaked ? '(but already leaked)' : 'until airing on TV')
     }
-    document.getElementById('status').innerHTML = (countObj.data.leaked ? '(but already leaked)' : 'until airing on TV')
   }
 
   setTimeout(countdown, 1000)

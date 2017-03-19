@@ -65,8 +65,8 @@ def find_edition(text):
     m = re.search(reg, text, re.IGNORECASE)
     # If there's something, return our result
     if m:
-        # Remove any <p> that 8ch left and unescape html entities
-        return html.unescape(re.sub(r'<p.*>', '', m.group()).rstrip())
+        # Remove any tags and unescape html entities
+        return html.unescape(re.sub(r'<.*?>', '', m.group()).rstrip())
     else:
         return ''
 
