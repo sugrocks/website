@@ -72,9 +72,11 @@ def grab_zap(url):
 
 
 def gen_schedule_api(cn, zap):
+    details = {'generated': int(datetime.utcnow().timestamp())}
+
     # Save our schedules in a json file
     with open(os.path.join(THIS_DIR, 'api', 'schedule.json'), 'w') as f:
-        f.write(json.dumps({'cn': cn, 'zap': zap}, indent=2, sort_keys=True))
+        f.write(json.dumps({'_': details, 'cn': cn, 'zap': zap}, indent=2, sort_keys=True))
 
 
 if __name__ == '__main__':

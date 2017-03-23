@@ -349,6 +349,12 @@ def sug_threads():
     debuglog('  Generating API... ')
     # Generate API endpoint
     try:
+        # Not in place, but will probably come
+        api = {}
+        api['_'] = {'generated': int(datetime.utcnow().timestamp())}
+        api['threads'] = []
+
+        # The real stuff
         api = []
         # Go through every threads we found
         for thread in threadlist:

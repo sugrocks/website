@@ -1,6 +1,8 @@
 import os
 import json
 import crayons
+
+from datetime import datetime
 from jinja2 import Environment, FileSystemLoader
 
 THIS_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -31,6 +33,7 @@ def gen_page(title, desc, file):
 def gen_op_api():
     # Generate the op.json for the api
     data = {}
+    data['generated'] = int(datetime.utcnow().timestamp())
 
     # Get the OP template
     with open(os.path.join(THIS_DIR, 'templates', 'op.txt'), 'r') as op:

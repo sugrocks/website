@@ -174,6 +174,8 @@ def gen_api(sch):
     # Save our schedule in a json file
     print('Generating json...')
 
+    sch.prepend('_': {'generated': int(datetime.utcnow().timestamp())})
+
     with open(os.path.join(THIS_DIR, 'api', 'ccnschedule.json'), 'w') as f:
         f.write(json.dumps(sch, indent=2, sort_keys=False))
 

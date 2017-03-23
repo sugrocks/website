@@ -216,6 +216,7 @@ def gen_dl_api():
 
     # Make our json object
     api = {}
+    api['_'] = {"generated": int(datetime.utcnow().timestamp())}
     api['preair'] = preair
     api['itunes'] = itunes
     api['individual'] = individual
