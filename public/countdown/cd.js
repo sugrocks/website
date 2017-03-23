@@ -96,7 +96,7 @@ function episodeList () { // eslint-disable-line no-unused-vars
         count = 'in ' + countObj.days + 'd ' + countObj.hours + ':' + countObj.minutes + ':' + countObj.seconds
         count += '\n' + episodes[i].ltdate
         if (episodes[i].supposed) {
-            count += ' (supposed)'
+          count += ' (supposed)'
         }
       }
       next += '[' + episodes[i].desc + '] ' + episodes[i].name + '\n' + count + suffix + '\n\n'
