@@ -103,6 +103,10 @@ def grab_schedule(url):
 
                     if show_name == 'MOVIE:':  # Remove the colon plz
                         show_name = 'MOVIE'
+                    elif show_name == 'SPECIAL:':
+                        show_name = 'SPECIAL'
+                    elif show_name == 'Cloudy':  # Fix name
+                        show_name = 'Cloudy with a Chance of Meatballs'
 
                     try:
                         el_next_time = trs[i + 2].find(class_='timecell')

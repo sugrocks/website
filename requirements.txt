@@ -1,8 +1,9 @@
 bs4
 pytz
+Pillow
 crayons
 html5lib
-Pillow
+randomcolor
 jinja2==2.9.5
 python-dateutil
 requests==2.13.0
