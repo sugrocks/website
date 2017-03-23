@@ -40,7 +40,7 @@ function getFormatedDate (dateObj) {
   return res + pad(dateObj.getDate()) + ' ' + pad(dateObj.getHours()) + ':' + pad(dateObj.getMinutes())
 }
 
-function addEpisode (desc, name, timefunc, year, month, date, hours, minutes, length, leaked, unknown) { // eslint-disable-line no-unused-vars
+function addEpisode (desc, name, timefunc, year, month, date, hours, minutes, length, leaked, supposed, unknown) { // eslint-disable-line no-unused-vars
   var episode = {}
   episode.desc = desc
   episode.name = name
@@ -52,6 +52,7 @@ function addEpisode (desc, name, timefunc, year, month, date, hours, minutes, le
   episode.offsetdiff = foreigntime.offset - ltdateObj.getTimezoneOffset()
   episode.ltdate = getFormatedDate(ltdateObj)
   episode.leaked = leaked
+  episode.supposed = supposed
   episode.unknown = unknown
   episode.timefollow = false
   episode.dstchange = false
@@ -91,9 +92,12 @@ function episodeList () { // eslint-disable-line no-unused-vars
     } else {
       var countObj = getEpisodeCount(i, timestamp)
       var suffix = (episodes[i].dstchange ? ' *' : '')
-      if (episodes[i].unknown !== 1) {
+      if (!episodes[i].unknown) {
         count = 'in ' + countObj.days + 'd ' + countObj.hours + ':' + countObj.minutes + ':' + countObj.seconds
         count += '\n' + episodes[i].ltdate
+        if (episodes[i].supposed) {
+            count += ' (supposed)'
+        }
       }
       next += '[' + episodes[i].desc + '] ' + episodes[i].name + '\n' + count + suffix + '\n\n'
     }
@@ -101,7 +105,7 @@ function episodeList () { // eslint-disable-line no-unused-vars
   if (episodes.length > 5) {
     next += 'And more to come!\n\n'
   }
-  next += '---\nSources: misseps, Derpy News and Cartoon Network'
+  next += '---\nSources: Cartoon Network and Zap2it'
 
   window.alert(next)
 }
@@ -140,46 +144,65 @@ function countdown () {
   episodeIndex = getEpIndex(timestamp)
 
   if (episodeIndex === false) {
+    countdown.running = false
+
     document.getElementById('container').className = 'hiatus'
     document.getElementById('name').innerHTML = 'Next air date unknown'
     document.getElementById('desc').innerHTML = ''
+
     document.getElementById('days').innerHTML = ''
     document.getElementById('hours').innerHTML = 'Hiatus?'
     document.getElementById('minutes').innerHTML = ''
     document.getElementById('seconds').innerHTML = ''
+
     document.getElementById('status').innerHTML = '<span class="spoiler">RIP</span>'
     return
   }
 
   var diff = episodes[episodeIndex].time - timestamp
+  var countObj = getEpisodeCount(episodeIndex, timestamp)
+
   if (diff <= 0 && !countdown.running) {
-    document.getElementById('container').className = 'live'
+    countdown.running = true
+
     document.getElementById('name').innerHTML = 'New Episode'
     document.getElementById('desc').innerHTML = ''
+
     document.getElementById('days').innerHTML = ''
     document.getElementById('hours').innerHTML = '>LIVE'
     document.getElementById('minutes').innerHTML = ''
     document.getElementById('seconds').innerHTML = ''
+
     document.getElementById('status').innerHTML = 'on Cartoon Network'
-    countdown.running = true
-  } else if (diff > 0) {
+  } else if (countObj.data.unknown === 1) {
     countdown.running = false
-    var countObj = getEpisodeCount(episodeIndex, timestamp)
-    document.getElementById('container').className = 'unknown'
+
     document.getElementById('name').innerHTML = countObj.data.name
     document.getElementById('desc').innerHTML = ' [' + countObj.data.desc + ']'
-    if (countObj.data.unknown === 1) {
-      document.getElementById('days').innerHTML = ''
-      document.getElementById('hours').innerHTML = 'Unknown Date'
-      document.getElementById('minutes').innerHTML = ''
-      document.getElementById('seconds').innerHTML = ''
-      document.getElementById('status').innerHTML = ''
+
+    document.getElementById('days').innerHTML = ''
+    document.getElementById('hours').innerHTML = 'Unknown Date'
+    document.getElementById('minutes').innerHTML = ''
+    document.getElementById('seconds').innerHTML = ''
+
+    document.getElementById('status').innerHTML = '&nbsp;'
+  } else if (diff > 0) {
+    countdown.running = false
+
+    document.getElementById('name').innerHTML = countObj.data.name
+    document.getElementById('desc').innerHTML = ' [' + countObj.data.desc + ']'
+
+    if (countObj.days !== 0) document.getElementById('days').innerHTML = countObj.days + 'd '
+    document.getElementById('hours').innerHTML = countObj.hours + ':'
+    document.getElementById('minutes').innerHTML = countObj.minutes + ':'
+    document.getElementById('seconds').innerHTML = countObj.seconds
+
+    if (countObj.data.leaked) {
+      document.getElementById('status').innerHTML = '(but already leaked)'
+    } else if (countObj.data.supposed) {
+      document.getElementById('status').innerHTML = '(supposed)'
     } else {
-      if (countObj.days !== 0) document.getElementById('days').innerHTML = countObj.days + 'd '
-      document.getElementById('hours').innerHTML = countObj.hours + ':'
-      document.getElementById('minutes').innerHTML = countObj.minutes + ':'
-      document.getElementById('seconds').innerHTML = countObj.seconds
-      document.getElementById('status').innerHTML = (countObj.data.leaked ? '(but already leaked)' : 'until airing on TV')
+      document.getElementById('status').innerHTML = 'until airing on TV'
     }
   }
 
