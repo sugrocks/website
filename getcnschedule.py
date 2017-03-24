@@ -5,6 +5,7 @@ import math
 import requests
 import collections
 import randomcolor
+import better_exceptions
 
 from dateutil import parser
 from bs4 import BeautifulSoup

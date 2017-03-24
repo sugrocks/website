@@ -12,6 +12,8 @@ import urllib.error
 import urllib.parse
 import urllib.request
 import multiprocessing
+import better_exceptions
+
 from time import sleep
 from collections import deque
 from datetime import datetime

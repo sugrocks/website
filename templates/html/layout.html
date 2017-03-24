@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,7 +33,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js" integrity="sha256-r0xmg4FKpSfK9TvePQIeaq/gCDO0Xy3q0EPIfteGRnQ=" crossorigin="anonymous"></script>
 {% block header_includes %}{% endblock %}
 
-    <!-- To load some pages faster, do it in the background -->
+    <!-- To load some pages faster, prefetch them -->
     <link rel="prerender" href="{{ remote_url }}/">
     <link rel="prerender" href="{{ remote_url }}/dl.html">
     <link rel="prerender" href="{{ remote_url }}/op.html">
