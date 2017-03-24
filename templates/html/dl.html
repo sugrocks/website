@@ -217,6 +217,63 @@
                                 </table>
                             </div>
                         </div>
+
+                        <div id="comics" class="spoiler spoiler-default spoiler-state-collapsed"
+                            data-connection="A" data-toggle-placement="top"
+                            data-toggle-text="Comics/Books">
+                            <div class="spoiler-content">
+                                <table class="dllist">
+{% for comic in comics %}
+                                    <tr id="{{ comic.id }}">
+{% if comic.cbz == '1' %}
+                                        <td>
+                                            <a title="CBZ"
+                                                download="SUG-CBZ-{{ comic.id }}.cbz"
+                                                href="https://dl.sug.rocks/comics/{{ comic.folder }}/SUG-CBZ-{{ comic.id }}.cbz">
+                                                CBZ
+                                            </a>
+                                        </td>
+{% endif %}
+{% if comic.cbr == '1' %}
+                                        <td>
+                                            <a title="CBR"
+                                                download="SUG-CBR-{{ comic.id }}.cbr"
+                                                href="https://dl.sug.rocks/comics/{{ comic.folder }}/SUG-CBR-{{ comic.id }}.cbr">
+                                                CBR
+                                            </a>
+                                        </td>
+{% endif %}
+{% if comic.pdf == '1' %}
+                                        <td>
+                                            <a title="PDF"
+                                                download="SUG-PDF-{{ comic.id }}.pdf"
+                                                href="https://dl.sug.rocks/comics/{{ comic.folder }}/SUG-PDF-{{ comic.id }}.pdf">
+                                                PDF
+                                            </a>
+                                        </td>
+{% endif %}
+{% if comic.epub == '1' %}
+                                        <td>
+                                            <a title="EPUB"
+                                                download="SUG-EPUB-{{ comic.id }}.epub"
+                                                href="https://dl.sug.rocks/comics/{{ comic.folder }}/SUG-EPUB-{{ comic.id }}.epub">
+                                                EPUB
+                                            </a>
+                                        </td>
+{% endif %}
+                                        <td>
+                                            <small>({{ comic.category }})</small>
+                                        </td>
+                                        <td>
+                                            {{ comic.title }}
+                                        </td>
+                                    </tr>
+{% endfor %}
+                                </table>
+                                <br>
+                                <small>I'm still looking for the others books and comics. If you have any DL link to a digital version, please mail me at <i>kdy (at) waifu (dot) club</i>.</small>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -224,4 +281,5 @@
 {% block footer_includes %}
     <script src="/js/dl.js"></script>
     <script src="/js/spoiler.js"></script>
+
 {% endblock %}

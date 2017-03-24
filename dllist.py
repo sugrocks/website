@@ -28,6 +28,22 @@ def get_id(episode, dltype=''):
     return episode.replace('_', '').replace('x', '') + dltype
 
 
+def get_cat(folder):
+    # Return the category name from the folder name
+    if folder == 'comic':
+        return 'Main Comics (2014-15)'
+    elif folder == '2017comic':
+        return 'Main Comics (2017)'
+    elif folder == 'book':
+        return 'Books'
+    elif folder == 'special':
+        return 'Specials'
+    elif folder == 'sucg':
+        return 'Steven and the Crystal Gems'
+    else:
+        return 'Others'
+
+
 def format_epnumber(episode):
     # Return proper formated season and episode details
     return episode.replace('_', ' & ').replace('00x', 'Special ')
@@ -48,6 +64,7 @@ def gen_dl_page():
     preair = []
     itunes = []
     individual = []
+    comics = []
 
     # Load every "preair" episodes
     for episode in dict(config.items('preair')):
@@ -103,10 +120,28 @@ def gen_dl_page():
             'date': data[3]
         })
 
+    # Load comics and books
+    for comic in dict(config.items('comics')):
+        # Parse episode data
+        data = config.get('comics', comic).split(',')
+        # Add it to the list
+        comics.append({
+            'id': comic.upper(),
+            'title': data[0],
+            'folder': data[1],
+            'category': get_cat(data[1]),
+            'cbz': data[2],
+            'cbr': data[3],
+            'pdf': data[4],
+            'epub': data[5],
+            'date': data[6]
+        })
+
     # Sort episodes
     preair = sorted(preair, key=itemgetter('code'))
     itunes = sorted(itunes, key=itemgetter('code'))
     individual = sorted(individual, key=itemgetter('code'))
+    comics = sorted(comics, key=itemgetter('category'))
 
     # Get current date
     dategen = datetime.utcnow().strftime('%B %d %Y at %H:%M:%S')
@@ -122,8 +157,8 @@ def gen_dl_page():
     # Generate html
     j2_html.get_template('dl.html').stream(
         pagetype='page-dl', pagename='Downloads', pagedesc='Direct links or torrents to episodes', dategen=dategen,
-        # Add episodes lists
-        preair=preair, itunes=itunes, individual=individual,
+        # Add episodes/comics lists
+        preair=preair, itunes=itunes, individual=individual, comics=comics,
         # If there's nothing, we'll not display the "preair" list
         lenpa=len(preair))\
         .dump(os.path.join(THIS_DIR, 'public', 'dl.html'))
@@ -149,6 +184,7 @@ def gen_dl_api():
     preair = []
     itunes = []
     individual = []
+    comics = []
 
     # Load every "preair" episodes
     for episode in dict(config.items('preair')):
@@ -212,10 +248,47 @@ def gen_dl_api():
             'date': int(data[3])
         })
 
+    # Load comics and books
+    for comic in dict(config.items('comics')):
+        # Parse episode data
+        data = config.get('comics', comic).split(',')
+        # Add it to the list
+        if data[2] == '1':
+            cbz = 'https://dl.sug.rocks/comics/' + data[1] + '/SUG-CBZ-' + comic.upper() + '.cbz'
+        else:
+            cbz = None
+
+        if data[3] == '1':
+            cbr = 'https://dl.sug.rocks/comics/' + data[1] + '/SUG-CBR-' + comic.upper() + '.cbr'
+        else:
+            cbr = None
+
+        if data[4] == '1':
+            pdf = 'https://dl.sug.rocks/comics/' + data[1] + '/SUG-PDF-' + comic.upper() + '.pdf'
+        else:
+            pdf = None
+
+        if data[5] == '1':
+            epub = 'https://dl.sug.rocks/comics/' + data[1] + '/SUG-EPUB-' + comic.upper() + '.epub'
+        else:
+            epub = None
+
+        comics.append({
+            'id': comic.upper(),
+            'title': data[0],
+            'category': get_cat(data[1]),
+            'cbz': cbz,
+            'cbr': cbr,
+            'pdf': pdf,
+            'epub': epub,
+            'date': int(data[6])
+        })
+
     # Sort episodes
     preair = sorted(preair, key=itemgetter('id'))
     itunes = sorted(itunes, key=itemgetter('id'))
     individual = sorted(individual, key=itemgetter('id'))
+    comics = sorted(comics, key=itemgetter('category'))
 
     # Make our json object
     api = {}
@@ -223,6 +296,7 @@ def gen_dl_api():
     api['preair'] = preair
     api['itunes'] = itunes
     api['individual'] = individual
+    api['comics'] = comics
 
     # Save it
     with open(os.path.join(THIS_DIR, 'api', 'dl.json'), 'w') as f:
