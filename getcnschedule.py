@@ -12,6 +12,7 @@ from bs4 import BeautifulSoup
 from operator import itemgetter
 from datetime import date, datetime
 
+better_exceptions.MAX_LENGTH = None
 THIS_DIR = os.path.dirname(os.path.abspath(__file__))
 
 color_list = {

@@ -8,6 +8,7 @@ from dateutil import parser
 from datetime import datetime
 from bs4 import BeautifulSoup
 
+better_exceptions.MAX_LENGTH = None
 THIS_DIR = os.path.dirname(os.path.abspath(__file__))
 
 

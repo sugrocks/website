@@ -7,6 +7,7 @@ from datetime import datetime
 from operator import itemgetter
 from jinja2 import Environment, FileSystemLoader
 
+better_exceptions.MAX_LENGTH = None
 THIS_DIR = os.path.dirname(os.path.abspath(__file__))
 
 

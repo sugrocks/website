@@ -6,6 +6,7 @@ import better_exceptions
 from datetime import datetime
 from jinja2 import Environment, FileSystemLoader
 
+better_exceptions.MAX_LENGTH = None
 THIS_DIR = os.path.dirname(os.path.abspath(__file__))
 
 
