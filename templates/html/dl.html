@@ -233,6 +233,10 @@
                                                 CBZ
                                             </a>
                                         </td>
+{% else %}
+                                        <td>
+                                            &nbsp;
+                                        </td>
 {% endif %}
 {% if comic.cbr == '1' %}
                                         <td>
@@ -241,6 +245,10 @@
                                                 href="https://dl.sug.rocks/comics/{{ comic.folder }}/SUG-CBR-{{ comic.id }}.cbr">
                                                 CBR
                                             </a>
+                                        </td>
+{% else %}
+                                        <td>
+                                            &nbsp;
                                         </td>
 {% endif %}
 {% if comic.pdf == '1' %}
@@ -251,6 +259,10 @@
                                                 PDF
                                             </a>
                                         </td>
+{% else %}
+                                        <td>
+                                            &nbsp;
+                                        </td>
 {% endif %}
 {% if comic.epub == '1' %}
                                         <td>
@@ -259,6 +271,10 @@
                                                 href="https://dl.sug.rocks/comics/{{ comic.folder }}/SUG-EPUB-{{ comic.id }}.epub">
                                                 EPUB
                                             </a>
+                                        </td>
+{% else %}
+                                        <td>
+                                            &nbsp;
                                         </td>
 {% endif %}
                                         <td>

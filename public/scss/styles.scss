@@ -97,6 +97,7 @@ span.quote { // >
     animation-delay: .2s;
     border-radius: 0;
     display: none;
+    margin-bottom: 5px !important;
     text-align: center;
 
     .news-table {
@@ -120,6 +121,17 @@ span.quote { // >
         &.twitter {
             background: transparent url('https://sug.rocks/img/twitter-512.png') no-repeat scroll right bottom / auto 100%;
         }
+    }
+}
+
+.plug {
+    height: 100px;
+    text-align: center;
+
+    img {
+        /* Desktop: 728x90 */
+        /* Mobile: 320x100 */
+        padding: 0 10px 10px;
     }
 }
 
