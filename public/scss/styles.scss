@@ -97,7 +97,6 @@ span.quote { // >
     animation-delay: .2s;
     border-radius: 0;
     display: none;
-    margin-bottom: 5px !important;
     text-align: center;
 
     .news-table {
@@ -287,8 +286,8 @@ span.quote { // >
     	width: auto;
     }
 
-    h4 {
-    	margin: 20px 0 10px;
+    h5 {
+    	margin: 25px 0 10px;
     }
 }
 
@@ -378,6 +377,7 @@ td {
 
             &:last-child {
                 border: none;
+                margin-bottom: 0;
             }
         }
     }

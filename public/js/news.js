@@ -20,9 +20,7 @@ function checkNews () {
 }
 
 /* === Display the plug (ad) === */
-function plugBanner (ready) {
-  if (ready === 'no') return false
-
+function plugBanner () {
   var linkPlug = document.querySelector('.plug a')
   var deskPlug = document.querySelector('.plug .is-hidden-mobile')
   var mobilePlug = document.querySelector('.plug .is-hidden-tablet')
@@ -34,10 +32,11 @@ function plugBanner (ready) {
       if (xhttp.responseText.trim() !== '') {
         var plugs = JSON.parse(xhttp.responseText)
         var random = plugs[Math.floor(Math.random() * plugs.length)]
+        var picIndex =  Math.floor(Math.random() * random['desktop'].length)
 
         linkPlug.href = random['url']
-        deskPlug.src = random['desktop']
-        mobilePlug.src = random['mobile']
+        deskPlug.src = random['desktop'][picIndex]
+        mobilePlug.src = random['mobile'][picIndex]
       }
     }
   }
@@ -46,6 +45,6 @@ function plugBanner (ready) {
   xhttp.send()
 }
 
-plugBanner('no')
+plugBanner()
 checkNews()
 setInterval(checkNews, 120000)
