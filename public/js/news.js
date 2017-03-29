@@ -32,7 +32,7 @@ function plugBanner () {
       if (xhttp.responseText.trim() !== '') {
         var plugs = JSON.parse(xhttp.responseText)
         var random = plugs[Math.floor(Math.random() * plugs.length)]
-        var picIndex =  Math.floor(Math.random() * random['desktop'].length)
+        var picIndex = Math.floor(Math.random() * random['desktop'].length)
 
         linkPlug.href = random['url']
         deskPlug.src = random['desktop'][picIndex]
