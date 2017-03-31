@@ -19,18 +19,18 @@
 
 
 ## Prerequisites
-- [NodeJS (w/ npm)](https://nodejs.org/en/)
+- [NodeJS (w/ npm)](https://nodejs.org/en/) _(not needed for the leakbot)_
     - [yarn](https://yarnpkg.com/)
 - [Python 3.6](https://www.python.org/)
     - [pip](https://pip.pypa.io/en/stable/installing/)
     - [pipenv](https://github.com/kennethreitz/pipenv#-installation)
 - A webserver (like [Caddy](https://caddyserver.com/))
-- Zlib (apt:`zlib1g-dev`) and libjpeg (apt:`libjpeg62-turbo-dev`)
+- Zlib (apt:`zlib1g-dev`) and libjpeg (apt:`libjpeg62-turbo-dev`) _(only needed for the leakbot)_
 
 
 ## Install
 ```
-git clone --recursive https://gitgud.io/sug/website.git && cd sug
+git clone --recursive https://gitgud.io/sug/website.git && cd website
 yarn # JS/CSS deps
 pipenv install --python $(which python3.6) # Python deps
 cp config/threads-cache.ini.example config/threads-cache.ini
