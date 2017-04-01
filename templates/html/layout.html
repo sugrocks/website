@@ -19,8 +19,23 @@
     <link rel="manifest" href="{{ remote_url }}/manifest.json">
     <link rel="mask-icon" href="{{ remote_url }}/img/safari-pinned-tab.svg" color="#af0a0f">
     <meta name="apple-mobile-web-app-title" content="/sug/">
-    <meta name="application-name" content="Steven Universe General">
+    <meta name="application-name" content="/sug/.rocks">
     <meta name="theme-color" content="#bee7fb">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@sugrocks">
+    <meta name="twitter:title" content="/sug/{% if pagename %} - {{ pagename }}{% endif %}{% block extendtitle %}{% endblock %}">
+    <meta name="twitter:description" content="Threads, leaks, downloads and ressources for /sug/">
+    <meta name="twitter:image" content="{{ remote_url }}/img/sug.jpg">
+    <meta name="twitter:image:alt" content="/sug/.rocks">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="/sug/.rocks">
+    <meta property="og:title" content="/sug/{% if pagename %} - {{ pagename }}{% endif %}{% block extendtitle %}{% endblock %}">
+    <meta property="og:description" content="Threads, leaks, downloads and ressources for /sug/">
+    <meta property="og:image" content="{{ remote_url }}/img/sug.jpg">
 
     <!-- Added stuff -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
