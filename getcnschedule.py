@@ -159,8 +159,8 @@ def grab_cnschedule(url):
                     next_time = '6:00 am'
 
                 time = pretty(''.join(el_time.strings))  # Get the air time
-                parsed_datetime = parser.parse('%s %s -0500' % (parsed_date, time))  # And let's parse it
-                parsed_next_datetime = parser.parse('%s %s -0500' % (parsed_date, next_time))  # And let's parse it
+                parsed_datetime = parser.parse('%s %s -0400' % (parsed_date, time))  # And let's parse it
+                parsed_next_datetime = parser.parse('%s %s -0400' % (parsed_date, next_time))  # And let's parse it
 
                 # If it's before 6am and after (including) 8pm, it's the adultswim part
                 if parsed_datetime.hour < 6 or parsed_datetime.hour >= 20:
