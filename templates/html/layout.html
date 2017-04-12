@@ -153,12 +153,14 @@
         <div class="notification is-info notif">
         </div>
 
+{% if pagetype != 'page-threads' %}
         <div class="plug">
             <a>
                 <img class="is-hidden-mobile">
                 <img class="is-hidden-tablet">
             </a>
         </div>
+{% endif %}
 
         <section class="sug-content">
 {% block body %}{% endblock %}
