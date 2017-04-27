@@ -4,8 +4,7 @@
     <meta charset="utf-8">
     <title>Time until next SU episode</title>
     <meta name="robots" content="noindex, nofollow">
-    <script src="https://sug.rocks/countdown/cd.js?201703231653"></script>
-    <script src="https://sug.rocks/countdown/episodes.js?201704162117"></script>
+    <script src="https://sug.rocks/countdown/countdown.js?201704271721"></script>
     <style>
         body {
             background: transparent;
@@ -14,6 +13,7 @@
             line-height: 1.5;
             margin: 0px;
         }
+
         #container {
             background: #000 url('https://sug.rocks/countdown/su-night.png') center bottom;
             background-size: cover;
@@ -28,12 +28,15 @@
             text-shadow: 0px 0px 10px white;
             width: 300px;
         }
-        #desc {
+
+        #code {
             font-size: 0.7em;
         }
+
         #countdown {
             font-size: 1.5em;
         }
+
         #list {
             bottom: 20px;
             cursor: pointer;
@@ -45,16 +48,9 @@
             transition: opacity 0.5s ease-in;
             width: 30px;
         }
+
         body:hover #list {
             opacity: 1;
-        }
-        .spoiler {
-            background: #000;
-            color: #000;
-            text-shadow: none;
-        }
-        .spoiler:hover {
-            color: #fff;
         }
     </style>
 </head>
@@ -65,13 +61,13 @@
     -->
     <div id="container">
         <div id="episode">
-            <span id="name"></span><span id="desc"></span>
+            <span id="title">&nbsp;</span><span id="code"></span>
         </div>
         <div id="countdown">
-            <span id="days"></span><span id="hours"></span><span id="minutes"></span><span id="seconds"></span>
+            <span id="days"></span><span id="hours">Loading...</span><span id="minutes"></span><span id="seconds"></span>
         </div>
-        <div id="status"></div>
-        <div id="list" onclick="episodeList()">(?)</div>
+        <div id="status">&nbsp;</div>
+        <div id="list" onclick="getList()">(?)</div>
     </div>
 </body>
 </html>

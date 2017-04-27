@@ -1,0 +1,68 @@
+[
+  {
+    "code": "S04E20",
+    "title": "Lion 4: Alternate Ending",
+    "year": 2017,
+    "month": 5,
+    "day": 8,
+    "hour": 23,
+    "minute": 0,
+    "duration": 11,
+    "leaked": false,
+    "supposed": false,
+    "unknown": false
+  },
+  {
+    "code": "S04E21",
+    "title": "Doug Out",
+    "year": 2017,
+    "month": 5,
+    "day": 9,
+    "hour": 23,
+    "minute": 12,
+    "duration": 11,
+    "leaked": false,
+    "supposed": false,
+    "unknown": false
+  },
+  {
+    "code": "S04E22",
+    "title": "The Good Lars",
+    "year": 2017,
+    "month": 5,
+    "day": 10,
+    "hour": 23,
+    "minute": 0,
+    "duration": 11,
+    "leaked": false,
+    "supposed": true,
+    "unknown": false
+  },
+  {
+    "code": "S04E23",
+    "title": "Are You My Dad?",
+    "year": 2017,
+    "month": 5,
+    "day": 11,
+    "hour": 23,
+    "minute": 0,
+    "duration": 11,
+    "leaked": false,
+    "supposed": true,
+    "unknown": false
+  },
+  {
+    "code": "S04E24",
+    "title": "I Am My Mom",
+    "year": 2017,
+    "month": 5,
+    "day": 11,
+    "hour": 23,
+    "minute": 12,
+    "duration": 11,
+    "leaked": false,
+    "supposed": true,
+    "unknown": false
+  }
+]
+
