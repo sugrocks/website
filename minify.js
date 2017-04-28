@@ -22,7 +22,7 @@ function minifyJs (file) {
 minifyJs('public/js/cookies.js')
 minifyJs('public/js/dl.js')
 minifyJs('public/js/menu.js')
-minifyJs('public/js/menu.js')
+minifyJs('public/js/news.js')
 minifyJs('public/js/nsfw.js')
 minifyJs('public/js/radio.js')
 minifyJs('public/js/spoiler.js')
