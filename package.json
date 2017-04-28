@@ -10,10 +10,14 @@
   },
   "bugs": "https://gitgud.io/sug/website/issues",
   "devDependencies": {
-    "standard": "^8.6.0"
+    "minifier": "^0.8.1",
+    "node-minify": "^2.0.4",
+    "ora": "^1.2.0",
+    "standard": "^10.0.2"
   },
   "scripts": {
-    "test": "./node_modules/.bin/standard"
+    "test": "./node_modules/.bin/standard",
+    "minify": "node ./minify.js"
   },
   "engines": {
     "node": "*"

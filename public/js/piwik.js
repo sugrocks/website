@@ -1,4 +1,4 @@
-var _paq = _paq || []
+var _paq = []
 // tracker methods like "setCustomDimension" should be called before "trackPageView"
 _paq.push(['setCookieDomain', '*.sug.rocks'])
 _paq.push(['setDomains', ['*.sug.rocks', '*.www.sug.rocks']])
