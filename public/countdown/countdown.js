@@ -4,7 +4,7 @@ var dontTick = false
 var tock
 
 // Get our episode list
-window.fetch('https://sug.rocks/countdown/episodes.json')
+window.fetch('https://sug.rocks/countdown/episodes.json?' + Math.floor((Math.random() * 10000) + 1))
   .then(function (response) {
     if (response.ok) {
       // If we got the file, parse the json and return it
