@@ -232,7 +232,7 @@ function getList () { // eslint-disable-line no-unused-vars
       msg += ep['title'] + ' (' + ep['code'] + ')'
 
       // If date is not unknown, display it
-      if (!ep['unknown']) {
+      if (!ep['unknown'] && !ep['leaked']) {
         msg += '\n' + diff['d'] + diff['h'] + diff['m']
         msg += '\n' + formatDate(ep['dateObj'])
 
@@ -240,9 +240,10 @@ function getList () { // eslint-disable-line no-unused-vars
         if (ep['supposed']) {
           msg += '\n(supposed)'
         }
+        msg += '\n'
       }
 
-      msg += '\n\n'
+      msg += '\n'
     }
   })
 
