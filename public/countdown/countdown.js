@@ -240,10 +240,9 @@ function getList () { // eslint-disable-line no-unused-vars
         if (ep['supposed']) {
           msg += '\n(supposed)'
         }
-        msg += '\n'
       }
 
-      msg += '\n'
+      msg += '\n\n'
     }
   })
 
