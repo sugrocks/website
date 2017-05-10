@@ -25,9 +25,9 @@
 {% if opfile.file_deleted == True %}
                                         <img src="/img/filedeleted.gif" alt="File was deleted :(">
 {% elif opfile.file_extension == '.gif' %}
-                                        <img{% if thread.topic.spoiler == True %} class="img-spoiler"{% endif %} src="{{ opfile.file_url }}" title="Original: {{ opfile.filename_original }} ({{ opfile.file_width }}x{{ opfile.file_height }})" alt="{{ opfile.filename_original }}">
+                                        <img{% if thread.topic.spoiler == True %} class="img-spoiler"{% endif %} src="https://kdy.ch/proxy.php?url={{ opfile.file_url }}" title="Original: {{ opfile.filename_original }} ({{ opfile.file_width }}x{{ opfile.file_height }})" alt="{{ opfile.filename_original }}">
 {% else %}
-                                        <img{% if thread.topic.spoiler == True %} class="img-spoiler"{% endif %} src="{{ opfile.thumbnail_url }}" title="Original: {{ opfile.filename_original }} ({{ opfile.file_width }}x{{ opfile.file_height }})" alt="{{ opfile.filename_original }}">
+                                        <img{% if thread.topic.spoiler == True %} class="img-spoiler"{% endif %} src="https://kdy.ch/proxy.php?url={{ opfile.thumbnail_url }}" title="Original: {{ opfile.filename_original }} ({{ opfile.file_width }}x{{ opfile.file_height }})" alt="{{ opfile.filename_original }}">
 {% endif %}
                                     </a>
                                 </figure>
