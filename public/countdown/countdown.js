@@ -92,7 +92,7 @@ function startClock () {
 
     // Choose our status text
     if (nextEp['leaked']) {
-      status = '(but already leaked)'
+      status = '(but already online)'
     } else if (nextEp['supposed']) {
       status = '(supposed)'
     } else if (nextEp['unknown']) {
