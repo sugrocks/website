@@ -18,7 +18,7 @@ function checkRadio () {
     }
   }
 
-  xhttp.open('GET', 'https://radio.sug.rocks/status-json.xsl?' + Math.floor((Math.random() * 99999) + 1), true)
+  xhttp.open('GET', 'https://azura.ponies.fr/radio/8010/status-json.xsl?' + Math.floor((Math.random() * 99999) + 1), true)
   xhttp.send()
 }
 checkRadio()
