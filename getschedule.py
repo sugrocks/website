@@ -78,7 +78,7 @@ def grab_zap(url):
 
         # Generate unique id with our content
         m = hashlib.md5()
-        m.update(('[%s] %s (%s) - Airing: %s' % (sepisode, title, synopsis, date_pub)).encode('utf-8'))
+        m.update(('[%s] %s (%s) - Airing: %s' % (episode, title, synopsis, date_pub)).encode('utf-8'))
         gen_id = str(int(m.hexdigest(), 16))[0:12]
 
         # Add it to the list
