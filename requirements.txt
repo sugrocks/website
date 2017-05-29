@@ -4,10 +4,9 @@ Pillow
 crayons
 html5lib
 randomcolor
-jinja2==2.9.5
+jinja2==2.9.6
 python-dateutil
 requests==2.13.0
 better_exceptions
-git+https://github.com/sugrocks/py8chan#egg=py8chan
 git+https://github.com/sugrocks/basc-py4chan#egg=basc-py4chan
 git+https://github.com/randomchars/pushbullet.py#egg=pushbullet.py

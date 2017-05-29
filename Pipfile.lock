@@ -1,115 +1,17 @@
 {
-    "develop": {
-        "mccabe": {
-            "hash": "sha256:ab8a6258860da4b6677da4bd2fe5dc2c659cff31b3ee4f7f5d64e79735b80d42",
-            "version": "==0.6.1"
-        },
-        "pyflakes": {
-            "hash": "sha256:cc5eadfb38041f8366128786b4ca12700ed05bbf1403d808e89d57d67a3875a7",
-            "version": "==1.5.0"
-        },
-        "flake8": {
-            "hash": "sha256:83905eadba99f73fbfe966598aaf1682b3eb6755d2263c5b33a4e8367d60b0d1",
-            "version": "==3.3.0"
-        },
-        "pycodestyle": {
-            "hash": "sha256:6c4245ade1edfad79c3446fadfc96b0de2759662dc29d07d80a6f27ad1ca6ba9",
-            "version": "==2.3.1"
+    "_meta": {
+        "sources": [
+            {
+                "url": "https://pypi.python.org/simple",
+                "verify_ssl": true
+            }
+        ],
+        "requires": {},
+        "hash": {
+            "sha256": "bb8a8ccf23939533c4a0e0a6812c06f686e18c1e7d5fd29d21d2ea7381057211"
         }
     },
     "default": {
-        "better-exceptions": {
-            "hash": "sha256:d63c20af1d9623ce922bf424eda35d8cd3095341e2ee9019b7bea976547a7cf4",
-            "version": "==0.1.7"
-        },
-        "requests": {
-            "hash": "sha256:1a720e8862a41aa22e339373b526f508ef0c8988baf48b84d3fc891a8e237efb",
-            "version": "==2.13.0"
-        },
-        "webencodings": {
-            "hash": "sha256:a0af1213f3c2226497a97e2b3aa01a7e4bee4f403f95be16fc9acd2947514a78",
-            "version": "==0.5.1"
-        },
-        "crayons": {
-            "hash": "sha256:5e17691605e564d63482067eb6327d01a584bbaf870beffd4456a3391bd8809d",
-            "version": "==0.1.2"
-        },
-        "olefile": {
-            "hash": "sha256:61f2ca0cd0aa77279eb943c07f607438edf374096b66332fae1ee64a6f0f73ad",
-            "version": "==0.44"
-        },
-        "websocket-client": {
-            "hash": "sha256:40ac14a0c54e14d22809a5c8d553de5a2ae45de3c60105fae53bcb281b3fe6fb",
-            "version": "==0.40.0"
-        },
-        "MarkupSafe": {
-            "hash": "sha256:a6be69091dac236ea9c6bc7d012beab42010fa914c459791d627dad4910eb665",
-            "version": "==1.0"
-        },
-        "python-magic": {
-            "hash": "sha256:a1ec69e76cc513b1af164c02982607f96ff3bb668162a688f2b1bb5f6a5fe05d",
-            "version": "==0.4.13"
-        },
-        "setuptools": {
-            "hash": "sha256:19d753940f8cdbee7548da318f8b56159aead279ef811a6efc8b8a33d89c86a4",
-            "version": "==35.0.2"
-        },
-        "beautifulsoup4": {
-            "hash": "sha256:0a91347d5a4ab2196407ff4d3d758f2e712cae9bdfa3fd1eb0f83edea95e0d8d",
-            "version": "==4.5.3"
-        },
-        "randomcolor": {
-            "hash": "sha256:71f6e47771433c317cb3db5746354468916fce1fe93557a604c9a6de32f114b5",
-            "version": "==0.4.4.4"
-        },
-        "appdirs": {
-            "hash": "sha256:d8b24664561d0d34ddfaec54636d502d7cea6e29c3eaf68f3df6180863e2166e",
-            "version": "==1.4.3"
-        },
-        "html5lib": {
-            "hash": "sha256:b8934484cf22f1db684c0fae27569a0db404d0208d20163fbf51cc537245d008",
-            "version": "==0.999999999"
-        },
-        "py8chan from git+https://github.com/bibanon/py8chan.git#egg=py8chan": {
-            "hash": "sha256:43cd4f25fd21f4b7c63266f9cf4a0487c74d4d652e82b6b0adf66ce591d36a43",
-            "version": "==0.0.1"
-        },
-        "colorama": {
-            "hash": "sha256:463f8483208e921368c9f306094eb6f725c6ca42b0f97e313cb5d5512459feda",
-            "version": "==0.3.9"
-        },
-        "packaging": {
-            "hash": "sha256:99276dc6e3a7851f32027a68f1095cd3f77c148091b092ea867a351811cfe388",
-            "version": "==16.8"
-        },
-        "pushbullet.py from git+https://github.com/randomchars/pushbullet.py.git#egg=pushbullet.py": {
-            "hash": "sha256:9cfa533ee204f0531778e90af5f61f928bd52dc3b0a76cf2ea89893eb6e83b77",
-            "version": "==0.10.0"
-        },
-        "pillow": {
-            "hash": "sha256:00b6a5f28d00f720235a937ebc2f50f4292a5c7e2d6ab9a8b26153b625c4f431",
-            "version": "==4.1.1"
-        },
-        "python-dateutil": {
-            "hash": "sha256:537bf2a8f8ce6f6862ad705cd68f9e405c0b5db014aa40fa29eab4335d4b1716",
-            "version": "==2.6.0"
-        },
-        "six": {
-            "hash": "sha256:0ff78c403d9bccf5a425a6d31a12aa6b47f1c21ca4dc2573a7e2f32a97335eb1",
-            "version": "==1.10.0"
-        },
-        "pyparsing": {
-            "hash": "sha256:fee43f17a9c4087e7ed1605bd6df994c6173c1e977d7ade7b651292fab2bd010",
-            "version": "==2.2.0"
-        },
-        "basc-py4chan from git+https://github.com/bibanon/basc-py4chan.git#egg=basc-py4chan": {
-            "hash": "sha256:d2d84da91832341ebb51ab1494d0f1923e4080d0d0a9919b4e6afec8c9e56dd2",
-            "version": "==0.6.3"
-        },
-        "jinja2": {
-            "hash": "sha256:2231bace0dfd8d2bf1e5d7e41239c06c9e0ded46e70cc1094a0aa64b0afeb054",
-            "version": "==2.9.6"
-        },
         "bs4": {
             "hash": "sha256:36ecea1fd7cc5c0c6e4a1ff075df26d50da647b75376626cc186e2212886dd3a",
             "version": "==0.0.1"
@@ -117,18 +19,119 @@
         "pytz": {
             "hash": "sha256:d1d6729c85acea5423671382868627129432fba9a89ecbb248d8d1c7a9f01c67",
             "version": "==2017.2"
+        },
+        "jinja2": {
+            "hash": "sha256:2231bace0dfd8d2bf1e5d7e41239c06c9e0ded46e70cc1094a0aa64b0afeb054",
+            "version": "==2.9.6"
+        },
+        "randomcolor": {
+            "hash": "sha256:71f6e47771433c317cb3db5746354468916fce1fe93557a604c9a6de32f114b5",
+            "version": "==0.4.4.4"
+        },
+        "pillow": {
+            "hash": "sha256:fb3eaba16b6cf01f12860edccac40f98362bc17225575f3bcabb333d0b4ed6dc",
+            "version": "==4.1.1"
+        },
+        "python-dateutil": {
+            "hash": "sha256:537bf2a8f8ce6f6862ad705cd68f9e405c0b5db014aa40fa29eab4335d4b1716",
+            "version": "==2.6.0"
+        },
+        "crayons": {
+            "hash": "sha256:5e17691605e564d63482067eb6327d01a584bbaf870beffd4456a3391bd8809d",
+            "version": "==0.1.2"
+        },
+        "html5lib": {
+            "hash": "sha256:b8934484cf22f1db684c0fae27569a0db404d0208d20163fbf51cc537245d008",
+            "version": "==0.999999999"
+        },
+        "better-exceptions": {
+            "hash": "sha256:c53b1ad6419f305a889b3f1c68ea82f41cf40b1a33665d3a72bd20c0801ab404",
+            "version": "==0.1.8"
+        },
+        "basc-py4chan": {
+            "git": "https://github.com/bibanon/basc-py4chan.git"
+        },
+        "MarkupSafe": {
+            "hash": "sha256:a6be69091dac236ea9c6bc7d012beab42010fa914c459791d627dad4910eb665",
+            "version": "==1.0"
+        },
+        "beautifulsoup4": {
+            "hash": "sha256:11a9a27b7d3bddc6d86f59fb76afb70e921a25ac2d6cc55b40d072bd68435a76",
+            "version": "==4.6.0"
+        },
+        "colorama": {
+            "hash": "sha256:463f8483208e921368c9f306094eb6f725c6ca42b0f97e313cb5d5512459feda",
+            "version": "==0.3.9"
+        },
+        "six": {
+            "hash": "sha256:0ff78c403d9bccf5a425a6d31a12aa6b47f1c21ca4dc2573a7e2f32a97335eb1",
+            "version": "==1.10.0"
+        },
+        "setuptools": {
+            "hash": "sha256:19d753940f8cdbee7548da318f8b56159aead279ef811a6efc8b8a33d89c86a4",
+            "version": "==35.0.2"
+        },
+        "pyparsing": {
+            "hash": "sha256:fee43f17a9c4087e7ed1605bd6df994c6173c1e977d7ade7b651292fab2bd010",
+            "version": "==2.2.0"
+        },
+        "chardet": {
+            "hash": "sha256:8da3f329e2c5779247f4cff7081512c531731ef6a9c6ef78084e8ed8d18226c7",
+            "version": "==3.0.3"
+        },
+        "requests": {
+            "hash": "sha256:73b4088c05f7fb5ca8e68651ed802df3ca40621281acf74bb321b4a8408aab7e",
+            "version": "==2.17.0"
+        },
+        "certifi": {
+            "hash": "sha256:f4318671072f030a33c7ca6acaef720ddd50ff124d1388e50c1bda4cbd6d7010",
+            "version": "==2017.4.17"
+        },
+        "appdirs": {
+            "hash": "sha256:d8b24664561d0d34ddfaec54636d502d7cea6e29c3eaf68f3df6180863e2166e",
+            "version": "==1.4.3"
+        },
+        "packaging": {
+            "hash": "sha256:99276dc6e3a7851f32027a68f1095cd3f77c148091b092ea867a351811cfe388",
+            "version": "==16.8"
+        },
+        "urllib3": {
+            "hash": "sha256:8ed6d5c1ff9d6ba84677310060d6a3a78ca3072ce0684cb3c645023009c114b1",
+            "version": "==1.21.1"
+        },
+        "olefile": {
+            "hash": "sha256:61f2ca0cd0aa77279eb943c07f607438edf374096b66332fae1ee64a6f0f73ad",
+            "version": "==0.44"
+        },
+        "idna": {
+            "hash": "sha256:cc19709fd6d0cbfed39ea875d29ba6d4e22c0cebc510a76d6302a28385e8bb70",
+            "version": "==2.5"
+        },
+        "basc-py4chan from git+https://github.com/bibanon/basc-py4chan.git#egg=basc-py4chan": {
+            "hash": "sha256:daa57bbf2810c3b1b378033f296afa9d88e608795b8252ec7467586ddb687ca4",
+            "version": "==0.6.3"
+        },
+        "webencodings": {
+            "hash": "sha256:a0af1213f3c2226497a97e2b3aa01a7e4bee4f403f95be16fc9acd2947514a78",
+            "version": "==0.5.1"
         }
     },
-    "_meta": {
-        "sources": [
-            {
-                "verify_ssl": true,
-                "url": "https://pypi.python.org/simple"
-            }
-        ],
-        "hash": {
-            "sha256": "1d15f85394409aaf69486a4ec77f03f6fa58452e124aa01667a279fe30fcc603"
+    "develop": {
+        "flake8": {
+            "hash": "sha256:83905eadba99f73fbfe966598aaf1682b3eb6755d2263c5b33a4e8367d60b0d1",
+            "version": "==3.3.0"
         },
-        "requires": {}
+        "pycodestyle": {
+            "hash": "sha256:6c4245ade1edfad79c3446fadfc96b0de2759662dc29d07d80a6f27ad1ca6ba9",
+            "version": "==2.3.1"
+        },
+        "mccabe": {
+            "hash": "sha256:ab8a6258860da4b6677da4bd2fe5dc2c659cff31b3ee4f7f5d64e79735b80d42",
+            "version": "==0.6.1"
+        },
+        "pyflakes": {
+            "hash": "sha256:cc5eadfb38041f8366128786b4ca12700ed05bbf1403d808e89d57d67a3875a7",
+            "version": "==1.5.0"
+        }
     }
 }

@@ -25,7 +25,7 @@
     - [pip](https://pip.pypa.io/en/stable/installing/)
     - [pipenv](https://github.com/kennethreitz/pipenv#-installation)
 - A webserver (like [Caddy](https://caddyserver.com/))
-- Zlib (apt:`zlib1g-dev`) and libjpeg (apt:`libjpeg62-turbo-dev`) _(only needed for the leakbot)_
+- Zlib (apt:`zlib1g-dev`) and libjpeg (apt:`libjpeg62-turbo-dev`)
 
 
 ## Install
@@ -87,9 +87,8 @@ Make sure your code uses the [`standard-js`](http://standardjs.com/) and
 npm test
 
 # Test Python
-flake8 --ignore=E122,E126,E127,E128 --max-line-length=140 .
+flake8 --max-line-length=140 .
 ```
-_(Yes, I ignore stupid warnings that makes the code look more terrible than it is.)_
 
 I'd recommand to install the corresponding linter plugins for your code IDE
 (like Atom, Sublime Text, VSCode, ...) to help you.
@@ -101,5 +100,5 @@ I'd recommand to install the corresponding linter plugins for your code IDE
 - The YayPonies guys for the HD rips
 - Anons from /sug/
 - Cartoon Network and the Steven Universe team for this awesome show
-- [BASC-py4chan](https://github.com/bibanon/BASC-py4chan) & [py8chan](https://github.com/bibanon/py8chan) by [Bibliotheca Anonoma](https://github.com/bibanon)
+- [BASC-py4chan](https://github.com/bibanon/BASC-py4chan) by [Bibliotheca Anonoma](https://github.com/bibanon)
 - [Font Awesome](http://fontawesome.io) by Dave Gandy
