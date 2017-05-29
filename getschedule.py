@@ -44,14 +44,32 @@ def grab_zap(url):
     trs = soup.find(id='zc-episode-guide').find_all('tr')  # Get directly the <tr> from the guide
 
     for tr in trs[1:6]:  # 5 elements, excluding table header
+        episode = '_unknown_'
+
         # Season number
-        season = tr.find(attrs={'itemprop': 'partOfSeason'}).contents[0]
+        try:
+            episode = 'S' + tr.find(attrs={'itemprop': 'partOfSeason'}).contents[0]
+        except:
+            pass
+
         # Episode number
-        episode = tr.find(attrs={'itemprop': 'episodeNumber'}).contents[0]
+        try:
+            episode = episode + 'E' + tr.find(attrs={'itemprop': 'episodeNumber'}).contents[0]
+        except:
+            pass
+
         # Title
-        title = tr.find(attrs={'itemprop': 'name'}).contents[0]
+        try:
+            title = tr.find(attrs={'itemprop': 'name'}).contents[0]
+        except:
+            title = '_unknown_'
+
         # Air date
-        date_pub = tr.find(attrs={'itemprop': 'datePublished'}).contents[0]
+        try:
+            date_pub = tr.find(attrs={'itemprop': 'datePublished'}).contents[0]
+        except:
+            date_pub = '_unknown_'
+
         # Paragraph with synopsis (if any)
         synopsis_p = tr.find('p').contents
         synopsis = None
@@ -60,7 +78,7 @@ def grab_zap(url):
 
         # Generate unique id with our content
         m = hashlib.md5()
-        m.update(('[S%sE%s] %s (%s) - Airing: %s' % (season, episode, title, synopsis, date_pub)).encode('utf-8'))
+        m.update(('[%s] %s (%s) - Airing: %s' % (sepisode, title, synopsis, date_pub)).encode('utf-8'))
         gen_id = str(int(m.hexdigest(), 16))[0:12]
 
         # Add it to the list
@@ -68,7 +86,7 @@ def grab_zap(url):
             'id': int(gen_id),
             'title': title,
             'date': date_pub,
-            'episode': 'S' + season + 'E' + episode,
+            'episode': episode,
             'synopsis': synopsis
         })
 

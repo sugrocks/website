@@ -33,9 +33,15 @@
                             data-connection="A" data-toggle-placement="top"
                             data-toggle-text="2 minutes video preview">
                             <div class="spoiler-content">
+{% if leak.daily %}
+                                <div class="embed-container">
+                                    <iframe frameborder="0" src="//www.dailymotion.com/embed/video/{{ leak.daily }}" allowfullscreen></iframe>
+                                </div>
+{% else %}
 {% for video in leak.previews %}
                                 <video src="{{ video }}" controls preload="none"></video>
 {% endfor %}
+{% endif %}
                             </div>
                         </div>
 {% endif %}
@@ -55,6 +61,7 @@
                                     data-connection="B" data-toggle-placement="top"
                                     data-toggle-text="{{ leak.show }}: {{ leak.title }}">
                                     <div class="spoiler-content">
+                                        <!-- (ID: {{ leak.contentid }}) -->
 {% if leak.desc %}
                                         <blockquote>
                                             <p>{{ leak.desc }}</p>
