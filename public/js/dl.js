@@ -1,4 +1,19 @@
 /* global readCookie */
+/* === Jump and open spoilers based on hash === */
+function jumpToDl () {
+  var jump = window.location.hash.slice(1)
+
+  if (jump !== '') {
+    if (jump.slice(-1) === 'i') {
+      document.querySelector('#individual > .link').click()
+    } else {
+      document.querySelector('#itunes > .link').click()
+    }
+
+    document.getElementById(jump).scrollIntoView()
+  }
+}
+
 /* === Toggle to show downloads === */
 function youAreAPirate (checked) { // eslint-disable-line
   var dlList = document.querySelector('#ImOKWithThat')
@@ -8,6 +23,7 @@ function youAreAPirate (checked) { // eslint-disable-line
   if (checked) {
     dlList.style.display = 'block'
     document.cookie = 'WhoAmI=You are a pirate!; expires=' + date.toGMTString() + '; path=/'
+    setTimeout(jumpToDl, 1000)
   } else {
     dlList.style.display = 'none'
     document.cookie = 'WhoAmI=You are a great person!; expires=' + date.toGMTString() + '; path=/'
