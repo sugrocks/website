@@ -77,7 +77,12 @@ span.quote { // >
 }
 
 .notification {
-    padding: 10px 15px;
+    animation: fadeIn 500ms both;
+    animation-delay: .2s;
+    border-radius: 0;
+    display: none;
+    padding: 2px 15px 10px;
+    text-align: center;
 
     &.is-info {
         border: 5px solid $blue;
@@ -87,39 +92,12 @@ span.quote { // >
         border: 5px solid $yellow;
     }
 
+    p {
+        margin-top: 8px;
+    }
+
     hr {
         margin: 10px 0;
-    }
-}
-
-.notif { // that's the "news" notification
-    animation: fadeIn 500ms both;
-    animation-delay: .2s;
-    border-radius: 0;
-    display: none;
-    text-align: center;
-
-    .news-table {
-        display: inline-table;
-        margin: 0px auto;
-        padding: 0 15px;
-        vertical-align: middle;
-
-        img {
-            max-height: 100px;
-            max-width: 100px;
-        }
-
-        .news-text {
-            display: table-cell;
-            padding: 0 10px;
-            text-align: left;
-            vertical-align: middle;
-        }
-
-        &.twitter {
-            background: transparent url('https://sug.rocks/img/twitter-512.png') no-repeat scroll right bottom / auto 100%;
-        }
     }
 }
 
