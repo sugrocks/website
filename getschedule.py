@@ -71,14 +71,16 @@ def grab_zap(url):
             date_pub = '_unknown_'
 
         # Paragraph with synopsis (if any)
-        synopsis_p = tr.find('p').contents
-        synopsis = None
-        if len(synopsis_p) != 0:  # if there's something inside this <p>, it means we have a synopsis
-            synopsis = synopsis_p[0]
+        try:
+            synopsis_p = tr.find('p').contents
+            if len(synopsis_p) != 0:  # if there's something inside this <p>, it means we have a synopsis
+                synopsis = synopsis_p[0]
+        except:
+            synopsis = None
 
         # Generate unique id with our content
         m = hashlib.md5()
-        m.update(('[%s] %s (%s) - Airing: %s' % (episode, title, synopsis, date_pub)).encode('utf-8'))
+        m.update(('%s %s %s' % (episode, title, date_pub)).encode('utf-8'))
         gen_id = str(int(m.hexdigest(), 16))[0:12]
 
         # Add it to the list
