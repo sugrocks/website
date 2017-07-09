@@ -37,7 +37,7 @@ def grab_cn(url):
 
 
 def grab_zap(url):
-    # Parse date from Zap2It (Screener)
+    # Parse date from Zap2It
     zap_list = []  # Init our list that will hold our dicts
     r = requests.get(url)  # Get the file
     soup = BeautifulSoup(r.text, 'html5lib')  # Parse the file
@@ -108,7 +108,7 @@ if __name__ == '__main__':
     cn_url = 'http://www.cartoonnetwork.com/cnschedule/xmlServices/ScheduleServices?' +\
              'methodName=getAllShowings&showId=%s&name=%s&timezone=EST' % (show_id, search_term)
 
-    # URL with the data from Zap2It (Screener)
+    # URL with the data from Zap2It
     s_id = 'EP01616432'
     t = 'Steven+Universe'
     zap_url = 'http://tvlistings.zap2it.com/tvlistings/ZCProgram.do?sId=%s&t=%s&method=getEpisodesForShow&desc=on' % (s_id, t)

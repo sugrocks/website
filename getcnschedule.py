@@ -6,7 +6,6 @@ import math
 import crayons
 import requests
 import collections
-import randomcolor
 import better_exceptions
 
 from dateutil import parser
@@ -17,10 +16,6 @@ from datetime import date, datetime
 better_exceptions.MAX_LENGTH = None
 THIS_DIR = os.path.dirname(os.path.abspath(__file__))
 last_group = ''
-
-color_list = {
-    'MOVIE': ['#eff0f1', '#000']
-}
 
 
 def log(group, text):
@@ -170,14 +165,6 @@ def grab_cnschedule(url):
                 if slots < 1:
                     slots = 2
 
-                if show_name in color_list:
-                    color = color_list[show_name][0]
-                    color2 = color_list[show_name][1]
-                else:
-                    rand_color = randomcolor.RandomColor(show_name)
-                    color = rand_color.generate()[0]
-                    color2 = '#000'
-
                 # Add all the details to our schedule list
                 schedule[parsed_date]['schedule'].append({
                     'date': parsed_date,
@@ -186,9 +173,7 @@ def grab_cnschedule(url):
                     'timestamp_end': int(parsed_next_datetime.timestamp()),
                     'show': show_name,
                     'title': episode_name,
-                    'slots': slots,
-                    'color_bg': color,
-                    'color_fg': color2
+                    'slots': slots
                 })
             except:
                 # If something goes wrong, show the <tr> and raise the error
@@ -229,7 +214,7 @@ def grab_zapschedule(url):
         parsed_date = parser.parse(available_date['date']).strftime('%Y-%m-%d')
         # Init the list and the increment counter
         schedule[parsed_date] = {
-            'source': 'Screener',
+            'source': 'Zap2it',
             'schedule': []
         }
         i = 0
@@ -282,14 +267,6 @@ def grab_zapschedule(url):
                     if slots < 1:
                         slots = 2
 
-                    if show_name in color_list:
-                        color = color_list[show_name][0]
-                        color2 = color_list[show_name][1]
-                    else:
-                        rand_color = randomcolor.RandomColor(show_name)
-                        color = rand_color.generate()[0]
-                        color2 = '#000'
-
                     # Add all the details to our schedule list
                     schedule[parsed_date]['schedule'].append({
                         'date': parsed_date,
@@ -298,9 +275,7 @@ def grab_zapschedule(url):
                         'timestamp_end': int(parsed_next_datetime.timestamp()),
                         'show': show_name,
                         'title': episode_name,
-                        'slots': slots,
-                        'color_bg': color,
-                        'color_fg': color2
+                        'slots': slots
                     })
                 except:
                     # If something goes wrong, show the <tr> and raise the error
@@ -321,7 +296,7 @@ def merge_schedules(cn_sch, zap_sch):
         if len(values['schedule']) == 0:
             cn_sch[s_date] = zap_sch[s_date]
 
-    log('merge', 'Adding missing days from Screener...')
+    log('merge', 'Adding missing days from Zap2it...')
     for s_date, __ in zap_sch.items():
         if s_date not in cn_sch:
             cn_sch[s_date] = zap_sch[s_date]
@@ -354,9 +329,9 @@ if __name__ == '__main__':
     # First we grab CN's schedule and put it in a list
     cn_schedule = grab_cnschedule(source_url)
 
-    # Using Screener's schedule list for CN to get the list
+    # Using Zap2it's schedule list for CN to get the list
     source_url = 'http://tvschedule.zap2it.com/tvlistings/ZCSGrid.do?sgt=list&stnNum=12131&aid=tvschedule'
-    # Now we grab Screener's schedule and put it in a list
+    # Now we grab Zap2it's schedule and put it in a list
     zap_schedule = grab_zapschedule(source_url)
 
     # We merge and order the schedules
