@@ -80,7 +80,7 @@ def gen_dl_page():
             'title': data[0],
             'filename': data[1],
             'torrent': data[2],
-            'marebucks': data[3],
+            'ctoon': data[3],
             'daily': data[4],
             'date': data[5]
         })
@@ -92,14 +92,14 @@ def gen_dl_page():
         se = split_season_episode(episode)
         # Add it to the list
         itunes.append({
-            'id': get_id(episode),
+            'id': get_id(episode, 'i'),
             'code': format_epnumber(episode),
             'season': se[0],
             'episode': se[1],
             'title': data[0],
             'filename': data[1],
             'torrent': data[2],
-            'marebucks': data[3],
+            'ctoon': data[3],
             'date': data[4]
         })
 
@@ -110,13 +110,13 @@ def gen_dl_page():
         se = split_season_episode(episode)
         # Add it to the list
         individual.append({
-            'id': get_id(episode, 'i'),
+            'id': get_id(episode, 'm'),
             'code': format_epnumber(episode),
             'season': se[0],
             'episode': se[1],
             'title': data[0],
             'filename': data[1],
-            'marebucks': data[2],
+            'ctoon': data[2],
             'date': data[3]
         })
 
@@ -202,7 +202,7 @@ def gen_dl_api():
             'episode': se_ep[1],
             'title': data[0],
             'url': 'https://dl.sug.rocks/preair/' + data[1],
-            'marebucks': 'https://marebucks.com/sun/' + data[3],
+            'ctoon': 'https://ctoon.party/sun/' + data[3],
             'dailymotion': 'www.dailymotion.com/video/' + data[4],
             'torrent': torrent,
             'date': int(data[5])
@@ -224,7 +224,7 @@ def gen_dl_api():
             'episode': se_ep[1],
             'title': data[0],
             'url': 'https://dl.sug.rocks/' + data[1],
-            'marebucks': 'https://marebucks.com/sun/' + data[3],
+            'ctoon': 'https://ctoon.party/sun/' + data[3],
             'dailymotion': None,
             'torrent': torrent,
             'date': int(data[4])
@@ -242,7 +242,7 @@ def gen_dl_api():
             'episode': se_ep[1],
             'title': data[0],
             'url': 'https://dl.sug.rocks/mega/' + data[1],
-            'marebucks': 'https://marebucks.com/sun/' + data[2],
+            'ctoon': 'https://ctoon.party/sun/' + data[2],
             'dailymotion': None,
             'torrent': None,
             'date': int(data[3])

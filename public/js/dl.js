@@ -4,10 +4,14 @@ function jumpToDl () {
   var jump = window.location.hash.slice(1)
 
   if (jump !== '') {
-    if (jump.slice(-1) === 'i') {
+    if (jump.slice(-1) === 't') {
+      document.querySelector('#preair > .link').click()
+    } else if (jump.slice(-1) === 'm') {
       document.querySelector('#individual > .link').click()
-    } else {
+    } else if (jump.slice(-1) === 'i') {
       document.querySelector('#itunes > .link').click()
+    } else {
+      document.querySelector('#comics > .link').click()
     }
 
     document.getElementById(jump).scrollIntoView()

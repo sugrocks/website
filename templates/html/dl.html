@@ -47,7 +47,7 @@
                                 <span class="icon is-small">
                                     <i class="fa fa-play-circle"></i>
                                 </span>
-                                to watch on Marebucks and
+                                to watch on CTOON and
                                 <span class="icon is-small">
                                     <i class="fa fa-video-camera"></i>
                                 </span>
@@ -80,9 +80,9 @@
                                                 </span>
                                             </a>
 {% endif %}
-{% if episode.marebucks != '' %}
+{% if episode.ctoon != '' %}
                                             <a title="Streaming"
-                                                href="https://marebucks.com/sun/{{ episode.marebucks }}">
+                                                href="https://ctoon.party/sun/{{ episode.ctoon }}">
                                                 <span class="icon is-small">
                                                     <i class="fa fa-play-circle"></i>
                                                 </span>
@@ -148,9 +148,9 @@
                                                 </span>
                                             </a>
 {% endif %}
-{% if episode.marebucks != '' %}
+{% if episode.ctoon != '' %}
                                             <a title="Streaming"
-                                                href="https://marebucks.com/sun/{{ episode.marebucks }}">
+                                                href="https://ctoon.party/sun/{{ episode.ctoon }}">
                                                 <span class="icon is-small">
                                                     <i class="fa fa-play-circle"></i>
                                                 </span>
@@ -198,9 +198,9 @@
                                                     <i class="fa fa-download"></i>
                                                 </span>
                                             </a>
-{% if episode.marebucks != '' %}
+{% if episode.ctoon != '' %}
                                             <a title="Streaming"
-                                                href="https://marebucks.com/sun/{{ episode.marebucks }}">
+                                                href="https://ctoon.party/sun/{{ episode.ctoon }}">
                                                 <span class="icon is-small">
                                                     <i class="fa fa-play-circle"></i>
                                                 </span>
@@ -223,6 +223,10 @@
                             data-connection="A" data-toggle-placement="top"
                             data-toggle-text="Comics/Books">
                             <div class="spoiler-content">
+                                <span>
+                                    <b>Note.</b> CBZ and CBR files contains high quality images and might end up being large files.<br>
+                                    If you aim for <i>tip top</i> books, those are the files you're looking for.
+                                </span>
                                 <table class="dllist">
 {% for comic in comics %}
 {% if not previous_cat or comic.category != previous_cat[-1] %}
