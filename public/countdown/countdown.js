@@ -76,11 +76,13 @@ function startClock () {
       if (notHiatus) {
         // If there's something, let's continue
         resolve(nextEp)
+        document.getElementById('container').classList.remove('hiatus')
       } else {
         // If not, clear everything and stop here
         dontTick = true
         nextEp = null
         clearCountdown()
+        document.getElementById('container').className = 'hiatus'
         document.getElementById('title').innerHTML = 'SU is now in'
         document.getElementById('code').innerHTML = ''
         document.getElementById('hours').innerHTML = 'Hiatus'
