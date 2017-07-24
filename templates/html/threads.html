@@ -4,7 +4,45 @@
 {% endblock %}
 {% block body %}
             <div class="columns">
-                <div class="column is-three-quarters-tablet sug-threads">
+                <div class="column is-three-quarters-tablet sug-main">
+                    <div class="columns sug-shortcuts">
+                        <div class="column is-half-tablet">
+                            <a href="https://cn.sug.rocks/">
+                              <div class="card is-fullwidth cnschedule">
+                                  <div class="card-content">
+                                      CN Schedule
+                                  </div>
+                              </div>
+                            </a>
+                        </div>
+                        <div class="column is-half-tablet">
+                            <a href="https://beachcity.cafe/">
+                              <div class="card is-fullwidth bcc">
+                                  <div class="card-content">
+                                      Beach City Cafe
+                                  </div>
+                              </div>
+                            </a>
+                        </div>
+                        <div class="column is-half-tablet">
+                            <a href="https://go.sug.rocks/">
+                              <div class="card is-fullwidth gothread">
+                                  <div class="card-content">
+                                      Thread Shortcuts
+                                  </div>
+                              </div>
+                            </a>
+                        </div>
+                        <div class="column is-half-tablet">
+                            <a href="https://arch.sug.rocks/">
+                              <div class="card is-fullwidth archive">
+                                  <div class="card-content">
+                                      /sug/ Archive Browser
+                                  </div>
+                              </div>
+                            </a>
+                        </div>
+                    </div>
 {% for thread in threadlist %}
                     <div class="card is-fullwidth{% if thread.archived == True %} is-hidden-mobile op-dead{% endif %}">
                         <div class="card-content op-post">

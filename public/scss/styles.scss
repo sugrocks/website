@@ -21,7 +21,7 @@ hr {
 }
 
 .sticky { // why use JS when you can use CSS? (alright, support is small but whatev')
-    top: 0;          
+    top: 0;
     position: -webkit-sticky;
     position: sticky;
 }
@@ -169,7 +169,46 @@ span.quote { // >
     }
 }
 
-.sug-threads { // thread stuff
+.sug-main { // main stuff
+    .sug-shortcuts { // those banners to other of our stuff
+        flex-wrap: wrap;
+        font-weight: bold;
+
+        .column {
+            padding: 0; // remove padding between the cards
+
+            .card {
+                background-position-y: center;
+                background-position-x: -15px;
+                background-repeat: no-repeat;
+                background-size: 80px;
+                color: #ffffff;
+                padding-left: 60px;
+
+                &.cnschedule {
+                    background-color: #ec018c;
+                    background-image: url('../img/shortcuts/cnschedule.png');
+                }
+
+                &.bcc {
+                    background-color: #009688;
+                    background-image: url('../img/shortcuts/bcc.png');
+                }
+
+                &.gothread {
+                    background-color: #ffffff;
+                    background-image: url('../img/android-chrome-192x192.png');
+                    color: #000000;
+                }
+
+                &.archive {
+                    background-color: #1a1a1a;
+                    background-image: url('../img/shortcuts/archive.png');
+                }
+            }
+        }
+    }
+
     .card {
         margin-bottom: 20px;
 
@@ -361,7 +400,7 @@ td {
         }
     }
 
-    .sug-threads {
+    .sug-main {
         .op-post {
             text-align: center;
 
