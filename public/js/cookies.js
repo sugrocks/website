@@ -16,7 +16,9 @@ window.addEventListener('load', function () {
     law: {
       regionalLaw: true
     },
-    location: true,
+    location: {
+        services: ['ipinfo', 'maxmind']
+    },
     onStatusChange: function (status) {
       if (this.options.type === 'opt-out' && !this.hasConsented()) {
         window.open('https://piwik.sug.rocks/index.php?module=CoreAdminHome&action=optOut&language=en')
