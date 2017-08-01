@@ -17,7 +17,7 @@ window.addEventListener('load', function () {
       regionalLaw: true
     },
     location: {
-        services: ['ipinfo', 'maxmind']
+      services: ['ipinfo', 'maxmind']
     },
     onStatusChange: function (status) {
       if (this.options.type === 'opt-out' && !this.hasConsented()) {
