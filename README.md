@@ -38,10 +38,10 @@ nano templates/op.txt # Add the OP template text here
 ```
 
 ## Run
-The `search.py` must be run periodically to check for new thread.  
-You could use a cron to run the `pipenv run python search.py`, or open a tmux session and use:
+The `threads.py` script needs to constently run.  
+You should probably make sure it can restart if it goes down, open a tmux session and use:
 ```
-while true; do pipenv run python search.py; sleep 120; done # run this in a tmux or screen
+while true; do pipenv run python threads.py; sleep 30; done
 ```
 
 For the download list and the static pages, run:
