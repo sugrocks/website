@@ -132,7 +132,7 @@ def dictify(thread):
         "board": thread._board.name,
         "dates": {
             "RFC822": rss_date(thread.topic.timestamp),
-            "atom": atom_date(thread.topic.timestamp),
+            "ISO8601": atom_date(thread.topic.timestamp),
             "string": stamp_to_strftime(thread.topic.timestamp),
             "timestamp": thread.topic.timestamp
         },

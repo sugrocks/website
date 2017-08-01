@@ -9,8 +9,8 @@
 {% block feed_items %}
 {% for threadid in threadlist %}
 {% set thread = threaddict[threadid] %}
-{% set published %}{{ thread['dates']['atom'] }}{% endset %}
-{% set updated %}{{ thread['dates']['atom'] }}{% endset %}
+{% set published %}{{ thread['dates']['ISO8601'] }}{% endset %}
+{% set updated %}{{ thread['dates']['ISO8601'] }}{% endset %}
 {% set title %}[/{{ thread['board'] }}/] {{ thread['edition'] }} (No.{{ thread['id'] }}){% endset %}
 {% set content %}{% if thread['media']['deleted'] == True %}
                 <a href="{{ thread['url'] }}" target="_blank"><img src="https://sug.rocks/img/filedeleted.gif" alt="File was deleted :("></a>
