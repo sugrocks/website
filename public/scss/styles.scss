@@ -259,6 +259,10 @@ span.quote { // >
 
         .op-content {
             margin-top: 15px;
+
+            .deadlink {
+                text-decoration: line-through;
+            }
         }
     }
 

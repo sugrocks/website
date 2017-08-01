@@ -1,4 +1,3 @@
 [config]
+refresh = 180
 ignore =
-
-[threads]

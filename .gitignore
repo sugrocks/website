@@ -6,7 +6,7 @@
 .idea/
 node_modules/
 cron.log
-config/threads-cache.ini
+config/threads.ini
 
 # generated pages
 public/dl.html

@@ -43,50 +43,51 @@
                             </a>
                         </div>
                     </div>
-{% for thread in threadlist %}
-                    <div class="card is-fullwidth{% if thread.archived == True %} is-hidden-mobile op-dead{% endif %}">
+{% for threadid in threadlist %}
+{% set thread = threaddict[threadid] %}
+                    <div class="card is-fullwidth{% if (thread['status']['closed'] == True) %} is-hidden-mobile op-dead{% endif %}">
                         <div class="card-content op-post">
                             <div class="content">
                                 <figure class="pull-left">
-{% if thread._board.name == 'trash' %}
+{% if thread['board'] == 'trash' %}
                                     <div class="red-warning" onclick="allowNSFW()">
                                         <b>Warning.</b> Pics from /trash/ might be NSFW. Click here to show them.<br>
                                         <small>+18 - Make sure you're not in a public place.</small>
                                     </div>
 
-                                    <a class="red-image" href="{{ thread.url }}">
+                                    <a class="red-image" href="{{ thread['url'] }}">
 {% else %}
-                                    <a href="{{ thread.url }}">
+                                    <a href="{{ thread['url'] }}">
 {% endif %}
-{% if thread.topic.file.file_deleted == True %}
+{% if thread['media']['deleted'] == True %}
                                         <img src="/img/filedeleted.gif" alt="File was deleted :(">
 {% else %}
-                                        <img{% if thread.topic.spoiler == True %} class="img-spoiler"{% endif %}
-                                            src="https://proxy.sug.rocks/250x250,fit,q60/{{ thread.topic.file.file_url }}"
-                                            title="Original: {{ thread.topic.file.filename_original }} ({{ thread.topic.file.file_width }}x{{ thread.topic.file.file_height }})"
-                                            alt="{{ thread.topic.file.filename_original }}">
+                                        <img{% if thread['media']['spoiler'] == True %} class="img-spoiler"{% endif %}
+                                            src="https://proxy.sug.rocks/250x250,fit,q60/{{ thread.media.url }}"
+                                            title="Original: {{ thread['media']['name'] }} ({{ thread['media']['width'] }}x{{thread['media']['height'] }})"
+                                            alt="{{ thread['media']['name'] }}">
 {% endif %}
                                     </a>
                                 </figure>
 
                                 <span class="tag is-info">
-                                    /{{ thread._board.name }}/
-{% if thread.archived == True %}
+                                    /{{ thread['board'] }}/
+{% if thread['status']['archived'] == True %}
                                 </span>
                                 <span class="tag is-dark">
-                                        Archived
-{% elif thread.closed == True %}
+                                    Archived
+{% elif thread['status']['dead'] == True %}
                                 </span>
                                 <span class="tag is-dark">
-                                    Closed
+                                    Dead
 {% else %}
-                                    - Page {{ find_page(thread._board.name, thread.topic.post_number) }}
-{% if thread.bumplimit == True %}
+                                    - Page {{ thread['page'] }}
+{% if thread['status']['bumplimit'] == True %}
                                 </span>
                                 <span class="tag is-danger">
                                     Bump Limit
 {% endif %}
-{% if thread.imagelimit == True %}
+{% if thread['status']['imagelimit'] == True %}
                                 </span>
                                 <span class="tag is-danger">
                                     Image Limit
@@ -94,24 +95,25 @@
 {% endif %}
                                 </span>
                                 <span class="tag">
-                                    {{ thread.topic.timestamp|stamptostrftime }}
-                                    - No.{{ thread.topic.post_number }}
+                                    {{ thread['dates']['string'] }}
+                                    - No.{{ thread['id'] }}
                                 </span>
 
                                 <br>
 
-                                <a href="{{ thread.url }}" class="button is-success">Open Thread</a>
-                                <a href="https://desuarchive.org/{{ thread._board.name }}/thread/{{ thread.topic.post_number }}" class="button is-light">Archive</a>
-                                <a data-op-id="{{ thread.topic.post_number }}" onClick="displayOp(this);" class="button is-light">Show OP</a>
+{% if thread['status']['dead'] == False %}
+                                <a href="{{ thread['url'] }}" class="button is-success">Open Thread</a>
+{% endif %}
+                                <a href="{{ thread['archive'] }}" class="button is-light">Archive</a>
+                                <a data-op-id="{{ thread['id'] }}" onClick="displayOp(this);" class="button is-light">Show OP</a>
 
-{% set edition_name = thread.topic.comment|edition %}
-{% if edition_name %}
-                                <blockquote id="opedition-{{ thread.topic.post_number }}" class="op-content">
-                                    {{ edition_name|e }}
+{% if thread['edition'] %}
+                                <blockquote id="opedition-{{ thread['id'] }}" class="op-content">
+                                    {{ thread['edition']|e }}
                                 </blockquote>
 {% endif %}
-                                <blockquote id="op-{{ thread.topic.post_number }}" class="op-content" style="display: none;">
-                                    {{ thread.topic.comment.replace('href="/', 'href="https://boards.4chan.org/') }}
+                                <blockquote id="op-{{ thread['id'] }}" class="op-content" style="display: none;">
+                                    {{ thread['op'] }}
                                 </blockquote>
                             </div>
                         </div>
