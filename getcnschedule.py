@@ -125,7 +125,7 @@ def grab_cnschedule(url):
                     el_time = tr.find(class_='timeoncell')   # Get the element that contains the time
                     el_show = tr.find_all(class_='showoncell')  # Get the element**s** that contains show details
                     el_show_name = el_show[0].find('a')  # Get the element that contains the show name
-                    episode_name = el_show[2].string  # Get the episode number
+                    episode_name = el_show[2].string  # Get the episode title
                     show_name = pretty(''.join(el_show_name.strings))  # Get the actual show name
 
                     # Show might not be under a link, so we try to get the first string in the element then
@@ -135,7 +135,7 @@ def grab_cnschedule(url):
                 else:  # If it's not, let's get our values
                     el_show = tr.find_all(class_='showcell')  # Get the element**s** that contains show details
                     el_show_name = el_show[1].find('a')  # Get the element that contains the show name
-                    episode_name = el_show[3].string  # Get the episode number
+                    episode_name = el_show[3].string  # Get the episode title
                     show_name = pretty(''.join(el_show_name.strings))  # Get the actual show name
 
                     # Show might not be under a link, so we try to get the first string in the element then
@@ -143,6 +143,9 @@ def grab_cnschedule(url):
                         show_name = pretty(el_show[1].contents[0])
 
                 show_name = fix_showname(show_name)
+
+                if episode_name is None:  # If no episode title is found, return an empty string
+                    episode_name = ''
 
                 try:
                     el_next_time = trs[i + 2].find(class_='timecell')
