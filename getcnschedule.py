@@ -125,22 +125,32 @@ def grab_cnschedule(url):
                     el_time = tr.find(class_='timeoncell')   # Get the element that contains the time
                     el_show = tr.find_all(class_='showoncell')  # Get the element**s** that contains show details
                     el_show_name = el_show[0].find('a')  # Get the element that contains the show name
-                    episode_name = el_show[2].string  # Get the episode title
                     show_name = pretty(''.join(el_show_name.strings))  # Get the actual show name
+                    episode_name = el_show[2].string  # Get the episode title
 
                     # Show might not be under a link, so we try to get the first string in the element then
                     if show_name == 'See All Showings':
                         show_name = pretty(el_show[0].contents[0])
 
+                    # Episode name might be under a link
+                    if episode_name is None:
+                        el_episode_name = el_show[2].find('a')
+                        episode_name = pretty(''.join(el_episode_name.strings))
+
                 else:  # If it's not, let's get our values
                     el_show = tr.find_all(class_='showcell')  # Get the element**s** that contains show details
                     el_show_name = el_show[1].find('a')  # Get the element that contains the show name
-                    episode_name = el_show[3].string  # Get the episode title
                     show_name = pretty(''.join(el_show_name.strings))  # Get the actual show name
+                    episode_name = el_show[3].string  # Get the episode title
 
                     # Show might not be under a link, so we try to get the first string in the element then
                     if show_name == 'See All Showings':
                         show_name = pretty(el_show[1].contents[0])
+
+                    # Episode name might be under a link
+                    if episode_name is None:
+                        el_episode_name = el_show[3].find('a')
+                        episode_name = pretty(''.join(el_episode_name.strings))
 
                 show_name = fix_showname(show_name)
 
