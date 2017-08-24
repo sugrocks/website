@@ -148,9 +148,12 @@ def grab_cnschedule(url):
                         show_name = pretty(el_show[1].contents[0])
 
                     # Episode name might be under a link
-                    if episode_name is None:
-                        el_episode_name = el_show[3].find('a')
-                        episode_name = pretty(''.join(el_episode_name.strings))
+                    try:
+                        if episode_name is None:
+                            el_episode_name = el_show[3].find('a')
+                            episode_name = pretty(''.join(el_episode_name.strings))
+                    except:
+                        pass
 
                 show_name = fix_showname(show_name)
 
