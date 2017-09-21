@@ -7,7 +7,7 @@
 $link: $oc-blue-7;
 $link-active: $oc-blue-6;
 $link-active-border: $oc-blue-9;
-$link-hover: $oc-blue-6 !important;
+$link-hover: $oc-blue-6;
 $link-hover-border: $oc-blue-9;
 $link-visited: $oc-blue-7;
 
@@ -142,5 +142,5 @@ a:not(.button) {
 }
 
 .cc-link:hover, .cc-link:active {
-    color: $link-hover;
+    color: $link-hover !important;
 }
