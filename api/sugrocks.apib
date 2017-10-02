@@ -1,0 +1,405 @@
+FORMAT: 1A
+HOST: https://api.sug.rocks
+
+# sug.rocks API
+You can use our API to get the recent /sug/ threads, OP template, show schedule, latest leaks (if available) and downloads !
+
+::: note
+Responses in this documentation are examples.
+:::
+
+### Rate-limits
+Currently, we're not rate-limiting requests, but note that it might be introduced if we notice some clients hammering our servers.
+Please be responsible and try to wait 2 minutes in between requests.
+
+
+# Group /sug/
+Everything related to /co/sug/ and /trash/sug/.
+
+## Threads [/threads.json]
+
+### Get Theads [GET]
+This endpoint retrieves all threads.
+
++ Response 200 (application/json)
+    ::: note
+    In this example, the first thread is already dead (404), so you should link to the archive instead of the url. The second example did reach the bump limit but is still available.
+    :::
+
+    + Body
+
+            {
+              "_": {
+                "generated": 1501593002
+              },
+              "co": {},
+              "trash": {
+                "10771362": {
+                  "archive": "https://desuarchive.org/trash/thread/10771362",
+                  "board": "trash",
+                  "dates": {
+                    "RFC822": "Tue,  1 Aug 2017 03:59:29Z",
+                    "ISO8601": "2017-08-01T03:59:29Z",
+                    "string": "08/01/17(Tue)03:59:29(UTC)",
+                    "timestamp": 1501559969
+                  },
+                  "edition": "Meekface Edition",
+                  "id": 10771362,
+                  "media": {
+                    "deleted": false,
+                    "height": 1449,
+                    "name": "1491774395468.png",
+                    "spoiler": false,
+                    "url": "http://i.4cdn.org/trash/1501559969868.png",
+                    "width": 1280
+                  },
+                  "op": "/sug/ - Steven Universe General<br><br>Meekface Edition<br><br>Last Thread: [snip]",
+                  "page": "0",
+                  "status": {
+                    "archived": false,
+                    "bump_limit": true,
+                    "closed": true,
+                    "dead": true,
+                    "image_limit": false
+                  },
+                  "url": "http://boards.4chan.org/trash/thread/10771362"
+                },
+                "10775044": {
+                  "archive": "https://desuarchive.org/trash/thread/10775044",
+                  "board": "trash",
+                  "dates": {
+                    "RFC822": "Tue,  1 Aug 2017 07:59:11Z",
+                    "ISO8601": "2017-08-01T07:59:11Z",
+                    "string": "08/01/17(Tue)07:59:11(UTC)",
+                    "timestamp": 1501574351
+                  },
+                  "edition": "Mustard Edition",
+                  "id": 10775044,
+                  "media": {
+                    "deleted": false,
+                    "height": 630,
+                    "name": "NOOOOOOOOOOOOOO MI MUSTARD.png",
+                    "spoiler": false,
+                    "url": "http://i.4cdn.org/trash/1501574351807.png",
+                    "width": 600
+                  },
+                  "op": "/sug/ - Steven Universe General<br><br>Mustard Edition<br><br>Last Thread: [snip]",
+                  "page": 11,
+                  "status": {
+                    "archived": false,
+                    "bump_limit": true,
+                    "closed": false,
+                    "dead": false,
+                    "image_limit": false
+                  },
+                  "url": "http://boards.4chan.org/trash/thread/10775044"
+                }
+              }
+            }
+
+
+## OP Template [/op.json]
+
+### Get OP [GET]
+This endpoint retrieves the OP template for new threads.
+
+::: warning
+This endpoint might change in the next months.
+:::
+
++ Response 200 (application/json)
+    ::: note
+    This can't be simpler.
+    :::
+
+    + Body
+
+            {
+              "content": "[TITLE] Edition\n\nLast Thread: >>[POST]\n\n[NEW RELEASES]\n>Steven's Dream & Adventures in Light Distortion\nAiring January 30 at 7PM EST: https:\/\/twitter.com\/cartoonnetwork\/status\/811588726912585729\n>Three Gems and a Baby\n[snip]",
+              "subject": "/sug/ - Steven Universe General"
+            }
+
+
+# Group Steven Universe
+Other general SU stuff.
+
+## LEAKBOT [/leaks.json]
+
+### Get leaks [GET]
+This endpoint retrieves all the available leaks.
+
+::: warning
+This endpoint might change in the next months.
+:::
+
++ Response 200 (application/json)
+    ::: note
+    Usually, there’s only one video preview. But whow knows?
+    :::
+
+    + Body
+
+            [
+              {
+                "air_date": 1480636800,
+                "date": 1480341600,
+                "desc": "Greg tells Steven the story of his first winter with Steven.",
+                "id": 846669,
+                "images": [
+                  {
+                    "url": "https://example.com/leaks/01.png"
+                  },
+                  {
+                    "url": "https://example.com/leaks/03.png"
+                  }
+                ],
+                "title": "Three Gems and a Baby",
+                "videos": [
+                  {
+                    "url": "https://example.com/leaks/video.mp4"
+                  }
+                ]
+              }
+            ]
+
+
+## Downloads [/dl.json]
+
+### Get downloads [GET]
+This endpoint retrieves all the available leaks.
+
+::: warning
+`individual`, `itunes` and `preair` share the same structure, but `comics` is totally different.
+:::
+
++ Response 200 (application/json)
+    ::: note
+    Files that contains two episodes in one have an underscore between episodes number. Like for episode 1 & 2: `01_02`.
+    :::
+
+    ::: note
+    For episodes: `url`, `marebucks`, `dailymotion` and `torrent` can be "null" if not available.
+    The same goes with comics and books: `cbr`, `cbz`, `epub` and `pdf` can be "null" if not available.
+    :::
+
+    + Body
+
+            {
+              "_": {
+                "generated": 1496501844
+              },
+              "comics": [
+                {
+                  "category": "Books",
+                  "cbr": "https://example.com/SUG-CBR-BOOK-GTTCG.cbr",
+                  "cbz": "https://example.com/SUG-CBZ-BOOK-GTTCG.cbz",
+                  "date": 1490369885,
+                  "epub": "https://example.com/SUG-EPUB-BOOK-GTTCG.epub",
+                  "id": "BOOK-GTTCG",
+                  "pdf": "https://example.com/SUG-PDF-BOOK-GTTCG.pdf",
+                  "title": "Guide to the Crystal Gems"
+                },
+                {
+                  "category": "Main Comics (2014-15)",
+                  "cbr": "https://example.com/SUG-CBR-COMIC01.cbr",
+                  "cbz": "https://example.com/SUG-CBZ-COMIC01.cbz",
+                  "date": 1490369885,
+                  "epub": "https://example.com/SUG-EPUB-COMIC01.epub",
+                  "id": "COMIC01",
+                  "pdf": "https://example.com/SUG-PDF-COMIC01.pdf",
+                  "title": "Issue 01"
+                },
+              ],
+              "individual": [
+                {
+                  "dailymotion": null,
+                  "date": 1473502695,
+                  "episode": "01",
+                  "id": 101,
+                  "marebucks": "https://marebucks.com/sun/1",
+                  "season": "01",
+                  "title": "Gem Glow",
+                  "torrent": null,
+                  "url": "https://example.com/mega/01x01.mp4"
+                },
+                {
+                  "dailymotion": null,
+                  "date": 1473502695,
+                  "episode": "02",
+                  "id": 102,
+                  "marebucks": "https://marebucks.com/sun/2",
+                  "season": "01",
+                  "title": "Laser Light Cannon",
+                  "torrent": null,
+                  "url": "https://example.com/mega/01x02.mp4"
+                }
+              ],
+              "itunes": [
+                {
+                  "dailymotion": null,
+                  "date": 1473502695,
+                  "episode": "01_02",
+                  "id": 10102,
+                  "marebucks": "https://marebucks.com/sun/1",
+                  "season": "01",
+                  "title": "Gem Glow & Laser Light Cannon",
+                  "torrent": "https://example.com/torrents/01x01_02.mkv.torrent",
+                  "url": "https://example.com/01x01_02.mkv"
+                },
+                {
+                  "dailymotion": null,
+                  "date": 1473502695,
+                  "episode": "03_04",
+                  "id": 10304,
+                  "marebucks": "https://marebucks.com/sun/3",
+                  "season": "01",
+                  "title": "Cheeseburger Backpack & Together Breakfast",
+                  "torrent": "https://example.com/torrents/01x03_04.mkv.torrent",
+                  "url": "https://example.com/01x03_04.mkv"
+                }
+              ],
+              "preair": [
+                {
+                  "dailymotion": "https://dailymotion.com/video/x5lts7g",
+                  "date": 1473502695,
+                  "episode": "01",
+                  "id": 501,
+                  "marebucks": "https://marebucks.com/sun/127",
+                  "season": "05",
+                  "title": "Stuck Together",
+                  "torrent": null,
+                  "url": "https://example.com/preair/ep.mkv"
+                }
+              ]
+            }
+
+
+# Group Schedules
+Data related to schedules.
+
+## Steven Universe [/schedule.json]
+
+### Get SU Schedule [GET]
+This endpoint retrieves a copy of Cartoon Network's and Zap2It's schedule for Steven Universe.
+
++ Response 200 (application/json)
+    ::: note
+    This endpoint is using the American Eastern timezone (EST, -0500). Use the added `timestamp` value to convert to your own (local) timezone if needed.
+    :::
+
+    + Body
+
+            {
+              "_": {
+                "generated": 1499616800
+              },
+              "cn": [
+                {
+                  "date": "March 03",
+                  "id": 2065557,
+                  "time": "7:00 PM",
+                  "timestamp": 1488585600,
+                  "title": "Tiger Philanthropist"
+                },
+                {
+                  "date": "March 05",
+                  "id": 2083879,
+                  "time": "4:00 PM",
+                  "timestamp": 1488747600,
+                  "title": "New Crystal Gems /That Will Be All"
+                }
+              ],
+              "zap": [
+                {
+                  "date": "3/23/2017",
+                  "episode": "S04E20",
+                  "id": 322327565454,
+                  "synopsis": null,
+                  "title": "Lion 4: Alternate Ending"
+                },
+                {
+                  "date": "6/01/2017",
+                  "episode": "S04E28",
+                  "id": 245146366966,
+                  "synopsis": "After his revival, Lars questions what happened to him.",
+                  "title": "Lars' Head"
+                }
+              ]
+            }
+
+
+## Cartoon Network [/cnschedule.json]
+
+### Get CN's Schedule [GET]
+This endpoint retrieves a copy of Cartoon Network's schedule from various sources ("The Backdoor" and Zap2it).
+It usually goes from 3 days back to 13 days ahead.
+
+::: note
+**Details of a `schedule` element:**
+
+- `date` and `time` are straightforward
+- `timestamp` is when the block starts
+- `timestamp_end` is when the block ends
+- `show` is the name of the show (might also be `SPECIAL` or `MOVIE`)
+- `title` is the episode(s)/movie/block title (might be `null`)
+- `slots` is the length of the block. A single slot is usually 15 minutes
+:::
+
++ Response 200 (application/json)
+    ::: note
+    This endpoint is using the American Eastern timezone (EST, -0500). Use the added `timestamp` value to convert to your own (local) timezone if needed.
+    :::
+
+    + Body
+
+            {
+              "2017-07-06": {
+                "source": "Cartoon Network",
+                "schedule": [
+                  {
+                    "date": "2017-07-06",
+                    "time": "6:00 am",
+                    "timestamp": 1499335200,
+                    "timestamp_end": 1499337000,
+                    "show": "Amazing World of Gumball",
+                    "title": "Friend /Saint ",
+                    "slots": 2
+                  },
+                  {
+                    "date": "2017-07-06",
+                    "time": "6:30 am",
+                    "timestamp": 1499337000,
+                    "timestamp_end": 1499338800,
+                    "show": "Amazing World of Gumball",
+                    "title": "Oracle /Safety ",
+                    "slots": 2
+                  }
+                ]
+              },
+              "2017-07-17": {
+                "source": "Zap2it",
+                "schedule": [
+                  {
+                    "date": "2017-07-17",
+                    "time": "6:00 am",
+                    "timestamp": 1500289200,
+                    "timestamp_end": 1500291000,
+                    "show": "Amazing World of Gumball",
+                    "title": "The Coach; The Joy",
+                    "slots": 2
+                  },
+                  {
+                    "date": "2017-07-17",
+                    "time": "6:30 am",
+                    "timestamp": 1500291000,
+                    "timestamp_end": 1500292800,
+                    "show": "Amazing World of Gumball",
+                    "title": "The Kids; The Fan",
+                    "slots": 2
+                  }
+                ]
+              },
+              "_": {
+                "generated": 1499619654
+              }
+            }

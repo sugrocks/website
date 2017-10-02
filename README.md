@@ -12,6 +12,7 @@
 - [Prerequisites](#prerequisites)
 - [Install](#install)
 - [Run](#run)
+- [Docs](#docs)
 - [What about the leakbot?](#what-about-the-leakbot)
 - [Compile `SCSS` to `CSS`](#compile-scss-to-css)
 - [Linter notes](#linter-notes)
@@ -52,6 +53,17 @@ pipenv run python static.py
 
 And then you just point your favorite webserver _(nginx, caddy, whatevever)_ to the `public/` folder.
 
+## Docs
+To compile the docs, install `aglio`.
+```
+npm install -g aglio
+```
+
+Then run it.
+```
+aglio -i api/sugrocks.apib -o api/index.html
+```
+
 
 ## What about the leakbot?
 The leakbot has its own repository ([sug/leakbot@gitgud](https://gitgud.io/sug/leakbot)) and is a gitsubmodule in this repo.
@@ -75,7 +87,7 @@ sass public/scss/tumblr.scss public/css/tumblr.css --style compressed
 - Right-click and `Set Output Path` to the right `css/*.css` file for the selected `.scss`.
 - Edit your files with the app open in the background or press the compile button every time.
 
-You should get something like that:  
+You should get something like this:  
 ![](https://s.kdy.ch/koala_2016-12-12_22-01-16.png)
 
 
