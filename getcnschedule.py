@@ -341,7 +341,7 @@ def gen_api(sch):
 
 if __name__ == '__main__':
     # Using the [as] "backdoor", where we can put a date in the URL
-    source_url = 'http://schedule.adultswim.com/servlet/ScheduleServlet?action=GO&theDate=%s&timeZone=EST'
+    source_url = 'http://www.adultswim.com/adultswimdynsched/servlet/ScheduleServlet?action=GO&theDate=%s&timeZone=EST'
     # First we grab CN's schedule and put it in a list
     cn_schedule = grab_cnschedule(source_url)
 
