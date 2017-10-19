@@ -1,6 +1,6 @@
 [submodule "leakbot"]
 	path = leakbot
-	url = https://gitgud.io/sug/leakbot
+	url = https://gitlab.com/ctoon/sug/leakbot.git
 [submodule "api"]
 	path = api
-	url = https://github.com/sugrocks/api.git
+	url = https://gitlab.com/ctoon/sug/api.git

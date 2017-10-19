@@ -6,11 +6,11 @@ node_js:
 python:
     - "3.6"
 before_install:
-    - python3 -V
-    - pip3 -V
+    - python -V
+    - pip -V
 install:
     - npm install --only=dev
-    - pip3 install flake8
+    - pip install flake8
 script:
     - npm test
     - flake8 --max-line-length=140 .

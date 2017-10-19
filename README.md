@@ -1,7 +1,7 @@
 # /sug/.rocks
 [![Standard - JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-green.svg)](http://standardjs.com/)
 [![PEP8](https://img.shields.io/badge/code%20style-pep8-green.svg)](https://www.python.org/dev/peps/pep-0008/)
-[![Gitgud Build Status](https://gitgud.io/sug/website/badges/master/build.svg)](https://gitgud.io/sug/website/commits/master)
+[![Gitlab Build Status](https://gitlab.com/ctoon/sug/website/badges/master/build.svg)](https://gitlab.com/ctoon/sug/website/commits/master)
 [![Travis Build Status](https://travis-ci.org/sugrocks/website.svg?branch=master)](https://travis-ci.org/sugrocks/website)
 
 > [sug.rocks](https://sug.rocks/)
@@ -31,7 +31,7 @@
 
 ## Install
 ```
-git clone --recursive https://gitgud.io/sug/website.git && cd website
+git clone --recursive https://gitlab.com/ctoon/sug/website.git && cd website
 yarn # JS/CSS deps
 pipenv install --python $(which python3.6) # Python deps
 cp config/threads-cache.ini.example config/threads-cache.ini
@@ -66,7 +66,7 @@ aglio -i api/sugrocks.apib -o api/index.html
 
 
 ## What about the leakbot?
-The leakbot has its own repository ([sug/leakbot@gitgud](https://gitgud.io/sug/leakbot)) and is a gitsubmodule in this repo.
+The leakbot has its own repository ([ctoon/sug/leakbot@gitlab](https://gitlab.com/ctoon/sug/leakbot)) and is a gitsubmodule in this repo.
 
 If you forgot to do the `--recursive` when cloning: `git submodule init && git submodule update`
 
