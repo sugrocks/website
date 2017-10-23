@@ -63,8 +63,11 @@ def fix_showname(show_name):
 def fix_episodename(episode_name):
     # Space at the end of titles means there's actually a ", The"
     # Add the "The" back at the beginning and remove the trailing space
+    # Also fix when title ends with ", A" and ", An"
     for title in episode_name.split('/'):
         fixed = re.sub(r'(.*?) $', 'The \\1', title)
+        fixed = re.sub(r'(.*?), An$', 'An \\1', fixed)
+        fixed = re.sub(r'(.*?), A$', 'A \\1', fixed)
         episode_name = episode_name.replace(title, fixed)
 
     return episode_name

@@ -52,9 +52,10 @@ dtrash	../threads.py	/^dtrash = deque('', 5)$/;"	kind:variable	line:32
 error	../threads.py	/^import urllib.error$/;"	kind:namespace	line:11
 find_edition	../threads.py	/^def find_edition(text):$/;"	kind:function	line:54
 find_page	../threads.py	/^def find_page(board, threadid):$/;"	kind:function	line:69
+fix_episodename	../getcnschedule.py	/^def fix_episodename(episode_name):$/;"	kind:function	line:63
 fix_showname	../getcnschedule.py	/^def fix_showname(show_name):$/;"	kind:function	line:48
 format_epnumber	../dllist.py	/^def format_epnumber(episode):$/;"	kind:function	line:47
-gen_api	../getcnschedule.py	/^def gen_api(sch):$/;"	kind:function	line:330
+gen_api	../getcnschedule.py	/^def gen_api(sch):$/;"	kind:function	line:342
 gen_dl_api	../dllist.py	/^def gen_dl_api():$/;"	kind:function	line:177
 gen_dl_page	../dllist.py	/^def gen_dl_page():$/;"	kind:function	line:57
 gen_op_api	../static.py	/^def gen_op_api():$/;"	kind:function	line:35
@@ -68,10 +69,10 @@ getkoschedule.py	../getkoschedule.py	1;"	kind:file	line:1
 getschedule.py	../getschedule.py	1;"	kind:file	line:1
 grab_cn	../getkoschedule.py	/^def grab_cn(url):$/;"	kind:function	line:15
 grab_cn	../getschedule.py	/^def grab_cn(url):$/;"	kind:function	line:15
-grab_cnschedule	../getcnschedule.py	/^def grab_cnschedule(url):$/;"	kind:function	line:63
+grab_cnschedule	../getcnschedule.py	/^def grab_cnschedule(url):$/;"	kind:function	line:73
 grab_zap	../getkoschedule.py	/^def grab_zap(url):$/;"	kind:function	line:39
 grab_zap	../getschedule.py	/^def grab_zap(url):$/;"	kind:function	line:39
-grab_zapschedule	../getcnschedule.py	/^def grab_zapschedule(url):$/;"	kind:function	line:207
+grab_zapschedule	../getcnschedule.py	/^def grab_zapschedule(url):$/;"	kind:function	line:219
 hashlib	../getkoschedule.py	/^import hashlib$/;"	kind:namespace	line:3
 hashlib	../getschedule.py	/^import hashlib$/;"	kind:namespace	line:3
 html	../threads.py	/^import html$/;"	kind:namespace	line:5
@@ -91,7 +92,7 @@ last_group	../getcnschedule.py	/^last_group = ''$/;"	kind:variable	line:18
 load_cache	../threads.py	/^def load_cache():$/;"	kind:function	line:117
 log	../getcnschedule.py	/^def log(group, text):$/;"	kind:function	line:21
 math	../getcnschedule.py	/^import math$/;"	kind:namespace	line:5
-merge_schedules	../getcnschedule.py	/^def merge_schedules(cn_sch, zap_sch):$/;"	kind:function	line:309
+merge_schedules	../getcnschedule.py	/^def merge_schedules(cn_sch, zap_sch):$/;"	kind:function	line:321
 multiprocessing	../threads.py	/^import multiprocessing$/;"	kind:namespace	line:14
 os	../dllist.py	/^import os$/;"	kind:namespace	line:1
 os	../getcnschedule.py	/^import os$/;"	kind:namespace	line:1
