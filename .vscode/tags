@@ -1,0 +1,138 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+BeautifulSoup	../getcnschedule.py	/^from bs4 import BeautifulSoup$/;"	kind:namespace	line:12
+BeautifulSoup	../getkoschedule.py	/^from bs4 import BeautifulSoup$/;"	kind:namespace	line:9
+BeautifulSoup	../getschedule.py	/^from bs4 import BeautifulSoup$/;"	kind:namespace	line:9
+Environment	../dllist.py	/^from jinja2 import Environment, FileSystemLoader$/;"	kind:namespace	line:8
+Environment	../static.py	/^from jinja2 import Environment, FileSystemLoader$/;"	kind:namespace	line:7
+Environment	../threads.py	/^from jinja2 import Environment, FileSystemLoader$/;"	kind:namespace	line:20
+FileSystemLoader	../dllist.py	/^from jinja2 import Environment, FileSystemLoader$/;"	kind:namespace	line:8
+FileSystemLoader	../static.py	/^from jinja2 import Environment, FileSystemLoader$/;"	kind:namespace	line:7
+FileSystemLoader	../threads.py	/^from jinja2 import Environment, FileSystemLoader$/;"	kind:namespace	line:20
+THIS_DIR	../dllist.py	/^THIS_DIR = os.path.dirname(os.path.abspath(__file__))$/;"	kind:variable	line:11
+THIS_DIR	../getcnschedule.py	/^THIS_DIR = os.path.dirname(os.path.abspath(__file__))$/;"	kind:variable	line:17
+THIS_DIR	../getkoschedule.py	/^THIS_DIR = os.path.dirname(os.path.abspath(__file__))$/;"	kind:variable	line:12
+THIS_DIR	../getschedule.py	/^THIS_DIR = os.path.dirname(os.path.abspath(__file__))$/;"	kind:variable	line:12
+THIS_DIR	../static.py	/^THIS_DIR = os.path.dirname(os.path.abspath(__file__))$/;"	kind:variable	line:10
+THIS_DIR	../threads.py	/^THIS_DIR = os.path.dirname(os.path.abspath(__file__))$/;"	kind:variable	line:23
+atom_date	../dllist.py	/^def atom_date(timestamp):$/;"	kind:function	line:14
+atom_date	../threads.py	/^def atom_date(timestamp):$/;"	kind:function	line:91
+basc_py4chan	../threads.py	/^import basc_py4chan$/;"	kind:namespace	line:9
+better_exceptions	../dllist.py	/^import better_exceptions$/;"	kind:namespace	line:4
+better_exceptions	../getcnschedule.py	/^import better_exceptions$/;"	kind:namespace	line:9
+better_exceptions	../getkoschedule.py	/^import better_exceptions$/;"	kind:namespace	line:5
+better_exceptions	../getschedule.py	/^import better_exceptions$/;"	kind:namespace	line:5
+better_exceptions	../static.py	/^import better_exceptions$/;"	kind:namespace	line:4
+better_exceptions	../threads.py	/^import better_exceptions$/;"	kind:namespace	line:15
+co	../threads.py	/^co = basc_py4chan.Board('co')$/;"	kind:variable	line:36
+collections	../getcnschedule.py	/^import collections$/;"	kind:namespace	line:8
+config	../threads.py	/^config = configparser.ConfigParser()$/;"	kind:variable	line:26
+configparser	../dllist.py	/^import configparser$/;"	kind:namespace	line:3
+configparser	../threads.py	/^import configparser$/;"	kind:namespace	line:10
+crayons	../getcnschedule.py	/^import crayons$/;"	kind:namespace	line:6
+crayons	../static.py	/^import crayons$/;"	kind:namespace	line:3
+crayons	../threads.py	/^import crayons$/;"	kind:namespace	line:7
+date	../getcnschedule.py	/^from datetime import date, datetime$/;"	kind:namespace	line:14
+datetime	../dllist.py	/^from datetime import datetime$/;"	kind:namespace	line:6
+datetime	../getcnschedule.py	/^from datetime import date, datetime$/;"	kind:namespace	line:14
+datetime	../getkoschedule.py	/^from datetime import datetime$/;"	kind:namespace	line:8
+datetime	../getschedule.py	/^from datetime import datetime$/;"	kind:namespace	line:8
+datetime	../static.py	/^from datetime import datetime$/;"	kind:namespace	line:6
+datetime	../threads.py	/^from datetime import datetime$/;"	kind:namespace	line:19
+dco	../threads.py	/^dco = deque('', 5)$/;"	kind:variable	line:30
+debuglog	../threads.py	/^def debuglog(message):$/;"	kind:function	line:40
+deque	../threads.py	/^from collections import deque$/;"	kind:namespace	line:18
+dictify	../threads.py	/^def dictify(thread):$/;"	kind:function	line:129
+dllist.py	../dllist.py	1;"	kind:file	line:1
+dtrash	../threads.py	/^dtrash = deque('', 5)$/;"	kind:variable	line:32
+error	../threads.py	/^import urllib.error$/;"	kind:namespace	line:11
+find_edition	../threads.py	/^def find_edition(text):$/;"	kind:function	line:54
+find_page	../threads.py	/^def find_page(board, threadid):$/;"	kind:function	line:69
+fix_showname	../getcnschedule.py	/^def fix_showname(show_name):$/;"	kind:function	line:48
+format_epnumber	../dllist.py	/^def format_epnumber(episode):$/;"	kind:function	line:47
+gen_api	../getcnschedule.py	/^def gen_api(sch):$/;"	kind:function	line:330
+gen_dl_api	../dllist.py	/^def gen_dl_api():$/;"	kind:function	line:177
+gen_dl_page	../dllist.py	/^def gen_dl_page():$/;"	kind:function	line:57
+gen_op_api	../static.py	/^def gen_op_api():$/;"	kind:function	line:35
+gen_page	../static.py	/^def gen_page(title, desc, file):$/;"	kind:function	line:13
+gen_schedule_api	../getkoschedule.py	/^def gen_schedule_api(cn, zap):$/;"	kind:function	line:98
+gen_schedule_api	../getschedule.py	/^def gen_schedule_api(cn, zap):$/;"	kind:function	line:98
+get_cat	../dllist.py	/^def get_cat(folder):$/;"	kind:function	line:31
+get_id	../dllist.py	/^def get_id(episode, dltype=''):$/;"	kind:function	line:26
+getcnschedule.py	../getcnschedule.py	1;"	kind:file	line:1
+getkoschedule.py	../getkoschedule.py	1;"	kind:file	line:1
+getschedule.py	../getschedule.py	1;"	kind:file	line:1
+grab_cn	../getkoschedule.py	/^def grab_cn(url):$/;"	kind:function	line:15
+grab_cn	../getschedule.py	/^def grab_cn(url):$/;"	kind:function	line:15
+grab_cnschedule	../getcnschedule.py	/^def grab_cnschedule(url):$/;"	kind:function	line:63
+grab_zap	../getkoschedule.py	/^def grab_zap(url):$/;"	kind:function	line:39
+grab_zap	../getschedule.py	/^def grab_zap(url):$/;"	kind:function	line:39
+grab_zapschedule	../getcnschedule.py	/^def grab_zapschedule(url):$/;"	kind:function	line:207
+hashlib	../getkoschedule.py	/^import hashlib$/;"	kind:namespace	line:3
+hashlib	../getschedule.py	/^import hashlib$/;"	kind:namespace	line:3
+html	../threads.py	/^import html$/;"	kind:namespace	line:5
+inline_css	../threads.py	/^def inline_css(text):$/;"	kind:function	line:46
+is_sug	../threads.py	/^def is_sug(thread):$/;"	kind:function	line:101
+itemgetter	../dllist.py	/^from operator import itemgetter$/;"	kind:namespace	line:7
+itemgetter	../getcnschedule.py	/^from operator import itemgetter$/;"	kind:namespace	line:13
+jco	../threads.py	/^jco = {}$/;"	kind:variable	line:31
+json	../dllist.py	/^import json$/;"	kind:namespace	line:2
+json	../getcnschedule.py	/^import json$/;"	kind:namespace	line:4
+json	../getkoschedule.py	/^import json$/;"	kind:namespace	line:2
+json	../getschedule.py	/^import json$/;"	kind:namespace	line:2
+json	../static.py	/^import json$/;"	kind:namespace	line:2
+json	../threads.py	/^import json$/;"	kind:namespace	line:4
+jtrash	../threads.py	/^jtrash = {}$/;"	kind:variable	line:33
+last_group	../getcnschedule.py	/^last_group = ''$/;"	kind:variable	line:18
+load_cache	../threads.py	/^def load_cache():$/;"	kind:function	line:117
+log	../getcnschedule.py	/^def log(group, text):$/;"	kind:function	line:21
+math	../getcnschedule.py	/^import math$/;"	kind:namespace	line:5
+merge_schedules	../getcnschedule.py	/^def merge_schedules(cn_sch, zap_sch):$/;"	kind:function	line:309
+multiprocessing	../threads.py	/^import multiprocessing$/;"	kind:namespace	line:14
+os	../dllist.py	/^import os$/;"	kind:namespace	line:1
+os	../getcnschedule.py	/^import os$/;"	kind:namespace	line:1
+os	../getkoschedule.py	/^import os$/;"	kind:namespace	line:1
+os	../getschedule.py	/^import os$/;"	kind:namespace	line:1
+os	../static.py	/^import os$/;"	kind:namespace	line:1
+os	../threads.py	/^import os$/;"	kind:namespace	line:1
+p	../threads.py	/^        p = multiprocessing.Process(target=sug_threads)$/;"	kind:variable	line:414
+parse	../threads.py	/^import urllib.parse$/;"	kind:namespace	line:12
+parser	../getcnschedule.py	/^from dateutil import parser$/;"	kind:namespace	line:11
+parser	../getkoschedule.py	/^from dateutil import parser$/;"	kind:namespace	line:7
+parser	../getschedule.py	/^from dateutil import parser$/;"	kind:namespace	line:7
+pretty	../getcnschedule.py	/^def pretty(text):$/;"	kind:function	line:32
+re	../getcnschedule.py	/^import re$/;"	kind:namespace	line:2
+re	../threads.py	/^import re$/;"	kind:namespace	line:2
+request	../threads.py	/^import urllib.request$/;"	kind:namespace	line:13
+requests	../getcnschedule.py	/^import requests$/;"	kind:namespace	line:7
+requests	../getkoschedule.py	/^import requests$/;"	kind:namespace	line:4
+requests	../getschedule.py	/^import requests$/;"	kind:namespace	line:4
+rss_date	../dllist.py	/^def rss_date(timestamp):$/;"	kind:function	line:20
+rss_date	../threads.py	/^def rss_date(timestamp):$/;"	kind:function	line:96
+s_id	../getkoschedule.py	/^    s_id = 'EP02378975'$/;"	kind:variable	line:114
+s_id	../getschedule.py	/^    s_id = 'EP01616432'$/;"	kind:variable	line:114
+search_term	../getkoschedule.py	/^    search_term = 'OK K.O.! Let\\'s Be Heroes'$/;"	kind:variable	line:109
+search_term	../getschedule.py	/^    search_term = 'steven universe'$/;"	kind:variable	line:109
+sec	../threads.py	/^        sec = config.get('config', 'refresh')$/;"	kind:variable	line:429
+show_id	../getkoschedule.py	/^    show_id = '2079533'$/;"	kind:variable	line:108
+show_id	../getschedule.py	/^    show_id = '399692'$/;"	kind:variable	line:108
+shutil	../threads.py	/^import shutil$/;"	kind:namespace	line:6
+sleep	../threads.py	/^from time import sleep$/;"	kind:namespace	line:17
+split_season_episode	../dllist.py	/^def split_season_episode(episode):$/;"	kind:function	line:52
+stamp_to_strftime	../threads.py	/^def stamp_to_strftime(timestamp):$/;"	kind:function	line:86
+static.py	../static.py	1;"	kind:file	line:1
+sug_threads	../threads.py	/^def sug_threads():$/;"	kind:function	line:162
+sys	../getcnschedule.py	/^import sys$/;"	kind:namespace	line:3
+sys	../threads.py	/^import sys$/;"	kind:namespace	line:3
+t	../getkoschedule.py	/^    t = 'OK+K.O.%21+Let%27s+Be+Heroes%21'$/;"	kind:variable	line:115
+t	../getschedule.py	/^    t = 'Steven+Universe'$/;"	kind:variable	line:115
+threads.py	../threads.py	1;"	kind:file	line:1
+traceback	../threads.py	/^import traceback$/;"	kind:namespace	line:8
+trash	../threads.py	/^trash = basc_py4chan.Board('trash')$/;"	kind:variable	line:37
+urllib	../threads.py	/^import urllib.error$/;"	kind:namespace	line:11
+urllib	../threads.py	/^import urllib.parse$/;"	kind:namespace	line:12
+urllib	../threads.py	/^import urllib.request$/;"	kind:namespace	line:13

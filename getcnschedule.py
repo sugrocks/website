@@ -60,6 +60,16 @@ def fix_showname(show_name):
     return show_name
 
 
+def fix_episodename(episode_name):
+    # Space at the end of titles means there's actually a ", The"
+    # Add the "The" back at the beginning and remove the trailing space
+    for title in episode_name.split('/'):
+        fixed = re.sub(r'(.*?) $', 'The \\1', title)
+        episode_name = episode_name.replace(title, fixed)
+
+    return episode_name
+
+
 def grab_cnschedule(url):
     # Get the schedule from the "backdoor" and parse it for every available day
     schedule = {}
@@ -159,6 +169,8 @@ def grab_cnschedule(url):
 
                 if episode_name is None:  # If no episode title is found, return an empty string
                     episode_name = ''
+
+                episode_name = fix_episodename(episode_name)
 
                 try:
                     el_next_time = trs[i + 2].find(class_='timecell')
