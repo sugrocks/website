@@ -1,55 +1,17 @@
 [
   {
-    "code": "S05E01",
-    "title": "Stuck Together",
+    "code": "S05E05-??",
+    "title": "New Episodes",
     "year": 2017,
-    "month": 5,
-    "day": 29,
-    "hour": 23,
+    "month": 11,
+    "day": 10,
+    "hour": 11,
     "minute": 0,
     "duration": 11,
-    "leaked": true,
-    "supposed": false,
-    "unknown": false
-  },
-  {
-    "code": "S05E02",
-    "title": "The Trial",
-    "year": 2017,
-    "month": 5,
-    "day": 29,
-    "hour": 23,
-    "minute": 15,
-    "duration": 11,
     "leaked": false,
     "supposed": false,
-    "unknown": false
-  },
-  {
-    "code": "S05E03",
-    "title": "Off Colors",
-    "year": 2017,
-    "month": 5,
-    "day": 29,
-    "hour": 23,
-    "minute": 30,
-    "duration": 11,
-    "leaked": false,
-    "supposed": false,
-    "unknown": false
-  },
-  {
-    "code": "S05E04",
-    "title": "Lars' Head",
-    "year": 2017,
-    "month": 5,
-    "day": 29,
-    "hour": 23,
-    "minute": 45,
-    "duration": 11,
-    "leaked": false,
-    "supposed": false,
-    "unknown": false
+    "unknown": false,
+    "app": true
   }
 ]
 

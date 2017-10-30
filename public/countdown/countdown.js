@@ -102,6 +102,8 @@ function startClock () {
       clearCountdown()
       document.getElementById('hours').innerHTML = 'Unknown Date'
       dontTick = true
+    } else if (nextEp['app']) {
+      status = 'on the CN app'
     } else {
       status = 'until airing on TV'
     }
