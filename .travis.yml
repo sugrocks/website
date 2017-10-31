@@ -13,4 +13,4 @@ install:
     - pip install flake8
 script:
     - npm test
-    - flake8 --max-line-length=140 .
+    - flake8 .

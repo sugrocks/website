@@ -13,4 +13,4 @@ test:python:
   before_script:
    - pip3 install flake8
   script:
-   - flake8 --max-line-length=140 .
+   - flake8 .
