@@ -1,5 +1,5 @@
 {% extends "layout.html" %}
-{% set previous_cat = [] %}
+{% set ns = namespace(previous_cat='') %}
 {% block body %}
             <div class="card is-fullwidth">
                 <header class="card-header">
@@ -117,7 +117,7 @@
                                 <b><a href="https://dl.sug.rocks/torrents/all.zip">Get all the torrents</a></b>
                                 <table class="dllist">
 {% for episode in itunes %}
-{% if not previous_cat or episode.season != previous_cat[-1] %}{% if episode.season[:2] == "Sp" %}
+{% if episode.season != ns.previous_cat %}{% if episode.season[:2] == "Sp" %}
                                     <tr>
                                         <th colspan="3">
                                             <h5 class="title is-5">Specials</h5>
@@ -129,7 +129,7 @@
                                             <h5 class="title is-5">Season {{ episode.season }}</h5>
                                         </th>
                                     </tr>
-{% endif %}{% set __ = previous_cat.append(episode.season) %}{% endif %}
+{% endif %}{% set ns.previous_cat = episode.season %}{% endif %}
                                     <tr id="{{ episode.id }}">
                                         <td>
                                             <a title="Direct Download"
@@ -176,7 +176,7 @@
                                 <b><a href="https://mega.nz/#F!JotHkR6Y!giZlsdwr_k5ULQAIJKWrsw">Mirror from this Mega</a></b>
                                 <table class="dllist">
 {% for episode in individual %}
-{% if not previous_cat or episode.season != previous_cat[-1] %}{% if episode.season[:2] == "Sp" %}
+{% if episode.season != ns.previous_cat %}{% if episode.season[:2] == "Sp" %}
                                     <tr>
                                         <th colspan="3">
                                             <h5 class="title is-5">Specials</h5>
@@ -188,7 +188,7 @@
                                             <h5 class="title is-5">Season {{ episode.season }}</h5>
                                         </th>
                                     </tr>
-{% endif %}{% set __ = previous_cat.append(episode.season) %}{% endif %}
+{% endif %}{% set ns.previous_cat = episode.season %}{% endif %}
                                     <tr id="{{ episode.id }}">
                                         <td>
                                             <a title="Direct Download"
@@ -229,13 +229,13 @@
                                 </span>
                                 <table class="dllist">
 {% for comic in comics %}
-{% if not previous_cat or comic.category != previous_cat[-1] %}
+{% if comic.category != ns.previous_cat %}
                                     <tr>
                                         <th colspan="5">
                                             <h5 class="title is-5">{{ comic.category }}</h5>
                                         </th>
                                     </tr>
-{% set __ = previous_cat.append(comic.category) %}{% endif %}
+{% set ns.previous_cat = comic.category %}{% endif %}
                                     <tr id="{{ comic.id }}">
 {% if comic.cbz == '1' %}
                                         <td>
