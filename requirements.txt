@@ -4,7 +4,7 @@ Pillow
 crayons
 html5lib
 randomcolor
-jinja2==2.9.6
+jinja2==2.10
 python-dateutil
 requests==2.18.4
 better_exceptions
