@@ -45,6 +45,9 @@ def grab_zap(url):
 
     for tr in trs[1:6]:  # 5 elements, excluding table header
         episode = '_unknown_'
+        title = '_unknown_'
+        date_pub = '_unknown_'
+        synopsis = None
 
         # Season number
         try:
@@ -62,13 +65,13 @@ def grab_zap(url):
         try:
             title = tr.find(attrs={'itemprop': 'name'}).contents[0]
         except:
-            title = '_unknown_'
+            pass
 
         # Air date
         try:
             date_pub = tr.find(attrs={'itemprop': 'datePublished'}).contents[0]
         except:
-            date_pub = '_unknown_'
+            pass
 
         # Paragraph with synopsis (if any)
         try:
@@ -76,7 +79,7 @@ def grab_zap(url):
             if len(synopsis_p) != 0:  # if there's something inside this <p>, it means we have a synopsis
                 synopsis = synopsis_p[0]
         except:
-            synopsis = None
+            pass
 
         # Generate unique id with our content
         m = hashlib.md5()

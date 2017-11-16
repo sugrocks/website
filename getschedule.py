@@ -75,6 +75,8 @@ def grab_zap(url):
             synopsis_p = tr.find('p').contents
             if len(synopsis_p) != 0:  # if there's something inside this <p>, it means we have a synopsis
                 synopsis = synopsis_p[0]
+            else:
+                synopsis = None
         except:
             synopsis = None
 
