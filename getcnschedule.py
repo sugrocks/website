@@ -327,9 +327,11 @@ def merge_schedules(cn_sch, zap_sch):
         if len(values['schedule']) == 0:
             cn_sch[s_date] = zap_sch[s_date]
 
-    log('merge', 'Adding missing days from Zap2it...')
+    log('merge', 'Adding Zap2it...')
     for s_date, __ in zap_sch.items():
-        if s_date not in cn_sch:
+        if s_date in cn_sch:
+            cn_sch[s_date]['alt'] = zap_sch[s_date]
+        else:
             cn_sch[s_date] = zap_sch[s_date]
 
     log('merge', 'Ordering...')
