@@ -1,17 +1,17 @@
 [
   {
-    "code": "S05E05-10",
-    "title": "New Episodes",
-    "year": 2017,
-    "month": 11,
-    "day": 10,
-    "hour": 23,
-    "minute": 0,
+    "code": "S05E11-E12",
+    "title": "SU: Stranded",
+    "year": 2018,
+    "month": 1,
+    "day": 6,
+    "hour": 0,
+    "minute": 30,
     "duration": 1440,
     "leaked": false,
     "supposed": false,
     "unknown": false,
-    "app": true
+    "app": false
   }
 ]
 
