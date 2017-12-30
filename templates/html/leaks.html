@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block header_includes %}
+    <script src="/js/lazysizes.min.js"></script>
+{% endblock %}
+{% block body %}
+            <article class="message is-info">
+                <div class="message-header">
+                    <p>Note</p>
+                </div>
+                <div class="message-body">
+                    <a href="https://api.ctoon.network/">API</a> and data is now coming from the new
+                    <a href="https://previews.ctoon.network/">CN Previews</a>
+                    website.
+                </div>
+            </article>
+
+            <div class="card is-fullwidth">
+                <div class="card-content">
+                    <div class="content">
+                        <p>
+                            <b>Warning, SPOILERS ! Don't forget to add spoilers when you post images or links on 4chan, reddit or other places about a future episode.</b>
+                        </p>
+
+                        <div class="the-stuff"></div>
+                    </div>
+                </div>
+            </div>
+{% endblock %}
+{% block footer_includes %}
+    <script src="https://cdn.rawgit.com/taylorhakes/promise-polyfill/b4ab1de0/promise.min.js"></script>
+    <script src="https://cdn.rawgit.com/github/fetch/08602ff8/fetch.js"></script>
+    <script src="/js/spoiler.min.js"></script>
+    <script src="/js/previews.min.js"></script>
+{% endblock %}

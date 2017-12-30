@@ -55,5 +55,6 @@ if __name__ == '__main__':
     gen_page('About', 'This website, the author and how to contact me', 'about.html')
     gen_page('OP Template', 'Copy/paste it, edit it and WE\'RE BACK BABY', 'op.html')
     gen_page('Random Media', '24/7 music and episodes', 'live.html')
+    gen_page('Previews', 'WHERE DA LEAKS AT?', 'leaks.html')
     gen_page('Tumblr', '', 'tumblr.html')
     gen_op_api()

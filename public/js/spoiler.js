@@ -3,7 +3,7 @@
  * ------------------
  */
 
-;(function (w, d) {
+function loadSpoilers (w, d) {
   var panel = d.getElementsByClassName('spoiler')
   if (!panel) return
   for (var i = 0, len = panel.length; i < len; ++i) {
@@ -43,4 +43,6 @@
   for (var n = 0, leng = panel.length; n < leng; ++n) {
     toggleSpoiler(panel, n)
   }
-})(window, document)
+}
+
+loadSpoilers(window, document)
