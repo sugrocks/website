@@ -188,9 +188,16 @@
     <script src="{{ remote_url }}/js/menu.min.js" charset="utf-8"></script>
     <script src="{{ remote_url }}/js/news.min.js" charset="utf-8"></script>
     <script src="{{ remote_url }}/js/cookies.min.js" charset="utf-8"></script>
-{% block piwik %}
-    <script src="{{ remote_url }}/js/piwik.js" charset="utf-8"></script>
-    <noscript><p><img src="https://piwik.sug.rocks/piwik.php?idsite=1&rec=1" style="border:0;" alt="" /></p></noscript>
+{% block stats %}
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-103935709-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || []
+        function gtag () { dataLayer.push(arguments) }
+        gtag('js', new Date())
+
+        gtag('config', 'UA-103935709-1')
+    </script>
 {% endblock %}
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </body>
