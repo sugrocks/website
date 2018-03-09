@@ -4,13 +4,13 @@ language: node_js
 node_js:
     - "node"
 python:
-    - "nightly"
+    - "3.6"
 before_install:
-    - python -V
-    - pip -V
+    - python3 -V
+    - pip3 -V
 install:
     - npm install --only=dev
-    - pip install flake8
+    - pip3 install flake8
 script:
     - npm test
     - flake8 .
