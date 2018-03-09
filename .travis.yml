@@ -6,11 +6,11 @@ node_js:
 python:
     - "3.6"
 before_install:
-    - python3 -V
-    - pip3 -V
+    - python3.6 -V
+    - pip3.6 -V
 install:
     - npm install --only=dev
-    - pip3 install flake8
+    - pip3.6 install flake8
 script:
     - npm test
     - flake8 .
