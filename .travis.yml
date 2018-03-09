@@ -1,16 +1,9 @@
-sudo: false
-dist: trusty
-language: node_js
-node_js:
-    - "node"
+language: python
 python:
-    - "3.6"
-before_install:
-    - python3.6 -V
-    - pip3.6 -V
+  - "3.6"
 install:
-    - npm install --only=dev
-    - pip3.6 install flake8
+  - pip install pipenv
+  - pipenv install --dev
 script:
-    - npm test
-    - flake8 .
+  - flake8 .
+
