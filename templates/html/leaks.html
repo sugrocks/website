@@ -3,7 +3,7 @@
     <script src="/js/lazysizes.min.js"></script>
 {% endblock %}
 {% block body %}
-            <article class="message is-info">
+            <article class="message is-info" style="display: none;">
                 <div class="message-header">
                     <p>Note</p>
                 </div>
@@ -17,11 +17,25 @@
             <div class="card is-fullwidth">
                 <div class="card-content">
                     <div class="content">
-                        <p>
+                        <article class="message is-danger">
+                          <div class="message-header">
+                            <p>CN changed their internals</p>
+                          </div>
+                          <div class="message-body">
+                            Cartoon Network stopped using their old system to manage their video catalog and are now exclusively using the new video-data api, the same one as the mobile app.<br/>
+                            This means that we can't juste "guess" the episodes IDs (which was just a number) since they now use hashes (long string of "random" chars that we can't just guess).<br/>
+                            Until we can fully document all the new system, we can't be sure if there's a way to find "non-active" content.<br/>
+                            CTOON's preview platform will be updated in March to support the app data but only for what we can actually see.<br/>
+                            <br/>
+                            If you know how to get the new data or have some hints, feel free to drop me a tweet/DM (@sugrocks or @CTOONnet), send an email (kdy@airmail.cc) or use Discord (Kody#1337).
+                          </div>
+                        </article>
+
+                        <p style="display: none;">
                             <b>Warning, SPOILERS ! Don't forget to add spoilers when you post images or links on 4chan, reddit or other places about a future episode.</b>
                         </p>
 
-                        <div class="the-stuff"></div>
+                        <div class="the-stuff" style="display: none;"></div>
                     </div>
                 </div>
             </div>
