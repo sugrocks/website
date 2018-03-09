@@ -29,3 +29,7 @@ better-exceptions = "*"
 [requires]
 
 python_version = "3.6"
+
+[scripts]
+
+make-static = "python static.py && python dllist.py"

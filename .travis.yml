@@ -4,6 +4,8 @@ python:
 install:
   - pip install pipenv
   - pipenv install --dev
+  - touch templates/op.txt
 script:
   - flake8 .
+  - pipenv run make-static
 
