@@ -1,24 +1,31 @@
 [[source]]
+
 url = "https://pypi.python.org/simple"
 verify_ssl = true
+name = "pypi"
 
-[dev-packages]
-flake8 = "*"
 
 [packages]
-bs4 = "*"
+
+"bs4" = "*"
 pytz = "*"
-jinja2 = "*"
-randomcolor = "*"
 pillow = "*"
-python-dateutil = "*"
 crayons = "*"
-html5lib = "*"
+"html5lib" = "*"
+randomcolor = "*"
+"jinja2" = "==2.10"
+python-dateutil = "*"
+requests = "==2.18.4"
 better-exceptions = "*"
-requests = "*"
+"basc-py4chan" = {git = "https://github.com/sugrocks/basc-py4chan"}
+"pushbullet.py" = {git = "https://github.com/randomchars/pushbullet.py"}
 
-[packages."pushbullet.py"]
-git = "https://github.com/randomchars/pushbullet.py.git"
 
-[packages.basc-py4chan]
-git = "https://github.com/bibanon/basc-py4chan.git"
+[dev-packages]
+
+"flake8" = "*"
+
+
+[requires]
+
+python_version = "3.6"
