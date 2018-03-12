@@ -11,7 +11,7 @@ test:js:
 test:python:
   image: python:latest
   before_script:
-   - pip install pipenv
+   - pip install pipenv virtualenv
    - pipenv install --dev
    - touch templates/op.txt
   script:
