@@ -3,6 +3,7 @@
 [![PEP8](https://img.shields.io/badge/code%20style-pep8-green.svg)](https://www.python.org/dev/peps/pep-0008/)
 [![Gitlab Build Status](https://gitlab.com/ctoon/sug/website/badges/master/build.svg)](https://gitlab.com/ctoon/sug/website/commits/master)
 [![Travis Build Status](https://travis-ci.org/sugrocks/website.svg?branch=master)](https://travis-ci.org/sugrocks/website)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgitlab.com%2Fctoon%2Fsug%2Fwebsite.svg?type=shield)](https://app.fossa.io/projects/git%2Bgitlab.com%2Fctoon%2Fsug%2Fwebsite?ref=badge_shield)
 
 > [sug.rocks](https://sug.rocks/)
 
