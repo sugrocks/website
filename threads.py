@@ -106,7 +106,7 @@ def is_sug(thread):
             thread.topic.subject is not None and
             'Steven Universe General' in thread.topic.subject
         ) or (  # Or check for the two sug.rocks links
-            'https://sug.rocks/leaks.html' in thread.topic.text_comment and
+            'http://kametsu.com/topic/57130-cartoon-network-unofficial-previews/' in thread.topic.text_comment and
             'https://sug.rocks/dl.html' in thread.topic.text_comment
         )
     )
