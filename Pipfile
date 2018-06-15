@@ -15,7 +15,7 @@ crayons = "*"
 randomcolor = "*"
 "jinja2" = "==2.10"
 python-dateutil = "*"
-requests = "==2.19.0"
+requests = "==2.19.1"
 better-exceptions = "*"
 "basc-py4chan" = {git = "https://github.com/sugrocks/basc-py4chan"}
 "pushbullet.py" = {git = "https://github.com/randomchars/pushbullet.py"}
