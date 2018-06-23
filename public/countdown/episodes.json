@@ -1,21 +1,7 @@
 [
   {
-    "code": "Arc",
-    "title": "Heart of the Crystal Gems",
-    "year": 2018,
-    "month": 7,
-    "day": 2,
-    "hour": 23,
-    "minute": 29,
-    "duration": 1,
-    "leaked": false,
-    "supposed": false,
-    "unknown": false,
-    "app": false
-  },
-  {
     "code": "S05E19",
-    "title": "TBA",
+    "title": "Now We're Only Failling Apart",
     "year": 2018,
     "month": 7,
     "day": 2,
@@ -29,7 +15,7 @@
   },
   {
     "code": "S05E20",
-    "title": "TBA",
+    "title": "What's Your Problem?",
     "year": 2018,
     "month": 7,
     "day": 3,
@@ -43,7 +29,7 @@
   },
   {
     "code": "S05E21",
-    "title": "TBA",
+    "title": "The Question",
     "year": 2018,
     "month": 7,
     "day": 4,
@@ -57,7 +43,7 @@
   },
   {
     "code": "S05E22",
-    "title": "TBA",
+    "title": "Made of Honor",
     "year": 2018,
     "month": 7,
     "day": 5,
@@ -71,13 +57,13 @@
   },
   {
     "code": "S05E23",
-    "title": "TBA",
+    "title": "Reunited",
     "year": 2018,
     "month": 7,
     "day": 6,
     "hour": 23,
     "minute": 30,
-    "duration": 12,
+    "duration": 25,
     "leaked": false,
     "supposed": false,
     "unknown": false,
