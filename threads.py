@@ -190,9 +190,9 @@ def sug_threads():
             if not hasattr(thread, 'topic'):
                 with open(os.path.join(THIS_DIR, 'api', 'threads.json')) as data_file:
                     j = json.load(data_file)
-                    jco[int(thread.id)] = j['co'][int(thread.id)]
-                    jco[int(thread.id)]['status']['closed'] = True
-                    jco[int(thread.id)]['status']['dead'] = True
+                    # jco[int(thread.id)] = j['co'][int(thread.id)]
+                    # jco[int(thread.id)]['status']['closed'] = True
+                    # jco[int(thread.id)]['status']['dead'] = True
                     # Remove from deque
                     dco.remove(thread)
             else:
@@ -209,9 +209,9 @@ def sug_threads():
             if not hasattr(thread, 'topic'):
                 with open(os.path.join(THIS_DIR, 'api', 'threads.json')) as data_file:
                     j = json.load(data_file)
-                    jtrash[int(thread.id)] = j['trash'][int(thread.id)]
-                    jtrash[int(thread.id)]['status']['closed'] = True
-                    jtrash[int(thread.id)]['status']['dead'] = True
+                    # jtrash[int(thread.id)] = j['trash'][int(thread.id)]
+                    # jtrash[int(thread.id)]['status']['closed'] = True
+                    # jtrash[int(thread.id)]['status']['dead'] = True
                     # Remove from deque
                     dtrash.remove(thread)
             else:
