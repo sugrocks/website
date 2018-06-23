@@ -9,33 +9,38 @@
     <meta name="description" content="Shortcut to the /sug/ thread.">
     <meta name="author" content="/sug/.rocks">
 
+    <link rel="stylesheet" href="/skeleton.css">
     <style>
-    a {
-        animation: 4s fadeIn;
-        animation-fill-mode: forwards;
-        color: #00e;
-        cursor: pointer;
-        opacity: 0;
-        text-decoration: none;
-    }
+        .container {text-align: center;}
 
-    a:hover {
-        color: #d00
-    }
-
-    @keyframes fadeIn {
-        95% {
+        a {
+            animation: 4s fadeIn;
+            animation-fill-mode: forwards;
+            color: #00e;
+            cursor: pointer;
             opacity: 0;
+            text-decoration: none;
+        }
+        a:hover {
+            color: #d00
         }
 
-        100% {
-            opacity: 1;
+        @keyframes fadeIn {
+            95% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
         }
-    }
     </style>
 </head>
 <body>
-    <a href="{{ url }}">If you didn't get redirected, click here.</a>
+    <div class="container">
+        <a href="{{ url }}">If you didn't get redirected, click here.</a>
+    </div>
+
     <script>window.location = '{{ url }}'</script>
 </body>
 </html>
