@@ -188,13 +188,17 @@ def sug_threads():
         if is_sug(thread):
             # If thread is dead
             if not hasattr(thread, 'topic'):
-                with open(os.path.join(THIS_DIR, 'api', 'threads.json')) as data_file:
-                    j = json.load(data_file)
+                # with open(os.path.join(THIS_DIR, 'api', 'threads.json')) as data_file:
+                    # j = json.load(data_file)
                     # jco[int(thread.id)] = j['co'][int(thread.id)]
                     # jco[int(thread.id)]['status']['closed'] = True
                     # jco[int(thread.id)]['status']['dead'] = True
                     # Remove from deque
+                try:
+                    thread._board._thread_cache.pop(thread.id, None)
                     dco.remove(thread)
+                except Exception:
+                    pass
             else:
                 # Test if we don't have this thread yet
                 if not any(hasattr(x, 'topic') and x.topic.post_id == thread.topic.post_id for x in dco):
@@ -207,13 +211,18 @@ def sug_threads():
         if is_sug(thread):
             # If thread is dead
             if not hasattr(thread, 'topic'):
-                with open(os.path.join(THIS_DIR, 'api', 'threads.json')) as data_file:
-                    j = json.load(data_file)
+                # with open(os.path.join(THIS_DIR, 'api', 'threads.json')) as data_file:
+                    # j = json.load(data_file)
                     # jtrash[int(thread.id)] = j['trash'][int(thread.id)]
                     # jtrash[int(thread.id)]['status']['closed'] = True
                     # jtrash[int(thread.id)]['status']['dead'] = True
                     # Remove from deque
+                try:
+                    thread._board._thread_cache.pop(thread.id, None)
                     dtrash.remove(thread)
+                except Exception:
+                    pass
+
             else:
                 # Test if we don't have this thread yet
                 if not any(hasattr(x, 'topic') and x.topic.post_id == thread.topic.post_id for x in dtrash):
