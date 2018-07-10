@@ -15,5 +15,5 @@ test:python:
     - pip install -r requirements.txt -U
     - touch templates/op.txt
   script:
-    - python flake8 .
+    - flake8 .
     - python static.py
