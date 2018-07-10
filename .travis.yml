@@ -2,10 +2,10 @@ language: python
 python:
   - "3.6"
 install:
-  - pip install pipenv
-  - pipenv install --dev
+  - pip install flake8
+  - pip install -r requirements.txt -U
   - touch templates/op.txt
 script:
-  - pipenv run flake8 .
-  - pipenv run make-static
+  - python flake8 .
+  - python static.py
 

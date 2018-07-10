@@ -2,13 +2,13 @@
   "author": "MKody",
   "name": "sug-rocks",
   "description": "Yeah, we like (gay space) rocks",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://gitgud.io/sug/website.git"
+    "url": "https://gitlab.com/ctoon/sug/website.git"
   },
-  "bugs": "https://gitgud.io/sug/website/issues",
+  "bugs": "https://gitlab.com/ctoon/sug/website/issues",
   "devDependencies": {
     "minifier": "^0.8.1",
     "node-minify": "^2.0.4",

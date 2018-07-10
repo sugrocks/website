@@ -188,12 +188,6 @@ def sug_threads():
         if is_sug(thread):
             # If thread is dead
             if not hasattr(thread, 'topic'):
-                # with open(os.path.join(THIS_DIR, 'api', 'threads.json')) as data_file:
-                    # j = json.load(data_file)
-                    # jco[int(thread.id)] = j['co'][int(thread.id)]
-                    # jco[int(thread.id)]['status']['closed'] = True
-                    # jco[int(thread.id)]['status']['dead'] = True
-                    # Remove from deque
                 try:
                     thread._board._thread_cache.pop(thread.id, None)
                     dco.remove(thread)
@@ -211,12 +205,6 @@ def sug_threads():
         if is_sug(thread):
             # If thread is dead
             if not hasattr(thread, 'topic'):
-                # with open(os.path.join(THIS_DIR, 'api', 'threads.json')) as data_file:
-                    # j = json.load(data_file)
-                    # jtrash[int(thread.id)] = j['trash'][int(thread.id)]
-                    # jtrash[int(thread.id)]['status']['closed'] = True
-                    # jtrash[int(thread.id)]['status']['dead'] = True
-                    # Remove from deque
                 try:
                     thread._board._thread_cache.pop(thread.id, None)
                     dtrash.remove(thread)
@@ -239,8 +227,8 @@ def sug_threads():
 
         try:
             thread.update(True)
-            if str(thread.id) in ignoreplz:
-                # Remove because ignored
+            if str(thread.id) in ignoreplz or thread.closed:
+                # Remove because ignored or closed
                 thread._board._thread_cache.pop(thread.id, None)
                 dco.remove(thread)
             else:
@@ -253,14 +241,10 @@ def sug_threads():
         uniqid += thread.id
 
         try:
-            if thread.is_404:
-                uniqid += 1
-            if thread.archived:
-                uniqid += 2
             if thread.bumplimit:
-                uniqid += 4
+                uniqid += 1
             if thread.imagelimit:
-                uniqid += 8
+                uniqid += 2
         except:
             pass
 
@@ -271,8 +255,8 @@ def sug_threads():
 
         try:
             thread.update(True)
-            if str(thread.id) in ignoreplz:
-                # Remove because ignored
+            if str(thread.id) in ignoreplz or thread.closed:
+                # Remove because ignored or closed
                 thread._board._thread_cache.pop(thread.id, None)
                 dtrash.remove(thread)
             else:
@@ -285,14 +269,10 @@ def sug_threads():
         uniqid += thread.id
 
         try:
-            if thread.is_404:
-                uniqid += 1
-            if thread.archived:
-                uniqid += 2
             if thread.bumplimit:
-                uniqid += 4
+                uniqid += 1
             if thread.imagelimit:
-                uniqid += 8
+                uniqid += 2
         except:
             pass
 
@@ -302,8 +282,6 @@ def sug_threads():
     threadlist = list(jco) + list(jtrash)
     # Order by date
     threadlist.sort(key=lambda x: threaddict[x]['dates']['timestamp'])
-    # Put dead threads at the end
-    threadlist.sort(key=lambda x: threaddict[x]['status']['closed'], reverse=True)
     # And we now reverse the list
     threadlist = list(reversed(threadlist))
 
@@ -351,14 +329,9 @@ def sug_threads():
             # Sort by time
             tmplist.sort(key=lambda x: jco[x]['dates']['timestamp'], reverse=True)
             first = tmplist[0]
-            if not jco[first]['status']['closed'] or not jco[first]['status']['dead']:
-                # If the first thread is not closed, generate the redirection
-                j2_html.get_template('go.html').stream(board='co', url=jco[first]['url'])\
-                    .dump(os.path.join(THIS_DIR, 'go', 'co', 'index.html'))
-            else:
-                # Else, generate an "error" page
-                j2_html.get_template('nogo.html').stream(board='co')\
-                    .dump(os.path.join(THIS_DIR, 'go', 'co', 'index.html'))
+            # Generate the redirection
+            j2_html.get_template('go.html').stream(board='co', url=jco[first]['url'])\
+                .dump(os.path.join(THIS_DIR, 'go', 'co', 'index.html'))
         else:
             # Else, generate an "error" page
             j2_html.get_template('nogo.html').stream(board='co')\
@@ -373,14 +346,9 @@ def sug_threads():
             # Sort by time
             tmplist.sort(key=lambda x: jtrash[x]['dates']['timestamp'], reverse=True)
             first = tmplist[0]
-            if not jtrash[first]['status']['closed'] or not jtrash[first]['status']['dead']:
-                # If the first thread is not closed, generate the redirection
-                j2_html.get_template('go.html').stream(board='trash', url=jtrash[first]['url'])\
-                    .dump(os.path.join(THIS_DIR, 'go', 'trash', 'index.html'))
-            else:
-                # Else, generate an "error" page
-                j2_html.get_template('nogo.html').stream(board='trash')\
-                    .dump(os.path.join(THIS_DIR, 'go', 'trash', 'index.html'))
+            # Generate the redirection
+            j2_html.get_template('go.html').stream(board='trash', url=jtrash[first]['url'])\
+                .dump(os.path.join(THIS_DIR, 'go', 'trash', 'index.html'))
         else:
             # Else, generate an "error" page
             j2_html.get_template('nogo.html').stream(board='trash')\

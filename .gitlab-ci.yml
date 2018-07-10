@@ -2,18 +2,18 @@ test:js:
   image: node:latest
   cache:
     paths:
-    - node_modules/
+      - node_modules/
   before_script:
-   - npm install --only=dev
+    - npm install --only=dev
   script:
-   - npm test
+    - npm test
 
 test:python:
   image: python:latest
   before_script:
-   - pip install pipenv virtualenv
-   - pipenv install --dev
-   - touch templates/op.txt
+    - pip install flake8
+    - pip install -r requirements.txt -U
+    - touch templates/op.txt
   script:
-   - pipenv run flake8 .
-   - pipenv run make-static
+    - python flake8 .
+    - python static.py

@@ -4,6 +4,7 @@
 # our stuff
 .venv/
 .idea/
+.vscode/
 node_modules/
 cron.log
 config/threads.ini

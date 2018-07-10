@@ -23,33 +23,31 @@
 ## Prerequisites
 - [NodeJS (w/ npm)](https://nodejs.org/en/) _(not needed for the leakbot)_
     - [yarn](https://yarnpkg.com/)
-- [Python 3.6](https://www.python.org/)
-    - [pip](https://pip.pypa.io/en/stable/installing/)
-    - [pipenv](https://github.com/kennethreitz/pipenv#-installation)
+- [Python 3.7](https://www.python.org/)
+    - You can use [pyenv](https://github.com/pyenv/pyenv-installer)
 - A webserver (like [Caddy](https://caddyserver.com/))
-- Zlib (apt:`zlib1g-dev`) and libjpeg (apt:`libjpeg62-turbo-dev`)
 
 
 ## Install
 ```
 git clone --recursive https://gitlab.com/ctoon/sug/website.git && cd website
 yarn # JS/CSS deps
-pipenv install --python $(which python3.6) # Python deps
+pip install -r requirements.txt -U # Python deps
 cp config/threads-cache.ini.example config/threads-cache.ini
 nano templates/op.txt # Add the OP template text here
 ```
 
 ## Run
-The `threads.py` script needs to constently run.  
+The `threads.py` script needs to constently run.
 You should probably make sure it can restart if it goes down, open a tmux session and use:
 ```
-while true; do pipenv run python threads.py; sleep 30; done
+while true; do python threads.py; sleep 30; done
 ```
 
 For the download list and the static pages, run:
 ```
-pipenv run python dllist.py
-pipenv run python static.py
+python dllist.py
+python static.py
 ```
 
 And then you just point your favorite webserver _(nginx, caddy, whatevever)_ to the `public/` folder.
@@ -88,7 +86,7 @@ sass public/scss/tumblr.scss public/css/tumblr.css --style compressed
 - Right-click and `Set Output Path` to the right `css/*.css` file for the selected `.scss`.
 - Edit your files with the app open in the background or press the compile button every time.
 
-You should get something like this:  
+You should get something like this:
 ![](https://s.kdy.ch/koala_2016-12-12_22-01-16.png)
 
 
