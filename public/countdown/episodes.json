@@ -1,72 +1,16 @@
 [
   {
-    "code": "S05E19",
-    "title": "Now We're Only Failling Apart",
+    "code": "S05E24",
+    "title": "Legs from Here to Homeworld",
     "year": 2018,
     "month": 7,
-    "day": 2,
+    "day": 22,
     "hour": 23,
-    "minute": 30,
+    "minute": 0,
     "duration": 12,
     "leaked": false,
     "supposed": false,
     "unknown": false,
-    "app": false
-  },
-  {
-    "code": "S05E20",
-    "title": "What's Your Problem?",
-    "year": 2018,
-    "month": 7,
-    "day": 3,
-    "hour": 23,
-    "minute": 30,
-    "duration": 12,
-    "leaked": false,
-    "supposed": false,
-    "unknown": false,
-    "app": false
-  },
-  {
-    "code": "S05E21",
-    "title": "The Question",
-    "year": 2018,
-    "month": 7,
-    "day": 4,
-    "hour": 23,
-    "minute": 30,
-    "duration": 12,
-    "leaked": false,
-    "supposed": false,
-    "unknown": false,
-    "app": false
-  },
-  {
-    "code": "S05E22",
-    "title": "Made of Honor",
-    "year": 2018,
-    "month": 7,
-    "day": 5,
-    "hour": 23,
-    "minute": 30,
-    "duration": 12,
-    "leaked": false,
-    "supposed": false,
-    "unknown": false,
-    "app": false
-  },
-  {
-    "code": "S05E23",
-    "title": "Reunited",
-    "year": 2018,
-    "month": 7,
-    "day": 6,
-    "hour": 23,
-    "minute": 30,
-    "duration": 25,
-    "leaked": false,
-    "supposed": false,
-    "unknown": false,
-    "app": false
+    "app": true
   }
 ]
