@@ -267,6 +267,7 @@ span.quote { // >
     }
 
     .op-dead {
+        display: none; // Just hide for now
         filter: grayscale(100%);
     }
 }
