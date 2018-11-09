@@ -113,12 +113,15 @@ def load_cache():
     # Load latest threads from our latest api results
     global dco, dtrash
     debuglog('  Loading cache...  ')
-    with open(os.path.join(THIS_DIR, 'api', 'threads.json')) as data_file:
-        j = json.load(data_file)
-        for thread in j['co']:
-            dco.append(co.get_thread(int(thread)))
-        for thread in j['trash']:
-            dtrash.append(trash.get_thread(int(thread)))
+    p = os.path.join(THIS_DIR, 'api', 'threads.json')
+
+    if os.path.isfile(p):
+        with open(p) as data_file:
+            j = json.load(data_file)
+            for thread in j['co']:
+                dco.append(co.get_thread(int(thread)))
+            for thread in j['trash']:
+                dtrash.append(trash.get_thread(int(thread)))
 
 
 def dictify(thread):
