@@ -1,8 +1,9 @@
 import os
 import re
+import ssl
 import sys
-import json
 import html
+import json
 import shutil
 import crayons
 import traceback
@@ -21,6 +22,7 @@ from jinja2 import Environment, FileSystemLoader
 
 better_exceptions.MAX_LENGTH = None
 THIS_DIR = os.path.dirname(os.path.abspath(__file__))
+ssl._create_default_https_context = ssl._create_unverified_context
 
 # Loading our config
 config = configparser.ConfigParser()
@@ -80,6 +82,7 @@ def find_page(board, threadid):
         for thread in page['threads']:
             if thread['no'] == threadid:
                 return page['page']
+
     return '0'
 
 
