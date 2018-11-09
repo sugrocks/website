@@ -101,14 +101,11 @@ def rss_date(timestamp):
 def is_sug(thread):
     # Will try to find out if the thread is a /sug/ one
     return (
-        # Check subject
-        (
-            thread.topic.subject is not None and
-            'Steven Universe General' in thread.topic.subject
-        ) or (  # Or check for the two sug.rocks links
-            'http://kametsu.com/topic/57130-cartoon-network-unofficial-previews/' in thread.topic.text_comment and
-            'https://sug.rocks/dl.html' in thread.topic.text_comment
-        )
+        # Check subject or the two sug.rocks links
+        thread.topic.subject is not None and \
+        'Steven Universe General' in thread.topic.subject or \
+        'http://kametsu.com/topic/57130-cartoon-network-unofficial-previews/' in thread.topic.text_comment and \
+        'https://sug.rocks/dl.html' in thread.topic.text_comment
     )
 
 
