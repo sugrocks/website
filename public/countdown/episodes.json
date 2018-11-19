@@ -1,16 +1,72 @@
 [
   {
-    "code": "S05E24",
+    "code": "…",
     "title": "Legs from Here to Homeworld",
     "year": 2018,
-    "month": 7,
-    "day": 22,
-    "hour": 23,
-    "minute": 0,
+    "month": 12,
+    "day": 18,
+    "hour": 0,
+    "minute": 30,
     "duration": 12,
     "leaked": false,
     "supposed": false,
     "unknown": false,
-    "app": true
+    "app": false
+  },
+  {
+    "code": "S05E25",
+    "title": "Familiar",
+    "year": 2018,
+    "month": 12,
+    "day": 25,
+    "hour": 0,
+    "minute": 30,
+    "duration": 12,
+    "leaked": false,
+    "supposed": false,
+    "unknown": false,
+    "app": false
+  },
+  {
+    "code": "S05E26",
+    "title": "Together Alone",
+    "year": 2019,
+    "month": 1,
+    "day": 1,
+    "hour": 0,
+    "minute": 30,
+    "duration": 12,
+    "leaked": false,
+    "supposed": false,
+    "unknown": false,
+    "app": false
+  },
+  {
+    "code": "S05E27",
+    "title": "Escapism",
+    "year": 2019,
+    "month": 1,
+    "day": 8,
+    "hour": 0,
+    "minute": 30,
+    "duration": 12,
+    "leaked": false,
+    "supposed": false,
+    "unknown": false,
+    "app": false
+  },
+  {
+    "code": "S08E28",
+    "title": "Battle of Heart and Mind",
+    "year": 2019,
+    "month": 1,
+    "day": 22,
+    "hour": 0,
+    "minute": 0,
+    "duration": 24,
+    "leaked": false,
+    "supposed": false,
+    "unknown": false,
+    "app": false
   }
 ]

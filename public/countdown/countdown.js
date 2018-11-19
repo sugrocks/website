@@ -223,8 +223,7 @@ function getList () { // eslint-disable-line no-unused-vars
   var ts = new Date().getTime()
 
   // We'll store the message content here
-  var msg = 'New episodes:\n'
-  msg += '--------------------------\n\n'
+  var msg = ''
 
   // Let's get every episodes saved
   episodeList.forEach(function (ep) {
@@ -249,10 +248,6 @@ function getList () { // eslint-disable-line no-unused-vars
       msg += '\n\n'
     }
   })
-
-  // Add our sources
-  msg += '--------------------------\n'
-  msg += 'Sources: Cartoon Network, Screener\n'
 
   // And display it to our user
   window.alert(msg)
