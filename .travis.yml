@@ -1,4 +1,7 @@
 language: python
+addons:
+  sonarcloud:
+    organization: "sugrocks"
 python:
   - "3.6"
 install:
@@ -8,4 +11,5 @@ install:
 script:
   - flake8 .
   - python static.py
+  - sonar-scanner
 
