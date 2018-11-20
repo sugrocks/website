@@ -205,9 +205,10 @@ span.quote { // >
                     background-image: url('../img/shortcuts/cnschedule.png');
                 }
 
-                &.bcc {
-                    background-color: #009688;
-                    background-image: url('../img/shortcuts/bcc.png');
+                &.ctoon {
+                    background-color: #2b5876;
+                    background-image: url('../img/shortcuts/ctoon.png');
+                    background-image: url('../img/shortcuts/ctoon.png'), linear-gradient(-20deg,#2b5876,#1d3c51);
                 }
 
                 &.gothread {
