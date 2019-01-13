@@ -130,7 +130,7 @@ def load_cache():
 def dictify(thread):
     media_url = thread.topic.file.file_url
 
-    if thread.topic.file.file_extension == 'webm':
+    if thread.topic.file.file_extension == '.webm':
         # Use a thumbnail instead of the webm file
         media_url = thread.topic.file.thumbnail_url
 
