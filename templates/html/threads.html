@@ -61,6 +61,11 @@
 {% endif %}
 {% if thread['media']['deleted'] == True %}
                                         <img src="/img/filedeleted.gif" alt="File was deleted :(">
+{% elif thread['media']['file_extension'] == 'webm' %}
+                                        <img{% if thread['media']['spoiler'] == True %} class="img-spoiler"{% endif %}
+                                            src="https://proxy.sug.rocks/250x250,fit,q60/{{ thread.media.thumbnail_url }}"
+                                            title="WEBM: {{ thread['media']['name'] }}"
+                                            alt="Thumbnail of {{ thread['media']['name'] }}">
 {% else %}
                                         <img{% if thread['media']['spoiler'] == True %} class="img-spoiler"{% endif %}
                                             src="https://proxy.sug.rocks/250x250,fit,q60/{{ thread.media.url }}"
