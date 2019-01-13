@@ -128,6 +128,12 @@ def load_cache():
 
 
 def dictify(thread):
+    media_url = thread.topic.file.file_url
+
+    if thread.topic.file.file_extension == 'webm':
+        # Use a thumbnail instead of the webm file
+        media_url = thread.topic.file.thumbnail_url
+
     return {
         "archive": "https://desuarchive.org/%s/thread/%d" % (thread._board.name, thread.topic.post_id),
         "board": thread._board.name,
@@ -144,7 +150,7 @@ def dictify(thread):
             "height": thread.topic.file.file_height,
             "name": thread.topic.file.filename_original,
             "spoiler": thread.topic.spoiler,
-            "url": thread.topic.file.file_url,
+            "url": media_url,
             "width": thread.topic.file.file_width
         },
         "op": thread.topic.comment.replace('href="/', 'href="https://boards.4chan.org/'),
