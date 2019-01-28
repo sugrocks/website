@@ -81,12 +81,16 @@ function startClock () {
         // If not, clear everything and stop here
         dontTick = true
         nextEp = null
+        var hiatusDiff = new Date().getTime() - episodeList[episodeList.length - 1]['dateObj']
+        var hiatusDays = Math.floor(hiatusDiff / (24 * 60 * 60 * 1000))
+        hiatusDiff = hiatusDiff - hiatusDays * (24 * 60 * 60 * 1000)
+        var hiatusHours = Math.floor(hiatusDiff / (60 * 60 * 1000))
         clearCountdown()
         document.getElementById('container').className = 'hiatus'
         document.getElementById('title').innerHTML = 'SU is now in'
         document.getElementById('code').innerHTML = ''
         document.getElementById('hours').innerHTML = 'Hiatus'
-        document.getElementById('status').innerHTML = ':('
+        document.getElementById('status').innerHTML = '(It\'s been ' + hiatusDays + ' days and ' + hiatusHours + ' hours.)'
       }
     }
   ).then(function (nextEp) {
