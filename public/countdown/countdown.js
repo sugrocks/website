@@ -81,7 +81,7 @@ function startClock () {
         // If not, clear everything and stop here
         dontTick = true
         nextEp = null
-        var hiatusDiff = new Date().getTime() - episodeList[episodeList.length - 1]['dateObj']
+        var hiatusDiff = new Date().getTime() - episodeList[episodeList.length - 1]['dateEnd']
         var hiatusDays = Math.floor(hiatusDiff / (24 * 60 * 60 * 1000))
         hiatusDiff = hiatusDiff - hiatusDays * (24 * 60 * 60 * 1000)
         var hiatusHours = Math.floor(hiatusDiff / (60 * 60 * 1000))
