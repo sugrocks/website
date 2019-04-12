@@ -65,6 +65,7 @@ def gen_dl_page():
     itunes = []
     individual = []
     comics = []
+    musics = []
 
     # Load every "preair" episodes
     for episode in dict(config.items('preair')):
@@ -137,11 +138,25 @@ def gen_dl_page():
             'date': data[6]
         })
 
+    # Load music
+    for music in dict(config.items('music')):
+        # Parse episode data
+        data = config.get('music', music).split(',')
+        # Add it to the list
+        musics.append({
+            'id': music.upper(),
+            'title': data[0],
+            'mp3': data[1],
+            'flac': data[2],
+            'date': data[3]
+        })
+
     # Sort episodes
     preair = sorted(preair, key=itemgetter('code'))
     itunes = sorted(itunes, key=itemgetter('code'))
     individual = sorted(individual, key=itemgetter('code'))
     comics = sorted(comics, key=itemgetter('category'))
+    musics = sorted(musics, key=itemgetter('id'))
 
     # Get current date
     dategen = datetime.utcnow().strftime('%B %d %Y at %H:%M:%S')
@@ -157,8 +172,8 @@ def gen_dl_page():
     # Generate html
     j2_html.get_template('dl.html').stream(
         pagetype='page-dl', pagename='Downloads', pagedesc='Direct links or torrents to episodes', dategen=dategen,
-        # Add episodes/comics lists
-        preair=preair, itunes=itunes, individual=individual, comics=comics,
+        # Add episodes/comics/musics lists
+        preair=preair, itunes=itunes, individual=individual, comics=comics, musics=musics,
         # If there's nothing, we'll not display the "preair" list
         lenpa=len(preair))\
         .dump(os.path.join(THIS_DIR, 'public', 'dl.html'))

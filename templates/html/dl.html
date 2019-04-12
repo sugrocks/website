@@ -299,6 +299,48 @@
                                 <small><a href="https://gitlab.com/ctoon/sug/website/issues/1">I'm still looking for more books and comics.</a> If you have any DL link to a digital version, please mail me at <i>kdy (at) waifu (dot) club</i>.</small>
                             </div>
                         </div>
+
+                        <div id="music" class="spoiler spoiler-default spoiler-state-collapsed"
+                            data-connection="A" data-toggle-placement="top"
+                            data-toggle-text="Music">
+                            <div class="spoiler-content">
+                                <table class="dllist">
+{% for music in musics %}
+                                    <tr id="{{ music.id }}">
+{% if music.mp3 != '' %}
+                                        <td>
+                                            <a title="MP3"
+                                                download="{{ music.mp3 }}"
+                                                href="https://dl.sug.rocks/music/{{ music.mp3 }}">
+                                                MP3
+                                            </a>
+                                        </td>
+{% else %}
+                                        <td>
+                                            &nbsp;
+                                        </td>
+{% endif %}
+{% if music.flac != '' %}
+                                        <td>
+                                            <a title="FLAC"
+                                                download="{{ music.flac }}"
+                                                href="https://dl.sug.rocks/music/{{ music.flac }}">
+                                                FLAC
+                                            </a>
+                                        </td>
+{% else %}
+                                        <td>
+                                            &nbsp;
+                                        </td>
+{% endif %}
+                                        <td>
+                                            {{music.title }}
+                                        </td>
+                                    </tr>
+{% endfor %}
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
