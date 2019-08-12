@@ -4,7 +4,7 @@ Pillow
 crayons==0.1.2
 html5lib
 randomcolor
-jinja2==2.10
+jinja2==2.10.1
 python-dateutil
 requests==2.21.0
 better_exceptions==0.2.2
