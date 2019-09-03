@@ -123,6 +123,12 @@
                                             <h5 class="title is-5">Specials</h5>
                                         </th>
                                     </tr>
+{% elif episode.season[:2] == "Mo" %}
+                                    <tr>
+                                        <th colspan="3">
+                                            <h5 class="title is-5">Movies</h5>
+                                        </th>
+                                    </tr>
 {% else %}
                                     <tr>
                                         <th colspan="3">
@@ -180,6 +186,12 @@
                                     <tr>
                                         <th colspan="3">
                                             <h5 class="title is-5">Specials</h5>
+                                        </th>
+                                    </tr>
+{% elif episode.season[:2] == "Mo" %}
+                                    <tr>
+                                        <th colspan="3">
+                                            <h5 class="title is-5">Movies</h5>
                                         </th>
                                     </tr>
 {% else %}

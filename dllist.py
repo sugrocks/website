@@ -46,12 +46,13 @@ def get_cat(folder):
 
 def format_epnumber(episode):
     # Return proper formated season and episode details
+    if episode[:2] == '99': return 'Movie'
     return episode.replace('_', ' & ').replace('00x', 'Special ')
 
 
 def split_season_episode(episode):
     split = episode.split('x')
-    return [split[0].replace('00', 'Special'), split[1]]
+    return [split[0].replace('99', 'Movie').replace('00', 'Special'), split[1]]
 
 
 def gen_dl_page():
