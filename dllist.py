@@ -46,7 +46,9 @@ def get_cat(folder):
 
 def format_epnumber(episode):
     # Return proper formated season and episode details
-    if episode[:2] == '99': return 'Movie'
+    if episode[:2] == '99':
+        return 'Movie'
+
     return episode.replace('_', ' & ').replace('00x', 'Special ')
 
 
