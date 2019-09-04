@@ -1,6 +1,7 @@
 # temp stuff
 .scannerwork/
 .sass-cache/
+.yarn-cache/
 
 # our stuff
 .venv/

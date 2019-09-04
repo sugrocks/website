@@ -2,11 +2,13 @@ test:js:
   image: node:latest
   cache:
     paths:
-      - node_modules/
+      - node_modules
+      - .yarn-cache
   before_script:
-    - npm install --only=dev
+    - npm install -g yarn
+    - yarn install --pure-lockfile --cache-folder .yarn-cache
   script:
-    - npm test
+    - yarn test
 
 test:python:
   image: python:latest
