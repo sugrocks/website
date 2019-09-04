@@ -10,11 +10,10 @@
   },
   "bugs": "https://gitlab.com/ctoon/sug/website/issues",
   "devDependencies": {
-    "lodash": "^4.17.15",
     "minifier": "^0.8.1",
-    "node-minify": "^2.0.4",
-    "ora": "^1.2.0",
-    "standard": "^10.0.2"
+    "node-minify": "^3.6.0",
+    "ora": "^3.4.0",
+    "standard": "^14.1.0"
   },
   "scripts": {
     "test": "./node_modules/.bin/standard",
@@ -24,7 +23,7 @@
     "node": "*"
   },
   "dependencies": {
-    "bulma": "^0.2.3",
-    "open-color": "^1.4.0"
+    "bulma": "0.2.3",
+    "open-color": "^1.7.0"
   }
 }
