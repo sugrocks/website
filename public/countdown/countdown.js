@@ -27,16 +27,16 @@ window.fetch('https://sug.rocks/countdown/episodes.json?' + Math.floor((Math.ran
         var t = new Date(0)
 
         // Set data from the episode entry
-        t.setUTCFullYear(episode['year'])
-        t.setUTCMonth(episode['month'] - 1)
-        t.setUTCDate(episode['day'])
-        t.setUTCHours(episode['hour'])
-        t.setUTCMinutes(episode['minute'])
+        t.setUTCFullYear(episode.year)
+        t.setUTCMonth(episode.month - 1)
+        t.setUTCDate(episode.day)
+        t.setUTCHours(episode.hour)
+        t.setUTCMinutes(episode.minute)
 
         // Add date object to the episode dict
-        episode['dateObj'] = t
+        episode.dateObj = t
         // Add end date
-        episode['dateEnd'] = new Date(t.getTime() + (episode['duration'] * 60 * 1000))
+        episode.dateEnd = new Date(t.getTime() + (episode.duration * 60 * 1000))
 
         // Push to our global array
         episodeList.push(episode)
@@ -65,7 +65,7 @@ function startClock () {
       // Verifiy if there's something next
       var notHiatus = episodeList.some(
         function (episode, index, arr) {
-          if (ts < episode['dateEnd'].getTime()) {
+          if (ts < episode.dateEnd.getTime()) {
             // Save the next upcoming episode and return
             nextEp = episode
             return true
@@ -81,7 +81,7 @@ function startClock () {
         // If not, clear everything and stop here
         dontTick = true
         nextEp = null
-        var hiatusDiff = new Date().getTime() - episodeList[episodeList.length - 1]['dateEnd']
+        var hiatusDiff = new Date().getTime() - episodeList[episodeList.length - 1].dateEnd
         var hiatusDays = Math.floor(hiatusDiff / (24 * 60 * 60 * 1000))
         hiatusDiff = hiatusDiff - hiatusDays * (24 * 60 * 60 * 1000)
         var hiatusHours = Math.floor(hiatusDiff / (60 * 60 * 1000))
@@ -97,24 +97,24 @@ function startClock () {
     var status = '&nbsp;'
 
     // Choose our status text
-    if (nextEp['leaked']) {
+    if (nextEp.leaked) {
       status = '(but already online)'
-    } else if (nextEp['supposed']) {
+    } else if (nextEp.supposed) {
       status = '(supposed)'
-    } else if (nextEp['unknown']) {
+    } else if (nextEp.unknown) {
       // If it's unknown, clear everything and stop the clock
       clearCountdown()
       document.getElementById('hours').innerHTML = 'Unknown Date'
       dontTick = true
-    } else if (nextEp['app']) {
+    } else if (nextEp.app) {
       status = 'on the CN app'
     } else {
       status = 'until airing on TV'
     }
 
     // Set text (title, episode code and status)
-    document.getElementById('title').innerHTML = nextEp['title']
-    document.getElementById('code').innerHTML = ' [' + nextEp['code'] + ']'
+    document.getElementById('title').innerHTML = nextEp.title
+    document.getElementById('code').innerHTML = ' [' + nextEp.code + ']'
     document.getElementById('status').innerHTML = status
 
     if (!dontTick) {
@@ -182,7 +182,7 @@ function formatDate (dateObj) {
   // Format the date to a readable state
   // Use browser language if available
   if (typeof Intl !== 'undefined') {
-    return dateObj.toLocaleString(navigator.language, {weekday: 'short', day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit'})
+    return dateObj.toLocaleString(navigator.language, { weekday: 'short', day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' })
   }
 
   // If not available, we do it ourself
@@ -196,22 +196,22 @@ function tick () {
   // Tick of the tock, get our timestamp first
   var ts = new Date().getTime()
 
-  if (ts > nextEp['dateEnd'].getTime()) {
+  if (ts > nextEp.dateEnd.getTime()) {
     // If the current episode ended, stop the tock and get the next element
     clearInterval(tock)
     startClock()
-  } else if (ts > nextEp['dateObj'].getTime()) {
+  } else if (ts > nextEp.dateObj.getTime()) {
     // If we're past the start time (and we didn't end), display that it's live
     clearCountdown()
     document.getElementById('hours').innerHTML = 'LIVE!'
   } else {
     // Else, get the diff and display it
-    var diff = getDiff(nextEp['dateObj'])
+    var diff = getDiff(nextEp.dateObj)
 
-    document.getElementById('days').innerHTML = diff['d']
-    document.getElementById('hours').innerHTML = diff['h']
-    document.getElementById('minutes').innerHTML = diff['m']
-    document.getElementById('seconds').innerHTML = diff['s']
+    document.getElementById('days').innerHTML = diff.d
+    document.getElementById('hours').innerHTML = diff.h
+    document.getElementById('minutes').innerHTML = diff.m
+    document.getElementById('seconds').innerHTML = diff.s
   }
 }
 
@@ -231,20 +231,20 @@ function getList () { // eslint-disable-line no-unused-vars
 
   // Let's get every episodes saved
   episodeList.forEach(function (ep) {
-    if (ts < ep['dateObj'].getTime()) {
+    if (ts < ep.dateObj.getTime()) {
       // If it's not in the past, get the diff
-      var diff = getDiff(ep['dateObj'])
+      var diff = getDiff(ep.dateObj)
 
       // Display title and code
-      msg += ep['title'] + ' (' + ep['code'] + ')'
+      msg += ep.title + ' (' + ep.code + ')'
 
       // If date is not unknown, display it
-      if (!ep['unknown'] && !ep['leaked']) {
-        msg += '\n' + diff['d'] + diff['h'] + diff['m']
-        msg += '\n' + formatDate(ep['dateObj'])
+      if (!ep.unknown && !ep.leaked) {
+        msg += '\n' + diff.d + diff.h + diff.m
+        msg += '\n' + formatDate(ep.dateObj)
 
         // Add a not if it's supposed
-        if (ep['supposed']) {
+        if (ep.supposed) {
           msg += '\n(supposed)'
         }
       }
