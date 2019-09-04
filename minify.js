@@ -1,32 +1,48 @@
-var compressor = require('node-minify')
-var ora = require('ora')
+const fs = require('fs')
+const ora = require('ora')
+const Terser = require('terser')
 
-function minifyJs (file) {
-  var spin = ora(file).start()
+const files = [
+  'public/js/cookies.js',
+  'public/js/dl.js',
+  'public/js/menu.js',
+  'public/js/news.js',
+  'public/js/nsfw.js',
+  'public/js/radio.js',
+  'public/js/spoiler.js',
+  'public/js/previews.js',
+  'public/js/theme.js',
+  'public/js/threads.js',
+  'public/countdown/countdown.js'
+]
 
-  compressor.minify({
-    compressor: 'gcc',
-    input: file,
-    output: file.replace('.js', '.min.js'),
-    callback: function (err, min) {
-      if (err) {
+files.forEach(f => {
+  const spin = ora(f).start()
+
+  fs.readFile(f, 'utf8', (err, data) => {
+    if (err) {
+      spin.fail()
+      console.error('\n' + err + '\n')
+    } else {
+      const min = Terser.minify(data)
+
+      if (min.error) {
         spin.fail()
-        console.error(err + '\n')
+        console.error('\nError minifying: ' + min.error + '\n')
       } else {
-        spin.succeed()
+        fs.writeFile(
+          f.replace('.js', '.min.js'),
+          min.code,
+          err => {
+            if (err) {
+              spin.fail()
+              console.error('\n' + err + '\n')
+            } else {
+              spin.succeed()
+            }
+          }
+        )
       }
     }
   })
-}
-
-minifyJs('public/js/cookies.js')
-minifyJs('public/js/dl.js')
-minifyJs('public/js/menu.js')
-minifyJs('public/js/news.js')
-minifyJs('public/js/nsfw.js')
-minifyJs('public/js/radio.js')
-minifyJs('public/js/spoiler.js')
-minifyJs('public/js/previews.js')
-minifyJs('public/js/theme.js')
-minifyJs('public/js/threads.js')
-minifyJs('public/countdown/countdown.js')
+})

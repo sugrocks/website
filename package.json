@@ -12,9 +12,9 @@
   "devDependencies": {
     "lodash": "^4.17.15",
     "minifier": "^0.8.1",
-    "node-minify": "^3.6.0",
     "ora": "^3.4.0",
-    "standard": "^14.1.0"
+    "standard": "^14.1.0",
+    "terser": "^4.2.1"
   },
   "scripts": {
     "test": "./node_modules/.bin/standard",
