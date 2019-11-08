@@ -1,7 +1,7 @@
 bs4
 pytz
 Pillow
-crayons==0.2.0
+crayons==0.3.0
 html5lib
 randomcolor
 jinja2==2.10.3
