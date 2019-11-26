@@ -94,7 +94,7 @@ function startClock () {
       }
     }
   ).then(function (nextEp) {
-    var status = '&nbsp;'
+    var status = ''
 
     // Choose our status text
     if (nextEp.leaked) {
@@ -106,11 +106,11 @@ function startClock () {
       clearCountdown()
       document.getElementById('hours').innerHTML = 'Unknown Date'
       dontTick = true
-    } else if (nextEp.app) {
+/*    } else if (nextEp.app) {
       status = 'on the CN app'
     } else {
       status = 'until airing on TV'
-    }
+*/    }
 
     // Set text (title, episode code and status)
     document.getElementById('title').innerHTML = nextEp.title
