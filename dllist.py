@@ -40,6 +40,8 @@ def get_cat(folder):
         return 'Specials'
     elif folder == 'sucg':
         return 'Steven and the Crystal Gems'
+    elif folder == 'harmony':
+        return 'Harmony'
     else:
         return 'Others'
 
