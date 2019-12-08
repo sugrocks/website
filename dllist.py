@@ -67,6 +67,7 @@ def gen_dl_page():
 
     # Initialize some variables
     preair = []
+    sufuture = []
     itunes = []
     individual = []
     comics = []
@@ -89,6 +90,22 @@ def gen_dl_page():
             'ctoon': data[3],
             'daily': data[4],
             'date': data[5]
+        })
+
+    # Load every "future" episodes
+    for episode in dict(config.items('sufuture')):
+        # Parse episode data
+        data = config.get('sufuture', episode).split(',')
+        # Add it to the list
+        sufuture.append({
+            'id': get_id(episode, 'f'),
+            'code': episode,
+            'season': 'Future',
+            'episode': episode,
+            'title': data[0],
+            'filename': data[1],
+            'ctoon': data[2],
+            'date': data[3]
         })
 
     # Load every "itunes" episodes
@@ -158,6 +175,7 @@ def gen_dl_page():
 
     # Sort episodes
     preair = sorted(preair, key=itemgetter('code'))
+    sufuture = sorted(sufuture, key=itemgetter('code'))
     itunes = sorted(itunes, key=itemgetter('code'))
     individual = sorted(individual, key=itemgetter('code'))
     comics = sorted(comics, key=itemgetter('category'))
@@ -178,13 +196,13 @@ def gen_dl_page():
     j2_html.get_template('dl.html').stream(
         pagetype='page-dl', pagename='Downloads', pagedesc='Direct links or torrents to episodes', dategen=dategen,
         # Add episodes/comics/musics lists
-        preair=preair, itunes=itunes, individual=individual, comics=comics, musics=musics,
+        preair=preair, sufuture=sufuture, itunes=itunes, individual=individual, comics=comics, musics=musics,
         # If there's nothing, we'll not display the "preair" list
         lenpa=len(preair))\
         .dump(os.path.join(THIS_DIR, 'public', 'dl.html'))
 
     # Concatenate every list and sort by date for the feeds
-    allep = preair + itunes + individual
+    allep = preair + sufuture + itunes + individual
     allep = sorted(allep, key=itemgetter('date'), reverse=True)[:15]
 
     # Generate feeds
@@ -202,6 +220,7 @@ def gen_dl_api():
 
     # Initialize some variables
     preair = []
+    sufuture = []
     itunes = []
     individual = []
     comics = []
@@ -222,10 +241,28 @@ def gen_dl_api():
             'episode': se_ep[1],
             'title': data[0],
             'url': 'https://dl.sug.rocks/preair/' + data[1],
-            'ctoon': 'https://ctoon.party/sun/' + data[3],
+            'ctoon': 'https://ctoon.party/show/sun/watch/' + data[3],
             'dailymotion': 'www.dailymotion.com/video/' + data[4],
             'torrent': torrent,
             'date': int(data[5])
+        })
+
+    # Load every "sufuture" episodes
+    for episode in dict(config.items('sufuture')):
+        # Parse episode data
+        data = config['sufuture'][episode].split(',')
+        torrent = None
+        # Add it to the list
+        sufuture.append({
+            'id': int(get_id(episode)),
+            'season': 'Future',
+            'episode': episode,
+            'title': data[0],
+            'url': 'https://dl.sug.rocks/' + data[1],
+            'ctoon': 'https://ctoon.party/show/sun/watch/' + data[2],
+            'dailymotion': None,
+            'torrent': None,
+            'date': int(data[3])
         })
 
     # Load every "itunes" episodes
@@ -244,7 +281,7 @@ def gen_dl_api():
             'episode': se_ep[1],
             'title': data[0],
             'url': 'https://dl.sug.rocks/' + data[1],
-            'ctoon': 'https://ctoon.party/sun/' + data[3],
+            'ctoon': 'https://ctoon.party/show/sun/watch/' + data[3],
             'dailymotion': None,
             'torrent': torrent,
             'date': int(data[4])
@@ -262,7 +299,7 @@ def gen_dl_api():
             'episode': se_ep[1],
             'title': data[0],
             'url': 'https://dl.sug.rocks/mega/' + data[1],
-            'ctoon': 'https://ctoon.party/sun/' + data[2],
+            'ctoon': 'https://ctoon.party/show/sun/watch/' + data[2],
             'dailymotion': None,
             'torrent': None,
             'date': int(data[3])
@@ -306,6 +343,7 @@ def gen_dl_api():
 
     # Sort episodes
     preair = sorted(preair, key=itemgetter('id'))
+    sufuture = sorted(sufuture, key=itemgetter('id'))
     itunes = sorted(itunes, key=itemgetter('id'))
     individual = sorted(individual, key=itemgetter('id'))
     comics = sorted(comics, key=itemgetter('category'))
@@ -314,6 +352,7 @@ def gen_dl_api():
     api = {}
     api['_'] = {"generated": int(datetime.utcnow().timestamp())}
     api['preair'] = preair
+    api['sufuture'] = sufuture
     api['itunes'] = itunes
     api['individual'] = individual
     api['comics'] = comics

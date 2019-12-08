@@ -82,7 +82,7 @@
 {% endif %}
 {% if episode.ctoon != '' %}
                                             <a title="Streaming"
-                                                href="https://ctoon.party/sun/{{ episode.ctoon }}">
+                                                href="https://ctoon.party/show/sun/watch/{{ episode.ctoon }}">
                                                 <span class="icon is-small">
                                                     <i class="fa fa-play-circle"></i>
                                                 </span>
@@ -109,6 +109,42 @@
                             </div>
                         </div>
 {% endif %}
+
+                        <div id="future" class="spoiler spoiler-default spoiler-state-expanded"
+                            data-connection="A" data-toggle-placement="top"
+                            data-toggle-text="SU: Future - iTunes RAW 1080p">
+                            <div class="spoiler-content">
+                                <table class="dllist">
+{% for episode in sufuture %}
+                                    <tr id="{{ episode.id }}">
+                                        <td>
+                                            <a title="Direct Download"
+                                                download
+                                                href="https://dl.sug.rocks/{{ episode.filename }}">
+                                                <span class="icon is-small">
+                                                    <i class="fa fa-download"></i>
+                                                </span>
+                                            </a>
+{% if episode.ctoon != '' %}
+                                            <a title="Streaming"
+                                                href="https://ctoon.party/show/sun/watch/{{ episode.ctoon }}">
+                                                <span class="icon is-small">
+                                                    <i class="fa fa-play-circle"></i>
+                                                </span>
+                                            </a>
+{% endif %}
+                                        </td>
+                                        <td>
+                                            <small>({{ episode.code }})</small>
+                                        </td>
+                                        <td>
+                                            {{ episode.title }}
+                                        </td>
+                                    </tr>
+{% endfor %}
+                                </table>
+                            </div>
+                        </div>
 
                         <div id="itunes" class="spoiler spoiler-default spoiler-state-collapsed"
                             data-connection="A" data-toggle-placement="top"
@@ -156,7 +192,7 @@
 {% endif %}
 {% if episode.ctoon != '' %}
                                             <a title="Streaming"
-                                                href="https://ctoon.party/sun/{{ episode.ctoon }}">
+                                                href="https://ctoon.party/show/sun/watch/{{ episode.ctoon }}">
                                                 <span class="icon is-small">
                                                     <i class="fa fa-play-circle"></i>
                                                 </span>
@@ -212,7 +248,7 @@
                                             </a>
 {% if episode.ctoon != '' %}
                                             <a title="Streaming"
-                                                href="https://ctoon.party/sun/{{ episode.ctoon }}">
+                                                href="https://ctoon.party/show/sun/watch/{{ episode.ctoon }}">
                                                 <span class="icon is-small">
                                                     <i class="fa fa-play-circle"></i>
                                                 </span>

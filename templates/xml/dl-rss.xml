@@ -22,7 +22,7 @@
                         <li><a title="Torrent" href="https://dl.sug.rocks/torrents/{% if episode.id[-3:] == 'tmp' %}preair/{% endif %}{{ episode.filename }}.torrent">Torrent</a></li>
 {% endif %}
 {% if episode.ctoon != '' %}
-                        <li><a title="Streaming" href="https://ctoon.party/sun/{{ episode.ctoon }}">CTOON</a></li>
+                        <li><a title="Streaming" href="https://ctoon.party/show/sun/watch/{{ episode.ctoon }}">CTOON</a></li>
 {% endif %}
 {% if episode.daily and episode.daily != '' %}
                         <li><a title="Dailymotion" href="http://www.dailymotion.com/video/{{ episode.daily }}">Dailymotion</a></li>
