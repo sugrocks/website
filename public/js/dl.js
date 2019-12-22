@@ -4,7 +4,9 @@ function jumpToDl () {
   var jump = window.location.hash.slice(1)
 
   if (jump !== '') {
-    if (jump.slice(-1) === 't') {
+    if (jump === 'music') {
+      document.querySelector('#music > .link').click()
+    } else if (jump.slice(-1) === 't') {
       document.querySelector('#preair > .link').click()
     } else if (jump.slice(-1) === 'm') {
       document.querySelector('#individual > .link').click()

@@ -56,7 +56,7 @@ def format_epnumber(episode):
 
 def split_season_episode(episode):
     split = episode.split('x')
-    return [split[0].replace('99', 'Movie').replace('00', 'Special'), split[1]]
+    return [split[0].replace('06', 'Future').replace('99', 'Movie').replace('00', 'Special'), split[1]]
 
 
 def gen_dl_page():
