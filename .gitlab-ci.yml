@@ -5,7 +5,6 @@ test:js:
       - node_modules
       - .yarn-cache
   before_script:
-    - npm install -g yarn
     - yarn install --pure-lockfile --cache-folder .yarn-cache
   script:
     - yarn test
