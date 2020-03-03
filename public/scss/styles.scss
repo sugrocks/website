@@ -321,11 +321,16 @@ span.quote { // >
 
 .page-dl {
     .dllist {
-    	width: auto;
+        width: auto;
+
+        tr:target {
+            background-color: yellow;
+            font-weight: bold;
+        }
     }
 
     h5 {
-    	margin: 25px 0 10px;
+        margin: 25px 0 10px;
     }
 }
 

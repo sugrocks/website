@@ -144,3 +144,12 @@ a:not(.button) {
 .cc-link:hover, .cc-link:active {
     color: $link-hover !important;
 }
+
+.page-dl {
+    .dllist {
+        tr:target {
+            color: black;
+        }
+    }
+}
+
