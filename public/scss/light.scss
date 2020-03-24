@@ -10,9 +10,9 @@ $link-hover: $red;
 $link-hover-border: $red;
 $link-visited: $link;
 
-$background: #EEF2FF;
-$cardcolor: #D6DAF0;
-$cardheaderborder: #B7C5D9;
+$background: #FFE;
+$cardcolor: #F0E0D6;
+$cardheaderborder: #D9BFB7;
 
 // Import Bulma and default styles
 @import 'styles.scss';
@@ -20,7 +20,7 @@ $cardheaderborder: #B7C5D9;
 // And now, styles for the light theme
 html,
 body {
-    background: $background url('/img/fade-blue.png') 0 50px repeat-x;
+    background: $background url('/img/fade.png') 0 50px repeat-x;
     color: $black;
 }
 

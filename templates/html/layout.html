@@ -99,9 +99,11 @@
                     <a class="nav-item is-tab{% if pagetype == 'page-op' %} is-active{% endif %}" href="{{ remote_url }}/op.html">
                         OP Template
                     </a>
+                    <!--
                     <a class="nav-item is-tab{% if pagetype == 'page-live' %} is-active{% endif %}" href="{{ remote_url }}/live.html">
                         Random Media
                     </a>
+                    -->
                 </div>
             </div>
         </nav>
@@ -129,11 +131,13 @@
                     OP Template
                 </a>
             </span>
+            <!--
             <span>
                 <a class="nav-item is-tab{% if pagetype == 'page-live' %} is-active{% endif %}" href="{{ remote_url }}/live.html">
                     Random Media
                 </a>
             </span>
+            -->
         </div>
     </header>
 
@@ -175,7 +179,7 @@
         <div class="container">
             <div class="content has-text-centered">
                 <p>
-                    <strong>/sug/.rocks</strong> · 2016-2020 · © CTOON.network<br>
+                    <strong>/sug/.rocks</strong> · 2016-2020<br>
 {% if dategen %}
                     Page updated {{ dategen }} (UTC)<br>
 {% endif %}
