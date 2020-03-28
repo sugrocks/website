@@ -87,9 +87,9 @@ function startClock () {
         var hiatusHours = Math.floor(hiatusDiff / (60 * 60 * 1000))
         clearCountdown()
         document.getElementById('container').className = 'hiatus'
-        document.getElementById('title').innerHTML = 'Steven Universe Future'
+        document.getElementById('title').innerHTML = 'Finally, Steven now has a'
         document.getElementById('code').innerHTML = ''
-        document.getElementById('hours').innerHTML = 'ended'
+        document.getElementById('hours').innerHTML = 'therapist'
         document.getElementById('status').innerHTML = '(It\'s been ' + hiatusDays + ' days and ' + hiatusHours + ' hours.)'
       }
     }
