@@ -16,13 +16,17 @@
   },
   "scripts": {
     "test": "./node_modules/.bin/standard",
-    "minify": "node ./minify.js"
+    "minify": "node ./minify.js",
+    "snyk-protect": "snyk protect",
+    "prepare": "yarn run snyk-protect"
   },
   "engines": {
     "node": "*"
   },
   "dependencies": {
     "bulma": "0.2.3",
-    "open-color": "^1.7.0"
-  }
+    "open-color": "^1.7.0",
+    "snyk": "^1.305.0"
+  },
+  "snyk": true
 }
