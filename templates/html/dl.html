@@ -33,7 +33,7 @@
                 <div class="card-content">
                     <div class="content">
                         <p>
-                            Some 1080p iTunes RAW courtesy of <a href="http://yp1.yayponies.no/yaysu/">Yay Steven</a>. Updated as fast as we can.<br>
+                            Some 1080p iTunes RAW courtesy of <a href="http://yp1.yayponies.no/yaysu/archived/steven.php">Yay Steven</a>.<br>
                             <i>
                                 Click
                                 <span class="icon is-small">
@@ -62,7 +62,7 @@
                                         <td>
                                             <a title="Direct Download"
                                                 download="SU-{{ episode.code }}-PREAIR.mkv"
-                                                href="https://dl.sug.rocks/preair/{{ episode.filename }}">
+                                                href="https://cadl.sug.rocks/preair/{{ episode.filename }}">
                                                 <span class="icon is-small">
                                                     <i class="fa fa-download"></i>
                                                 </span>
@@ -70,7 +70,7 @@
 {% if episode.torrent == '1' %}
                                             <a title="Torrent"
                                                 download="SU-{{ episode.code }}-PREAIR.torrent"
-                                                href="https://dl.sug.rocks/torrents/preair/{{ episode.filename }}.torrent">
+                                                href="https://cadl.sug.rocks/torrents/preair/{{ episode.filename }}.torrent">
                                                 <span class="icon is-small">
                                                     <i class="fa fa-globe"></i>
                                                 </span>
@@ -102,13 +102,19 @@
                             data-connection="A" data-toggle-placement="top"
                             data-toggle-text="SU: Future - iTunes RAW 1080p">
                             <div class="spoiler-content">
+                                <b><a href="magnet:?xt=urn:btih:ef191d5c225e2c7d5fb8c3699f2caf11a37804c7&dn=CTOON-SU-1R-Future&tr=&tr=udp://tracker.opentrackr.org:1337/announce&tr=udp://p4p.arenabg.com:1337/announce&tr=udp://9.rarbg.to:2710/announce&tr=udp://9.rarbg.me:2710/announce&tr=udp://tracker.leechers-paradise.org:6969/announce&tr=udp://exodus.desync.com:6969/announce&tr=udp://tracker.cyberia.is:6969/announce&tr=udp://open.stealth.si:80/announce&tr=udp://tracker.tiny-vps.com:6969/announce&tr=udp://tracker.sbsub.com:2710/announce&tr=udp://retracker.lanta-net.ru:2710/announce&tr=udp://tracker.torrent.eu.org:451/announce&tr=udp://tracker.moeking.me:6969/announce&tr=udp://tracker3.itzmx.com:6961/announce&tr=http://tracker1.itzmx.com:8080/announce&tr=udp://bt1.archive.org:6969/announce&tr=udp://bt2.archive.org:6969/announce&tr=http://tracker.nyap2p.com:8080/announce&tr=udp://ipv4.tracker.harry.lu:80/announce&tr=udp://explodie.org:6969/announce&tr=udp://tracker.opentrackr.org:1337/announce">
+                                    <span class="icon is-small"><i class="fa fa-globe"></i></span>
+                                    Get all in a single torrent</a></b>
+                                <br><br>
+<em>Direct downloads removed. Use Google and good luck.</em>
+<!--
                                 <table class="dllist">
 {% for episode in sufuture %}
                                     <tr id="{{ episode.id }}">
                                         <td>
                                             <a title="Direct Download"
                                                 download
-                                                href="https://dl.sug.rocks/{{ episode.filename }}">
+                                                href="https://cadl.sug.rocks/{{ episode.filename }}">
                                                 <span class="icon is-small">
                                                     <i class="fa fa-download"></i>
                                                 </span>
@@ -123,6 +129,7 @@
                                     </tr>
 {% endfor %}
                                 </table>
+-->
                             </div>
                         </div>
 
@@ -130,7 +137,12 @@
                             data-connection="A" data-toggle-placement="top"
                             data-toggle-text="iTunes RAW 1080p">
                             <div class="spoiler-content">
-                                <b><a href="https://dl.sug.rocks/torrents/all.zip">Get all the torrents</a></b>
+                                <b><a href="https://1fichier.com/?r4vln0yzeqf95mdeyobl">
+                                    <span class="icon is-small"><i class="fa fa-globe"></i></span>
+                                    Get all the torrents</a></b>
+
+<br><br><em>Direct downloads removed. Use Google and good luck.</em>
+<!--
                                 <table class="dllist">
 {% for episode in itunes %}
 {% if episode.season != ns.previous_cat %}{% if episode.season[:2] == "Sp" %}
@@ -156,7 +168,7 @@
                                         <td>
                                             <a title="Direct Download"
                                                 download="SU-{{ episode.code }}.mkv"
-                                                href="https://dl.sug.rocks/{{ episode.filename }}">
+                                                href="https://cadl.sug.rocks/{{ episode.filename }}">
                                                 <span class="icon is-small">
                                                     <i class="fa fa-download"></i>
                                                 </span>
@@ -164,7 +176,7 @@
 {% if episode.torrent == '1' %}
                                             <a title="Torrent"
                                                 download="SU-{{ episode.code }}.torrent"
-                                                href="https://dl.sug.rocks/torrents/{{ episode.filename }}.torrent">
+                                                href="https://cadl.sug.rocks/torrents/{{ episode.filename }}.torrent">
                                                 <span class="icon is-small">
                                                     <i class="fa fa-globe"></i>
                                                 </span>
@@ -180,6 +192,7 @@
                                     </tr>
 {% endfor %}
                                 </table>
+-->
                             </div>
                         </div>
 
@@ -188,6 +201,8 @@
                             data-toggle-text="Individual Downloads (Mega mirror)">
                             <div class="spoiler-content">
                                 <b><a href="https://mega.nz/#F!RVQS3QSa!L50Odl3pMRXS7-ilpB4lvw">Mega link</a></b>
+<br><br><em>Direct downloads removed. Use Google and good luck.</em>
+<!--
                                 <table class="dllist">
 {% for episode in individual %}
 {% if episode.season != ns.previous_cat %}{% if episode.season[:2] == "Sp" %}
@@ -213,7 +228,7 @@
                                         <td>
                                             <a title="Direct Download"
                                                 download="SU-{{ episode.code }}.mp4"
-                                                href="https://dl.sug.rocks/mega/{{ episode.filename }}">
+                                                href="https://cadl.sug.rocks/mega/{{ episode.filename }}">
                                                 <span class="icon is-small">
                                                     <i class="fa fa-download"></i>
                                                 </span>
@@ -228,6 +243,7 @@
                                     </tr>
 {% endfor %}
                                 </table>
+-->
                             </div>
                         </div>
 
@@ -253,7 +269,7 @@
                                         <td>
                                             <a title="CBZ"
                                                 download="SUG-CBZ-{{ comic.id }}.cbz"
-                                                href="https://dl.sug.rocks/comics/{{ comic.folder }}/SUG-CBZ-{{ comic.id }}.cbz">
+                                                href="https://cadl.sug.rocks/comics/{{ comic.folder }}/SUG-CBZ-{{ comic.id }}.cbz">
                                                 CBZ
                                             </a>
                                         </td>
@@ -266,7 +282,7 @@
                                         <td>
                                             <a title="CBR"
                                                 download="SUG-CBR-{{ comic.id }}.cbr"
-                                                href="https://dl.sug.rocks/comics/{{ comic.folder }}/SUG-CBR-{{ comic.id }}.cbr">
+                                                href="https://cadl.sug.rocks/comics/{{ comic.folder }}/SUG-CBR-{{ comic.id }}.cbr">
                                                 CBR
                                             </a>
                                         </td>
@@ -279,7 +295,7 @@
                                         <td>
                                             <a title="PDF"
                                                 download="SUG-PDF-{{ comic.id }}.pdf"
-                                                href="https://dl.sug.rocks/comics/{{ comic.folder }}/SUG-PDF-{{ comic.id }}.pdf">
+                                                href="https://cadl.sug.rocks/comics/{{ comic.folder }}/SUG-PDF-{{ comic.id }}.pdf">
                                                 PDF
                                             </a>
                                         </td>
@@ -292,7 +308,7 @@
                                         <td>
                                             <a title="EPUB"
                                                 download="SUG-EPUB-{{ comic.id }}.epub"
-                                                href="https://dl.sug.rocks/comics/{{ comic.folder }}/SUG-EPUB-{{ comic.id }}.epub">
+                                                href="https://cadl.sug.rocks/comics/{{ comic.folder }}/SUG-EPUB-{{ comic.id }}.epub">
                                                 EPUB
                                             </a>
                                         </td>
@@ -323,7 +339,7 @@
                                         <td>
                                             <a title="MP3"
                                                 download="{{ music.mp3 }}"
-                                                href="https://dl.sug.rocks/music/{{ music.mp3 }}">
+                                                href="https://cadl.sug.rocks/music/{{ music.mp3 }}">
                                                 MP3
                                             </a>
                                         </td>
@@ -336,7 +352,7 @@
                                         <td>
                                             <a title="FLAC"
                                                 download="{{ music.flac }}"
-                                                href="https://dl.sug.rocks/music/{{ music.flac }}">
+                                                href="https://cadl.sug.rocks/music/{{ music.flac }}">
                                                 FLAC
                                             </a>
                                         </td>

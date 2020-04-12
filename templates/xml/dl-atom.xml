@@ -14,14 +14,14 @@
 {% set content %}
                 <ul>
 {% if episode.id[-3:] == 'tmp' %}
-                    <li><a title="Direct Download" href="https://dl.sug.rocks/preair/{{ episode.filename }}">Direct Download</a></li>
+                    <li><a title="Direct Download" href="https://cadl.sug.rocks/preair/{{ episode.filename }}">Direct Download</a></li>
 {% elif episode.id[-1:] == 'm' %}
-                    <li><a title="Direct Download" href="https://dl.sug.rocks/mega/{{ episode.filename }}">Direct Download</a></li>
+                    <li><a title="Direct Download" href="https://cadl.sug.rocks/mega/{{ episode.filename }}">Direct Download</a></li>
 {% else %}
-                    <li><a title="Direct Download" href="https://dl.sug.rocks/{{ episode.filename }}">Direct Download</a></li>
+                    <li><a title="Direct Download" href="https://cadl.sug.rocks/{{ episode.filename }}">Direct Download</a></li>
 {% endif %}
 {% if episode.torrent == '1' %}
-                    <li><a title="Torrent" href="https://dl.sug.rocks/torrents/{% if episode.id[-3:] == 'tmp' %}preair/{% endif %}{{ episode.filename }}.torrent">Torrent</a></li>
+                    <li><a title="Torrent" href="https://cadl.sug.rocks/torrents/{% if episode.id[-3:] == 'tmp' %}preair/{% endif %}{{ episode.filename }}.torrent">Torrent</a></li>
 {% endif %}
 {% if episode.daily and episode.daily != '' %}
                     <li><a title="Dailymotion" href="http://www.dailymotion.com/video/{{ episode.daily }}">Dailymotion</a></li>

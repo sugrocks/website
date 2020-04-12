@@ -179,7 +179,7 @@ span.quote { // >
         img {
             margin: 0 -2px;
             height: 20px;
-        	vertical-align: bottom;
+            vertical-align: bottom;
         }
     }
 }
@@ -332,6 +332,10 @@ span.quote { // >
     h5 {
         margin: 25px 0 10px;
     }
+
+    .icon .fa {
+        vertical-align: middle;
+    }
 }
 
 td {
@@ -379,7 +383,7 @@ td {
 #np-radio {
 	background-color: $white;
 	border-radius: 4px;
-   	display: inline-block;
+        display: inline-block;
 	margin-bottom: 15px;
 	padding: 5px 10px;
 }

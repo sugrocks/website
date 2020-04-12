@@ -231,7 +231,7 @@ def gen_dl_api():
         data = config['preair'][episode].split(',')
         se_ep = split_season_episode(episode)
         if data[2] == '1':
-            torrent = 'https://dl.sug.rocks/preair/' + data[1] + '.torrent'
+            torrent = 'https://cadl.sug.rocks/preair/' + data[1] + '.torrent'
         else:
             torrent = None
         # Add it to the list
@@ -240,7 +240,7 @@ def gen_dl_api():
             'season': se_ep[0],
             'episode': se_ep[1],
             'title': data[0],
-            'url': 'https://dl.sug.rocks/preair/' + data[1],
+            'url': 'https://cadl.sug.rocks/preair/' + data[1],
             'ctoon': 'https://ctoon.party/show/sun/watch/' + data[3],
             'dailymotion': 'www.dailymotion.com/video/' + data[4],
             'torrent': torrent,
@@ -258,7 +258,7 @@ def gen_dl_api():
             'season': 'Future',
             'episode': episode,
             'title': data[0],
-            'url': 'https://dl.sug.rocks/' + data[1],
+            'url': 'https://cadl.sug.rocks/' + data[1],
             'ctoon': 'https://ctoon.party/show/sun/watch/' + data[2],
             'dailymotion': None,
             'torrent': None,
@@ -271,7 +271,7 @@ def gen_dl_api():
         data = config.get('itunes', episode).split(',')
         se_ep = split_season_episode(episode)
         if data[2] == '1':
-            torrent = 'https://dl.sug.rocks/torrents/' + data[1] + '.torrent'
+            torrent = 'https://cadl.sug.rocks/torrents/' + data[1] + '.torrent'
         else:
             torrent = None
         # Add it to the list
@@ -280,7 +280,7 @@ def gen_dl_api():
             'season': se_ep[0],
             'episode': se_ep[1],
             'title': data[0],
-            'url': 'https://dl.sug.rocks/' + data[1],
+            'url': 'https://cadl.sug.rocks/' + data[1],
             'ctoon': 'https://ctoon.party/show/sun/watch/' + data[3],
             'dailymotion': None,
             'torrent': torrent,
@@ -298,7 +298,7 @@ def gen_dl_api():
             'season': se_ep[0],
             'episode': se_ep[1],
             'title': data[0],
-            'url': 'https://dl.sug.rocks/mega/' + data[1],
+            'url': 'https://cadl.sug.rocks/mega/' + data[1],
             'ctoon': 'https://ctoon.party/show/sun/watch/' + data[2],
             'dailymotion': None,
             'torrent': None,
@@ -311,22 +311,22 @@ def gen_dl_api():
         data = config.get('comics', comic).split(',')
         # Add it to the list
         if data[2] == '1':
-            cbz = 'https://dl.sug.rocks/comics/' + data[1] + '/SUG-CBZ-' + comic.upper() + '.cbz'
+            cbz = 'https://cadl.sug.rocks/comics/' + data[1] + '/SUG-CBZ-' + comic.upper() + '.cbz'
         else:
             cbz = None
 
         if data[3] == '1':
-            cbr = 'https://dl.sug.rocks/comics/' + data[1] + '/SUG-CBR-' + comic.upper() + '.cbr'
+            cbr = 'https://cadl.sug.rocks/comics/' + data[1] + '/SUG-CBR-' + comic.upper() + '.cbr'
         else:
             cbr = None
 
         if data[4] == '1':
-            pdf = 'https://dl.sug.rocks/comics/' + data[1] + '/SUG-PDF-' + comic.upper() + '.pdf'
+            pdf = 'https://cadl.sug.rocks/comics/' + data[1] + '/SUG-PDF-' + comic.upper() + '.pdf'
         else:
             pdf = None
 
         if data[5] == '1':
-            epub = 'https://dl.sug.rocks/comics/' + data[1] + '/SUG-EPUB-' + comic.upper() + '.epub'
+            epub = 'https://cadl.sug.rocks/comics/' + data[1] + '/SUG-EPUB-' + comic.upper() + '.epub'
         else:
             epub = None
 
