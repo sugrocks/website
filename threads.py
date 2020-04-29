@@ -107,7 +107,7 @@ def is_sug(thread):
         # Check subject or the two sug.rocks links
         thread.topic.subject is not None and \
         'Steven Universe General' in thread.topic.subject or \
-        'http://su.booru.org' in thread.topic.text_comment and \
+        '/sug/ writebin' in thread.topic.text_comment and \
         'https://sug.rocks/dl.html' in thread.topic.text_comment
     )
 
