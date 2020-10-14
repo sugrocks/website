@@ -6,6 +6,8 @@ function jumpToDl () {
   if (jump !== '') {
     if (jump === 'music') {
       document.querySelector('#music > .link').click()
+    } else if (jump.slice(0, 3) === 'OST') {
+      document.querySelector('#music > .link').click()
     } else if (jump.slice(-1) === 't') {
       document.querySelector('#preair > .link').click()
     } else if (jump.slice(-1) === 'm') {
