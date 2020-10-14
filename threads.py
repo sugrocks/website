@@ -108,7 +108,7 @@ def is_sug(thread):
         thread.topic.subject is not None and \
         'Steven Universe General' in thread.topic.subject or \
         ('stevencrewniverse.tumblr.com' in thread.topic.text_comment and \
-        'sug.rocks' in thread.topic.text_comment)
+         'sug.rocks' in thread.topic.text_comment)
     )
 
 
