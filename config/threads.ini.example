@@ -1,3 +1,5 @@
 [config]
 refresh = 180
-ignore =
+forceco = 0,1234
+forcetrash = 0,1234
+ignore = 1,4321

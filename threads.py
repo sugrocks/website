@@ -55,7 +55,7 @@ def inline_css(text):
 
 def find_edition(text):
     # Our regex to find edition names
-    reg = r'.*edition.*?\n'
+    reg = r'.*edition.*?'
     # Replace <br>s with new lines
     text = re.sub(r'<br\s*?/?>', '\n', text)
     # And here we search for it, case insensitive
@@ -105,10 +105,10 @@ def is_sug(thread):
     # Will try to find out if the thread is a /sug/ one
     return (
         # Check subject or the two sug.rocks links
-        thread.topic.subject is not None and \
-        'Steven Universe General' in thread.topic.subject or \
-        ('stevencrewniverse.tumblr.com' in thread.topic.text_comment and \
-         'sug.rocks' in thread.topic.text_comment)
+        (thread.topic.subject is not None and \
+         'steven universe general' in thread.topic.subject.lower()) or \
+        ('steven universe general' in thread.topic.text_comment.lower() and \
+         'sug.rocks/dl.html' in thread.topic.text_comment)
     )
 
 
@@ -172,6 +172,8 @@ def sug_threads():
 
     # Init values
     uniqid = 0
+    forcecoplz = config.get('config', 'forceco').split(',')
+    forcetrashplz = config.get('config', 'forcetrash').split(',')
     ignoreplz = config.get('config', 'ignore').split(',')
     co_threads = []
     trash_threads = []
@@ -194,7 +196,7 @@ def sug_threads():
     debuglog('   Sorting threads  ')
     # Now we check if the thread is about /sug/
     for thread in co_threads:
-        if is_sug(thread):
+        if is_sug(thread) or str(thread.id) in forcecoplz:
             # If thread is dead
             if not hasattr(thread, 'topic'):
                 try:
@@ -211,7 +213,7 @@ def sug_threads():
             thread._board._thread_cache.pop(thread.id, None)
 
     for thread in trash_threads:
-        if is_sug(thread):
+        if is_sug(thread) or str(thread.id) in forcetrashplz:
             # If thread is dead
             if not hasattr(thread, 'topic'):
                 try:
