@@ -4,9 +4,10 @@ Pillow
 crayons==0.3.0
 html5lib
 randomcolor
-jinja2==2.11.1
+jinja2==2.11.3
 python-dateutil
-requests==2.23.0
+requests==2.26.0
 better_exceptions==0.2.2
 git+https://github.com/bibanon/basc-py4chan#egg=basc-py4chan
 git+https://github.com/randomchars/pushbullet.py#egg=pushbullet.py
+urllib3>=1.26.5 # not directly required, pinned by Snyk to avoid a vulnerability
