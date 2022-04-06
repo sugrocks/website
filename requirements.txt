@@ -1,6 +1,6 @@
 bs4
 pytz
-Pillow
+Pillow==9.0.1
 crayons==0.3.0
 html5lib
 randomcolor
