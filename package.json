@@ -12,7 +12,7 @@
   "devDependencies": {
     "ora": "^3.4.0",
     "standard": "^14.1.0",
-    "terser": "^4.2.1"
+    "terser": "^4.8.1"
   },
   "scripts": {
     "test": "./node_modules/.bin/standard",
