@@ -26,7 +26,7 @@
   "dependencies": {
     "bulma": "0.2.3",
     "open-color": "^1.7.0",
-    "snyk": "^1.996.0"
+    "snyk": "^1.1064.0"
   },
   "snyk": true
 }
